@@ -1,3 +1,19 @@
 <header>
-    <h1>Header</h1>
+    <h3>JumpVa</h3>
+
+    <!-- Panel de busqueda-->
+    <form name="search" ng-controller="SearchController as searchCtrl"
+        ng-submit="searchCtrl.search(text)">
+
+        <input type="text" ng-model="text"/>
+        <input type="submit" value="Submit"/>
+    </form>
+
+    <!-- Boton para realizar nuevas busquedas de envios. (solo para transportistas)-->
+    <button ng-controller="NewDeliveryController as newDeliveryCtrl"
+            ng-show="newDeliveryCtrl.logedUser.carrier" type="button">Nuevo Envío</button>
+
+    <!-- Datos del usuario actual del servicio -->
+    <div>
+    </div>
 </header>
