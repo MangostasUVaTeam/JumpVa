@@ -3,7 +3,7 @@
     var app = angular.module('jumpVa', [ ]);
 
     app.value('logedUser', {
-        name: "Paco",
+        username: "Paco",
         carrier: true
     });
 
@@ -24,5 +24,20 @@
 
     app.controller("ToolController", ['$scope', 'logedUser', function($scope, logedUser){
         this.settings = logedUser;
+    }]);
+
+    app.controller("UserSettings", ['$scope', 'logedUser', function($scope, logedUser){
+
+        this.username = function(){
+            return logedUser.username;
+        }
+
+        this.carrier = function(){
+            if (logedUser.carrier){
+                return "Transportista";
+            } else {
+                return "Cliente";
+            }
+        }
     }]);
 })();

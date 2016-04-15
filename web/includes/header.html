@@ -14,6 +14,8 @@
             ng-show="newDeliveryCtrl.logedUser.carrier" type="button">Nuevo Envío</button>
 
     <!-- Datos del usuario actual del servicio -->
-    <div>
+    <div ng-controller="UserSettings as userSettingsCtrl">
+        <p>{{userSettingsCtrl.username()}}</p>
+        <p>{{userSettingsCtrl.carrier()}}</p>
     </div>
 </header>
