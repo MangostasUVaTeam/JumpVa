@@ -1,0 +1,11 @@
+header{
+    margin: auto;
+    border: 3px solid #73AD21;
+}
+
+header h3,
+header form,
+header div{
+    display: inline-block;
+    margin: auto;
+}
