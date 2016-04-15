@@ -26,7 +26,7 @@
         this.settings = logedUser;
     }]);
 
-    app.controller("UserSettings", ['$scope', 'logedUser', function($scope, logedUser){
+    app.controller("UserDataController", ['$scope', 'logedUser', function($scope, logedUser){
 
         this.username = function(){
             return logedUser.username;
