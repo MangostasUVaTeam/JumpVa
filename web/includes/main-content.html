@@ -1,3 +1,15 @@
 <main>
-    <h1>MAIN</div>
+    <h1>MAIN</h1>
+
+    <div ng-controller="DeliveryController as deliveryCtrl">
+        <h3>Datos del envío</h3>
+
+        <button ng-click="deliveryCtrl.toggleDropdown()" type="button">Desplegable</button>
+
+        <div ng-show = "deliveryCtrl.delivery.dropdown">
+            <h4>Desplegable</h4>
+
+        <div>
+
+    <div>
 </main>
