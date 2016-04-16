@@ -4,7 +4,13 @@
 
     app.value('logedUser', {
         username: "Paco",
-        carrier: true
+        carrier: true,
+        deliveries: [
+            {},
+            {},
+            {},
+            {},
+        ]
     });
 
     app.directive('jumpvaToolbar', function(){
