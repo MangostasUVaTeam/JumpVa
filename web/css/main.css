@@ -9,3 +9,7 @@ header div{
     display: inline-block;
     margin: auto;
 }
+
+.delivery {
+    border: 3px solid grey;
+}

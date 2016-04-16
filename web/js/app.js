@@ -4,14 +4,72 @@
 
     app.value('logedUser', {
         username: "Paco",
-        carrier: true,
-        deliveries: [
-            {},
-            {},
-            {},
-            {},
-        ]
+        carrier: true
     });
+
+    app.value('deliveries', [
+            {
+                origen: "Valladolid",
+                destino: "Palencia",
+                transportista: "Paco",
+                completado: 70,
+                pedido:{
+                    descripcion: "tomates",
+                    peso: 70,
+                    altura: 130,
+                    anchura: 20,
+                    tipo: "paquete"
+                },
+                hitos:[
+                        {
+                            mensaje: "Dueñas, Palencia",
+                            tipo: "location",
+                            time: "",
+                        }
+                ]
+            },
+            {
+                origen: "Valladolid",
+                destino: "Palencia",
+                transportista: "Paco",
+                completado: 70,
+                pedido:{
+                    descripcion: "tomates",
+                    peso: 70,
+                    altura: 130,
+                    anchura: 20,
+                    tipo: "paquete"
+                },
+                hitos:[
+                        {
+                            mensaje: "Dueñas, Palencia",
+                            tipo: "location",
+                            time: "",
+                        }
+                ]
+            },
+            {
+                origen: "Valladolid",
+                destino: "Palencia",
+                transportista: "Paco",
+                completado: 70,
+                pedido:{
+                    descripcion: "tomates",
+                    peso: 70,
+                    altura: 130,
+                    anchura: 20,
+                    tipo: "paquete"
+                },
+                hitos:[
+                        {
+                            mensaje: "Dueñas, Palencia",
+                            tipo: "location",
+                            time: "",
+                        }
+                ]
+            },
+        ]
+    );
 
     app.directive('jumpvaToolbar', function(){
         return {
