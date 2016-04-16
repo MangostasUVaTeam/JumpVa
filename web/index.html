@@ -15,6 +15,7 @@ and open the template in the editor.
         <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript" src="js/toolbar.js"></script>
         <script type="text/javascript" src="js/mainContent.js"></script>
+        <script type="text/javascript" src="js/login.js"></script>
 
         <!-- CSS Styles -->
         <link rel="stylesheet" href="css/main.css"/>
@@ -27,11 +28,10 @@ and open the template in the editor.
         para no tener que modificar el codigo para realizar pruebas -->
         <div ng-include='"includes/tool.html"'></div>
 
-        <!-- Barra superior -->
-        <jumpva-toolbar></jumpva-toolbar>
+        <jumpva-login></jumpva-login>
 
         <!-- Contenido Principal -->
-        <jumpva-main-content></jumpva-main-content>
+        <jumpva-main></jumpva-main>
 
     </body>
 </html>

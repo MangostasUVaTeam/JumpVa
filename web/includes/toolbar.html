@@ -16,5 +16,6 @@
     <!-- Datos del usuario actual del servicio -->
     <div ng-controller="UserDataController as userDataCtrl">
         <p>{{userDataCtrl.username()}} --> {{userDataCtrl.carrier()}}</p>
+        <button ng-click="userDataCtrl.logout()"type="button">Cerrar Sesión</button>
     </div>
 </header>

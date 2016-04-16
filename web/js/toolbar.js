@@ -20,6 +20,11 @@
             return logedUser.username;
         }
 
+        this.logout = function(){
+            logedUser = {};
+            console.log("Logout");
+        }
+
         this.carrier = function(){
             if (logedUser.carrier){
                 return "Transportista";
