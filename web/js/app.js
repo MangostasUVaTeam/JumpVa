@@ -1,43 +1,29 @@
 (function (){
 
-    var app = angular.module('jumpVa', [ ]);
+    var app = angular.module('jumpva', ['toolbar','mainContent']);
 
     app.value('logedUser', {
         username: "Paco",
         carrier: true
     });
 
-
-    app.controller("SearchController",['$scope','logedUser', function($scope,logedUser){
-        this.search = function(text){
-            console.log(logedUser);
-            console.log(text);
+    app.directive('jumpvaToolbar', function(){
+        return {
+            restrict: 'E',
+            templateUrl: 'includes/toolbar.html'
         };
-    }]);
+    });
 
 
-    app.controller("NewDeliveryController",['$scope', 'logedUser', function($scope, logedUser){
-        this.logedUser = logedUser;
-    }]);
-
-
-
+    app.directive('jumpvaMainContent', function(){
+        return {
+            restrict: 'E',
+            templateUrl: 'includes/main-content.html'
+        };
+    });
     app.controller("ToolController", ['$scope', 'logedUser', function($scope, logedUser){
         this.settings = logedUser;
     }]);
 
-    app.controller("UserDataController", ['$scope', 'logedUser', function($scope, logedUser){
 
-        this.username = function(){
-            return logedUser.username;
-        }
-
-        this.carrier = function(){
-            if (logedUser.carrier){
-                return "Transportista";
-            } else {
-                return "Cliente";
-            }
-        }
-    }]);
 })();
