@@ -12,10 +12,13 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- JavaScript -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.js"></script>
+
         <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript" src="js/toolbar.js"></script>
         <script type="text/javascript" src="js/mainContent.js"></script>
         <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
 
         <!-- CSS Styles -->
         <link rel="stylesheet" href="css/main.css"/>
@@ -28,10 +31,7 @@ and open the template in the editor.
         para no tener que modificar el codigo para realizar pruebas -->
         <div ng-include='"includes/tool.html"'></div>
 
-        <jumpva-login></jumpva-login>
-
-        <!-- Contenido Principal -->
-        <jumpva-main></jumpva-main>
+        <div ng-view></div>
 
     </body>
 </html>

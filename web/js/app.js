@@ -1,6 +1,21 @@
 (function (){
 
-    var app = angular.module('jumpva', ['toolbar','mainContent', 'login']);
+    var app = angular.module('jumpva', ['ngRoute','main', 'toolbar','mainContent', 'login']);
+
+    app.config(['$routeProvider',
+        function($routeProvider) {
+            $routeProvider.
+                when('/login', {
+                    templateUrl: 'includes/login.html',
+                }).
+                when('/main', {
+                    templateUrl: 'includes/main.html',
+                }).
+                otherwise({
+                    redirectTo: '/login'
+                });
+    }]);
+
 
     app.value('logedUser', {
         username: "Paco",
@@ -70,36 +85,6 @@
             },
         ]
     );
-
-    app.directive('jumpvaToolbar', function(){
-        return {
-            restrict: 'E',
-            templateUrl: 'includes/toolbar.html'
-        };
-    });
-
-
-    app.directive('jumpvaMainContent', function(){
-        return {
-            restrict: 'E',
-            templateUrl: 'includes/main-content.html'
-        };
-    });
-
-    app.directive('jumpvaMain', function(){
-        return {
-            restrict: 'E',
-            templateUrl: 'includes/main.html'
-        };
-    });
-
-
-    app.directive('jumpvaLogin', function(){
-        return {
-            restrict: 'E',
-            templateUrl: 'includes/login.html'
-        };
-    });
 
 
     app.controller("ToolController", ['$scope', 'logedUser', function($scope, logedUser){
