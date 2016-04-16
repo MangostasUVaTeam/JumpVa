@@ -1,15 +1,22 @@
-header{
+nav{
     margin: auto;
     border: 3px solid #73AD21;
 }
 
-header h3,
-header form,
-header div{
+nav h3,
+nav form,
+nav div{
     display: inline-block;
     margin: auto;
 }
 
-.delivery {
-    border: 3px solid grey;
+body {
+    padding-top: 70px;
+    padding-bottom: 40px;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
 }

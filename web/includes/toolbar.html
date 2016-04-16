@@ -1,21 +1,23 @@
-<header>
-    <h3>JumpVa</h3>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <h3>JumpVa</h3>
 
-    <!-- Panel de busqueda-->
-    <form name="search" ng-controller="SearchController as searchCtrl"
-        ng-submit="searchCtrl.search(text)">
+        <!-- Panel de busqueda-->
+        <form name="search" ng-controller="SearchController as searchCtrl"
+            ng-submit="searchCtrl.search(text)">
 
-        <input type="text" ng-model="text"/>
-        <input type="submit" value="Submit"/>
-    </form>
+            <input type="text" ng-model="text"/>
+            <input type="submit" value="Submit"/>
+        </form>
 
-    <!-- Boton para realizar nuevas busquedas de envios. (solo para transportistas)-->
-    <button ng-controller="NewDeliveryController as newDeliveryCtrl"
-            ng-show="newDeliveryCtrl.logedUser.carrier" type="button">Nuevo Envío</button>
+        <!-- Boton para realizar nuevas busquedas de envios. (solo para transportistas)-->
+        <button ng-controller="NewDeliveryController as newDeliveryCtrl"
+                ng-show="newDeliveryCtrl.logedUser.carrier" type="button">Nuevo Envío</button>
 
-    <!-- Datos del usuario actual del servicio -->
-    <div ng-controller="UserDataController as userDataCtrl">
-        <p>{{userDataCtrl.username()}} --> {{userDataCtrl.carrier()}}</p>
-        <button ng-click="userDataCtrl.logout()"type="button">Cerrar Sesión</button>
+        <!-- Datos del usuario actual del servicio -->
+        <div ng-controller="UserDataController as userDataCtrl">
+            <p>{{userDataCtrl.username()}} --> {{userDataCtrl.carrier()}}</p>
+            <button ng-click="userDataCtrl.logout()"type="button">Cerrar Sesión</button>
+        </div>
     </div>
-</header>
+</nav>

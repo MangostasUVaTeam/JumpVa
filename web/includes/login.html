@@ -1,7 +1,8 @@
-<div ng-controller="LoginController as loginCtrl">
-    <h1>Login</h1>
+<div class="container" ng-controller="LoginController as loginCtrl">
+    <form class="form-signin">
+        <h1 class="form-signin-heading">Login</h1>
 
-    <!-- Boton para realizar nuevas busquedas de envios. (solo para transportistas)-->
-    <button ng-click="loginCtrl.login()"type="button">Iniciar Sesión</button>
-
+        <!-- Boton para realizar nuevas busquedas de envios. (solo para transportistas)-->
+        <button ng-click="loginCtrl.login()"type="button">Iniciar Sesión</button>
+    </form>
 </div>
