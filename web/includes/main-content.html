@@ -1,16 +1,22 @@
 <main class="container" ng-controller="MainContentController as mainContentCtrl">
     <h1>MAIN</h1>
 
-    <div class="panel panel-default delivery" ng-controller="DeliveryController as deliveryCtrl"ng-repeat="delivery in mainContentCtrl.deliveries" >
-        <div class="panel-heading">
-            <h3 class="panel-title" >Datos del envío</h3>
+    <uib-accordion close-others="false">
 
-            <div class="right">
-                <a  ng-click="deliveryCtrl.toggleDropdown(delivery)" role="button">Desplegable</a>
-            </div>
-            
-        </div>
-        <div class="panel-body"ng-show = "delivery.dropdown">
+        <uib-accordion-group ng-repeat="delivery in mainContentCtrl.deliveries"
+            is-open="delivery.open" >
+
+            <uib-accordion-heading>
+                <div>
+                Datos del envío
+
+                <i class="pull-right glyphicon"
+                    ng-class="{'glyphicon-chevron-down': delivery.open,
+                    'glyphicon-chevron-right': !delivery.open}"></i>
+                </div>
+
+            </uib-accordion-heading>
+
             <h4>Esto es un Desplegable</h4>
 
             <div>
@@ -27,6 +33,7 @@
                 <h4>Transportista:</h4>
                 <h5>{{delivery.transportista}}<h5>
             </div>
-        </div>
-    </div>
+        </uib-accordion-group>
+    </uib-accordion>
+
 </main>
