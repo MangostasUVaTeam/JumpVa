@@ -11,8 +11,15 @@
     }]);
 
 
-    app.controller("NewDeliveryController",['$scope', 'logedUser', function($scope, logedUser){
+    app.controller("NewDeliveryController",['$scope','$uibModal' ,'logedUser', function($scope,$uibModal, logedUser){
         this.logedUser = logedUser;
+
+        this.openModal = function(){
+            console.log("hola");
+            $uibModal.open({
+                templateUrl: 'includes/search-delivery.html',
+            });
+        };
     }]);
 
 

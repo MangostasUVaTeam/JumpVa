@@ -1,0 +1,26 @@
+<div>
+
+    <form name="signin" >
+        <h1 class="form-signin-heading">Crear Cuenta</h1>
+
+        <fieldset class="form-group">
+            <input  class="form-control" type="text" placeholder="Nombre"/>
+            <input  class="form-control" type="text" placeholder="Apellidos"/>
+        </fieldset>
+
+
+
+        <fieldset class="form-group">
+            <input  class="form-control" type="email" placeholder="Email"/>
+        </fieldset>
+        <fieldset class="form-group">
+            <input  class="form-control" type="password" placeholder="Contraseña"/>
+        </fieldset>
+
+
+        <fieldset class="form-group">
+                <input  class="btn btn-default" type="button" ng-click="signinCtrl.cancel()" value="Cancelar" />
+                <input  class="btn btn-default" type="submit" ng-click="signinCtrl.createAccount()" value="Crear Cuenta"/>
+        </fieldset>
+    <form>
+</div>

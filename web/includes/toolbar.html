@@ -12,7 +12,8 @@
 
         <!-- Boton para realizar nuevas busquedas de envios. (solo para transportistas)-->
         <button ng-controller="NewDeliveryController as newDeliveryCtrl"
-                ng-show="newDeliveryCtrl.logedUser.carrier" type="button">Nuevo Envío</button>
+                ng-show="newDeliveryCtrl.logedUser.carrier"
+                ng-click="newDeliveryCtrl.openModal()"type="button">Nuevo Envío</button>
 
         <!-- Datos del usuario actual del servicio -->
         <div ng-controller="UserDataController as userDataCtrl">
