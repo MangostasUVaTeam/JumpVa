@@ -3,9 +3,12 @@
 
     <div class="panel panel-default delivery" ng-controller="DeliveryController as deliveryCtrl"ng-repeat="delivery in mainContentCtrl.deliveries" >
         <div class="panel-heading">
-            <h3>Datos del envío</h3>
+            <h3 class="panel-title" >Datos del envío</h3>
 
-            <button  ng-click="deliveryCtrl.toggleDropdown(delivery)" type="button">Desplegable</button>
+            <div class="right">
+                <a  ng-click="deliveryCtrl.toggleDropdown(delivery)" role="button">Desplegable</a>
+            </div>
+            
         </div>
         <div class="panel-body"ng-show = "delivery.dropdown">
             <h4>Esto es un Desplegable</h4>
