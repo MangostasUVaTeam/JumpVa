@@ -1,9 +1,9 @@
 (function (){
 
-    var app = angular.module('login', [ 'jumpva']);
+    var app = angular.module('login', ['jumpva']);
 
 
-    app.controller("LoginController",['$scope','$location','logedUser', function($scope,$location,logedUser){
+    app.controller("LoginController", function($scope,$location,logedUser){
 
         var loginCtrl = this;
 
@@ -17,5 +17,5 @@
             $location.path('/signin');
         };
 
-    }]);
+    });
 })();

@@ -3,15 +3,15 @@
     var app = angular.module('toolbar', [ ]);
 
 
-    app.controller("SearchController",['$scope','logedUser', function($scope,logedUser){
+    app.controller("SearchController", function($scope,logedUser){
         this.search = function(text){
             console.log(logedUser);
             console.log(text);
         };
-    }]);
+    });
 
 
-    app.controller("NewDeliveryController",['$scope','$uibModal' ,'logedUser', function($scope,$uibModal, logedUser){
+    app.controller("NewDeliveryController", function($scope,$uibModal, logedUser){
         this.logedUser = logedUser;
 
         this.openModal = function(){
@@ -20,10 +20,10 @@
                 templateUrl: 'includes/search-delivery.html',
             });
         };
-    }]);
+    });
 
 
-    app.controller("UserDataController", ['$scope','$location', 'logedUser', function($scope,$location, logedUser){
+    app.controller("UserDataController", function($scope,$location, logedUser){
 
         this.username = function(){
             return logedUser.username;
@@ -42,5 +42,5 @@
                 return "Cliente";
             }
         }
-    }]);
+    });
 })();

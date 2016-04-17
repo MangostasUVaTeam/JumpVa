@@ -93,9 +93,9 @@
     );
 
 
-    app.controller("ToolController", ['$scope', 'logedUser', function($scope, logedUser){
+    app.controller("ToolController", function($scope, logedUser){
         this.settings = logedUser;
-    }]);
+    });
 
 
 })();

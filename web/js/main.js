@@ -2,8 +2,8 @@
 
     var app = angular.module('main', ['jumpva']);
 
-    app.controller("MainController", ['$scope', 'logedUser', function($scope, logedUser){
-    }]);
+    app.controller("MainController", function($scope, logedUser){
+    });
 
 
     app.directive('jumpvaToolbar', function(){

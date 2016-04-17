@@ -3,16 +3,16 @@
     var app = angular.module('mainContent', ['jumpva']);
 
 
-    app.controller("MainContentController", ['$scope','logedUser','deliveries',function($scope,logedUser, deliveries){
+    app.controller("MainContentController", function($scope,logedUser, deliveries){
         this.deliveries = deliveries;
 
         for (delivery of deliveries){
             delivery.dropdown = false;
         }
-    }]);
+    });
 
 
-    app.controller("DeliveryController", [ '$scope',function($scope){
+    app.controller("DeliveryController", function($scope){
         deliveryCtrl = this;
 
         deliveryCtrl.toggleDropdown = function(delivery){
@@ -22,6 +22,6 @@
                 delivery.dropdown = true;
             }
         };
-    }]);
+    });
 
 })();
