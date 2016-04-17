@@ -1,24 +1,40 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <h3>JumpVa</h3>
-
-        <!-- Panel de busqueda-->
-        <form name="search" ng-controller="SearchController as searchCtrl"
-            ng-submit="searchCtrl.search(text)">
-
-            <input type="text" ng-model="text"/>
-            <input type="submit" value="Submit"/>
-        </form>
-
-        <!-- Boton para realizar nuevas busquedas de envios. (solo para transportistas)-->
-        <button ng-controller="NewDeliveryController as newDeliveryCtrl"
-                ng-show="newDeliveryCtrl.logedUser.carrier"
-                ng-click="newDeliveryCtrl.openModal()"type="button">Nuevo Envío</button>
-
-        <!-- Datos del usuario actual del servicio -->
-        <div ng-controller="UserDataController as userDataCtrl">
-            <p>{{userDataCtrl.username()}} --> {{userDataCtrl.carrier()}}</p>
-            <button ng-click="userDataCtrl.logout()"type="button">Cerrar Sesión</button>
+        <div class="navbar-header">
+            <a class="navbar-brand" role="button">JumpVa</a>
         </div>
+
+            <!-- Panel de busqueda-->
+            <form class="navbar-form navbar-left" role="search" name="search"
+                ng-controller="SearchController as searchCtrl"
+                ng-submit="searchCtrl.search(text)">
+
+                <div class="form-group">
+                    <input class="form-control" type="text" ng-model="text" placeholder="Buscar"/>
+                </div>
+
+                <input class="btn btn-default" type="submit" value="Submit"/>
+            </form>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <!-- Boton para realizar nuevas busquedas de envios. (solo para transportistas)-->
+                    <a ng-controller="NewDeliveryController as newDeliveryCtrl"
+                        ng-show="newDeliveryCtrl.logedUser.carrier"
+                        ng-click="newDeliveryCtrl.openModal()"
+                        role="button">Nuevo Envío</a>
+                </li>
+
+                <li class="dropdown" ng-controller="UserDataController as userDataCtrl">
+                    <a class="dropdown-toggle" data-toggle="dropdown"
+                    role="button" aria-haspopup="true" aria-expanded="true">{{userDataCtrl.username()}} <span class="caret"></span></a>
+
+                    <ul class="dropdown-menu">
+                        <li><a> {{userDataCtrl.carrier()}} </a></li>
+                        <li><a ng-click="userDataCtrl.logout()">Cerrar Sesion</a></li>
+                    </ul>
+                </li>
+            </ul>
+
     </div>
 </nav>
