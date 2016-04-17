@@ -1,6 +1,6 @@
 (function (){
 
-    var app = angular.module('jumpva', ['ngRoute','main', 'toolbar','mainContent', 'login']);
+    var app = angular.module('jumpva', ['ngRoute','main', 'toolbar','mainContent', 'login', 'signin']);
 
     app.config(['$routeProvider',
         function($routeProvider) {
@@ -8,6 +8,11 @@
                 when('/login', {
                     templateUrl: 'includes/login.html',
                 }).
+
+                when('/signin', {
+                    templateUrl: 'includes/signin.html',
+                }).
+
                 when('/main', {
                     templateUrl: 'includes/main.html',
                 }).
