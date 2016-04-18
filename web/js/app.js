@@ -1,7 +1,7 @@
 (function (){
 
     var app = angular.module('jumpva', ['ngRoute','ui.bootstrap','ngAnimate',
-    'main', 'toolbar','mainContent', 'login', 'signin','unassigned-delivery' ]);
+    'main', 'toolbar','mainContent', 'login', 'signin','unassigned-delivery', 'completed-delivery' ]);
 
     app.config(['$routeProvider',
         function($routeProvider) {
