@@ -1,9 +1,16 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
+    <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" role="button">JumpVa</a>
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
         </div>
 
+        <div class="collapse navbar-collapse" id="myNavbar">
             <!-- Panel de busqueda-->
             <form class="navbar-form navbar-left" role="search" name="search"
                 ng-controller="SearchController as searchCtrl"
@@ -35,6 +42,6 @@
                     </ul>
                 </li>
             </ul>
-
+        </div>
     </div>
 </nav>

@@ -1,14 +1,4 @@
-nav{
-    margin: auto;
-    border: 3px solid #73AD21;
-}
 
-nav h3,
-nav form,
-nav div{
-    display: inline-block;
-    margin: auto;
-}
 
 body {
     padding-top: 70px;
