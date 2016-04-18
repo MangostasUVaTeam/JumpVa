@@ -1,15 +1,20 @@
 <div ng-controller="CompletedController as completedCtrl">
   <uib-accordion-heading>
-    <div>
-      Completado
-      <div class="pull-right">
-        <uib-rating ng-model="delivery.rate"
-          max="5" read-only="false" aria-labelledby="default-rating">
-        </uib-rating>
-        <i class="glyphicon"
-          ng-class="{'glyphicon-chevron-down': delivery.open,
-          'glyphicon-chevron-right': !delivery.open}"></i>
-      </div>
+    <div class="row">
+        <div class="col-xs-4">
+            Completado
+        </div>
+        <div class="col-xs-5">
+            <uib-rating class="pull-right" ng-model="delivery.rate"
+            max="5" read-only="false">
+            </uib-rating>
+        </div>
+        <div class="col-xs-3">
+            <i class="glyphicon pull-right"
+            ng-class="{'glyphicon-chevron-down': delivery.open,
+            'glyphicon-chevron-right': !delivery.open}"></i>
+            <span class="badge pull-right">{{delivery.hitos.length}}</span>
+        </div>
 
     </div>
 

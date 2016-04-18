@@ -1,10 +1,20 @@
 <uib-accordion-heading>
-    <div>
-    En Progreso
+    <div class="row">
+        <div class="col-xs-4">
+            En progreso
+        </div>
 
-    <i class="pull-right glyphicon"
-        ng-class="{'glyphicon-chevron-down': delivery.open,
-        'glyphicon-chevron-right': !delivery.open}"></i>
+        <div class="col-xs-5">
+
+        </div>
+
+        <div class="col-xs-3">
+            <i class="glyphicon pull-right"
+                ng-class="{'glyphicon-chevron-down': delivery.open,
+                'glyphicon-chevron-right': !delivery.open}"></i>
+            <span class="badge pull-right">{{delivery.hitos.length}}</span>
+
+        </div>
     </div>
 
 </uib-accordion-heading>

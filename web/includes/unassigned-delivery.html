@@ -1,14 +1,20 @@
 <div ng-controller="UnassignedController as unassignedCtrl">
 
     <uib-accordion-heading>
-        <div>
-        No asignado
+        <div class="row">
+            <div class="col-xs-4">
+                No asignado
+            </div>
+            <div class="col-xs-5">
 
-        <div class="pull-right">
-            <span class="badge">{{delivery.pujas.length}}</span>
-            <i class="glyphicon"
-                ng-class="{'glyphicon-chevron-down': delivery.open,
-                'glyphicon-chevron-right': !delivery.open}"></i>
+            </div>
+
+            <div class="col-xs-3">
+                <i class="glyphicon pull-right"
+                    ng-class="{'glyphicon-chevron-down': delivery.open,
+                    'glyphicon-chevron-right': !delivery.open}"></i>
+                <span class="badge pull-right">{{delivery.pujas.length}}</span>
+
             </div>
         </div>
 
@@ -16,12 +22,17 @@
 
     <div class="panel panel-default" ng-repeat="bid in delivery.pujas">
       <div class="panel-body">
-        {{bid.transportista}}
-        <div class="pull-right">
-            <span class=" label label-default">{{bid.precio | currency}}</span>
-            <button type="button" ng-click="unassignedCtrl.assign(delivery, bid)" class="btn btn-default">
-                Asignar
-            </button>
+          <div class="row">
+             <div class="col-xs-4">
+                {{bid.transportista}}
+            </div>
+            <div class="col-xs-5">
+                <span class=" label label-default pull-right">{{bid.precio | currency}}</span>
+            </div>
+            <div class="col-xs-3">
+                <button type="button" class="btn btn-default pull-right"
+                ng-click="unassignedCtrl.assign(delivery, bid)" >Asignar</button>
+            </div>
         </div>
 
       </div>
