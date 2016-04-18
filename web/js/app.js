@@ -33,7 +33,6 @@
                 origen: "Valladolid",
                 destino: "Palencia",
                 transportista: "",
-                completado: 70,
                 pedido:{
                     descripcion: "tomates",
                     peso: 70,
@@ -41,12 +40,61 @@
                     anchura: 20,
                     tipo: "paquete"
                 },
-                hitos:[
-                        {
-                            mensaje: "Dueñas, Palencia",
-                            tipo: "location",
-                            time: "",
-                        }
+                pujas: [
+                    {
+                        transportista: "Paco",
+                        precio: 50
+                    },
+                    {
+                        transportista: "Juan",
+                        precio: 65
+                    },
+                    {
+                        transportista: "Luis",
+                        precio: 32
+                    },
+                    {
+                        transportista: "Miguel",
+                        precio: 45
+                    }
+                ]
+            },
+            {
+                origen: "Valladolid",
+                destino: "Palencia",
+                transportista: "",
+                pedido:{
+                    descripcion: "tomates",
+                    peso: 70,
+                    altura: 130,
+                    anchura: 20,
+                    tipo: "paquete"
+                },
+                pujas: [
+                    {
+                        transportista: "Paco",
+                        precio: 50
+                    },
+                    {
+                        transportista: "Paco",
+                        precio: 50
+                    },
+                    {
+                        transportista: "Paco",
+                        precio: 50
+                    },
+                    {
+                        transportista: "Juan",
+                        precio: 65
+                    },
+                    {
+                        transportista: "Luis",
+                        precio: 32
+                    },
+                    {
+                        transportista: "Miguel",
+                        precio: 45
+                    }
                 ]
             },
             {

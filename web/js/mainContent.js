@@ -20,4 +20,8 @@
 
     });
 
+    app.controller("UnassignedController", function($scope,logedUser, deliveries){
+        console.log("hola");
+    });
+
 })();

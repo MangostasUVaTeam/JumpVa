@@ -1,27 +1,32 @@
-<uib-accordion-heading>
-    <div>
-    No asignado
+<div ng-controller="UnassignedController as unassignedCtrl">
 
-    <i class="pull-right glyphicon"
-        ng-class="{'glyphicon-chevron-down': delivery.open,
-        'glyphicon-chevron-right': !delivery.open}"></i>
+    <uib-accordion-heading>
+        <div>
+        No asignado
+
+        <div class="pull-right">
+            <span class="badge">{{delivery.pujas.length}}</span>
+            <i class="glyphicon"
+                ng-class="{'glyphicon-chevron-down': delivery.open,
+                'glyphicon-chevron-right': !delivery.open}"></i>
+            </div>
+        </div>
+
+    </uib-accordion-heading>
+
+    <div class="panel panel-default" ng-repeat="bid in delivery.pujas">
+      <div class="panel-body">
+        {{bid.transportista}}
+        <div class="pull-right">
+
+            <span>{{bid.precio | currency}}</span>
+            <button type="button" class="btn btn-primary"
+                ng-model="singleModel" uib-btn-checkbox btn-checkbox-true="1"
+                btn-checkbox-false="0">
+                Single Toggle
+            </button>
+        </div>
+
+      </div>
     </div>
-
-</uib-accordion-heading>
-
-<h4>Esto es un Desplegable</h4>
-
-<div>
-    <h4>Origen:</h4>
-    <h5>{{delivery.origen}}<h5>
-</div>
-
-<div>
-    <h4>Destino:</h4>
-    <h5>{{delivery.destino}}<h5>
-</div>
-
-<div>
-    <h4>Transportista:</h4>
-    <h5>{{delivery.transportista}}<h5>
 </div>
