@@ -18,12 +18,9 @@
       <div class="panel-body">
         {{bid.transportista}}
         <div class="pull-right">
-
-            <span>{{bid.precio | currency}}</span>
-            <button type="button" class="btn btn-primary"
-                ng-model="singleModel" uib-btn-checkbox btn-checkbox-true="1"
-                btn-checkbox-false="0">
-                Single Toggle
+            <span class=" label label-default">{{bid.precio | currency}}</span>
+            <button type="button" ng-click="unassignedCtrl.assign()" class="btn btn-default">
+                Asignar
             </button>
         </div>
 
