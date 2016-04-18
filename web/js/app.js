@@ -32,7 +32,7 @@
             {
                 origen: "Valladolid",
                 destino: "Palencia",
-                transportista: "Paco",
+                transportista: "",
                 completado: 70,
                 pedido:{
                     descripcion: "tomates",
@@ -53,7 +53,7 @@
                 origen: "Valladolid",
                 destino: "Palencia",
                 transportista: "Paco",
-                completado: 70,
+                completado: 100,
                 pedido:{
                     descripcion: "tomates",
                     peso: 70,

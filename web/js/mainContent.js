@@ -6,22 +6,18 @@
     app.controller("MainContentController", function($scope,logedUser, deliveries){
         this.deliveries = deliveries;
 
-        for (delivery of deliveries){
-            delivery.dropdown = false;
-        }
-    });
-
-
-    app.controller("DeliveryController", function($scope){
-        deliveryCtrl = this;
-
-        deliveryCtrl.toggleDropdown = function(delivery){
-            if (delivery.dropdown){
-                delivery.dropdown = false;
+        this.getHTML= function(delivery){
+            if(delivery.transportista){
+                if(delivery.completado == 100){
+                    return 'includes/completed-delivery.html'
+                } else {
+                    return 'includes/inprogress-delivery.html'
+                }
             } else {
-                delivery.dropdown = true;
+                return 'includes/unassigned-delivery.html'
             }
-        };
+        }
+
     });
 
 })();
