@@ -27,13 +27,13 @@
 
         this.username = function(){
             return logedUser.username;
-        }
+        };
 
         this.logout = function(){
             logedUser = {};
             console.log("Logout");
             $location.path('/login');
-        }
+        };
 
         this.carrier = function(){
             if (logedUser.carrier){
@@ -41,6 +41,6 @@
             } else {
                 return "Cliente";
             }
-        }
+        };
     });
 })();

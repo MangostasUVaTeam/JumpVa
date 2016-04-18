@@ -7,9 +7,7 @@
 
         var loginCtrl = this;
 
-
         this.cancel = function(){
-            console.log("Login");
             $location.path('/login');
         };
 

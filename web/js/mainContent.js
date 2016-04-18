@@ -9,14 +9,14 @@
         this.getHTML= function(delivery){
             if(delivery.transportista){
                 if(delivery.completado == 100){
-                    return 'includes/completed-delivery.html'
+                    return 'includes/completed-delivery.html';
                 } else {
-                    return 'includes/inprogress-delivery.html'
+                    return 'includes/inprogress-delivery.html';
                 }
             } else {
-                return 'includes/unassigned-delivery.html'
+                return 'includes/unassigned-delivery.html';
             }
-        }
+        };
 
     });
 })();
