@@ -28,6 +28,9 @@
             delivery.transportista = bid.transportista;
             $uibModalInstance.dismiss();
         }
+        $scope.cancel = function () {
+          $uibModalInstance.dismiss('cancel');
+        };
     });
 
 })();

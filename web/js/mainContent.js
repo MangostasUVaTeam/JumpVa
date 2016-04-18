@@ -18,5 +18,17 @@
             }
         };
 
+        this.getPanelClass = function(delivery){
+            if(delivery.transportista){
+                if(delivery.completado == 100){
+                    return 'panel-success';
+                } else {
+                    return 'panel-info';
+                }
+            } else {
+                return 'panel-warning';
+            }
+        };
+
     });
 })();

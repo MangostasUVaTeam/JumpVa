@@ -37,8 +37,8 @@
                     role="button" aria-haspopup="true" aria-expanded="true">{{userDataCtrl.username()}} <span class="caret"></span></a>
 
                     <ul class="dropdown-menu">
-                        <li><a> {{userDataCtrl.carrier()}} </a></li>
-                        <li><a ng-click="userDataCtrl.logout()">Cerrar Sesion</a></li>
+                        <li><a role="button"> {{userDataCtrl.carrier()}} </a></li>
+                        <li><a ng-click="userDataCtrl.logout()" role="button">Cerrar Sesion</a></li>
                     </ul>
                 </li>
             </ul>
