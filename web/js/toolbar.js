@@ -12,12 +12,18 @@
 
 
     app.controller("NewDeliveryController", function($scope,$uibModal, logedUser){
-        this.logedUser = logedUser;
+        var newDeliveryCtrl =this;
+        newDeliveryCtrl.logedUser = logedUser;
 
-        this.openModal = function(){
-            console.log("hola");
+        newDeliveryCtrl.searchDeliveries = function(){
             $uibModal.open({
-                templateUrl: 'includes/search-delivery.html',
+                templateUrl: 'includes/search-deliveries.html',
+                controller: 'SearchDeliveriesController',
+                resolve: {
+                    logedUser: function () {
+                        return newDeliveryCtrl.logedUser;
+                    }
+                }
             });
         };
     });

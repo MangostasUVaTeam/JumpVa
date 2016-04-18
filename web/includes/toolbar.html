@@ -28,8 +28,8 @@
                     <!-- Boton para realizar nuevas busquedas de envios. (solo para transportistas)-->
                     <a ng-controller="NewDeliveryController as newDeliveryCtrl"
                         ng-show="newDeliveryCtrl.logedUser.carrier"
-                        ng-click="newDeliveryCtrl.openModal()"
-                        role="button">Nuevo Envío</a>
+                        ng-click="newDeliveryCtrl.searchDeliveries()"
+                        role="button">Buscar Envíos</a>
                 </li>
 
                 <li class="dropdown" ng-controller="UserDataController as userDataCtrl">

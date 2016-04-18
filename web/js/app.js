@@ -1,7 +1,8 @@
 (function (){
 
     var app = angular.module('jumpva', ['ngRoute','ui.bootstrap','ngAnimate',
-    'main', 'toolbar','mainContent', 'login', 'signin','unassigned-delivery', 'completed-delivery' ]);
+    'main', 'toolbar','mainContent', 'login', 'signin','unassigned-delivery',
+    'completed-delivery','search-deliveries' ]);
 
     app.config(['$routeProvider',
         function($routeProvider) {
@@ -43,18 +44,22 @@
                 pujas: [
                     {
                         transportista: "Paco",
+                        valoracion: 3,
                         precio: 50
                     },
                     {
                         transportista: "Juan",
+                        valoracion: 3,
                         precio: 65
                     },
                     {
                         transportista: "Luis",
+                        valoracion: 3,
                         precio: 32
                     },
                     {
                         transportista: "Miguel",
+                        valoracion: 3,
                         precio: 45
                     }
                 ]
@@ -73,26 +78,32 @@
                 pujas: [
                     {
                         transportista: "Paco",
+                        valoracion: 3,
                         precio: 50
                     },
                     {
                         transportista: "Paco",
+                        valoracion: 3,
                         precio: 50
                     },
                     {
                         transportista: "Paco",
+                        valoracion: 3,
                         precio: 50
                     },
                     {
                         transportista: "Juan",
+                        valoracion: 3,
                         precio: 65
                     },
                     {
                         transportista: "Luis",
+                        valoracion: 3,
                         precio: 32
                     },
                     {
                         transportista: "Miguel",
+                        valoracion: 3,
                         precio: 45
                     }
                 ]
