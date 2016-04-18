@@ -1,0 +1,8 @@
+<form name="tool" ng-controller="ToolController as toolCtrl"
+                    ng-submit="toolCtrl.update()">
+
+    <input ng-model="toolCtrl.settings.username" type="text"/> 
+    <input ng-model="toolCtrl.settings.carrier" type="checkbox"/> Transportista
+    <input type="submit" value="Submit"/>
+
+</form>

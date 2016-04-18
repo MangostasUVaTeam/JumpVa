@@ -1,0 +1,27 @@
+<div class="container" ng-controller="LoginController as loginCtrl">
+
+
+    <form class="form-login">
+
+        <a class="thumbnail">
+          <img src="" alt="JumpVa">
+        </a>
+
+        <h1 class="form-signin-heading">Registrarse</h1>
+
+        <fieldset class="form-group">
+            <input  class="form-control" type="email" placeholder="Email"/>
+            <input  class="form-control" type="password" placeholder="Contraseña"/>
+        </fieldset>
+
+        <fieldset class="form-group">
+
+            <!-- Boton para iniciar sesion-->
+            <input  class="btn btn-default" ng-click="loginCtrl.signin()" type="button" value="Registrarse" />
+
+            <input  class="btn btn-default" ng-click="loginCtrl.login()" type="button" value="Iniciar Sesión" />
+
+            <!-- Boton para registrarse-->
+        </fieldset>
+    <form>
+</div>

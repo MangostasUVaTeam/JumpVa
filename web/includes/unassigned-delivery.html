@@ -1,0 +1,29 @@
+<div ng-controller="UnassignedController as unassignedCtrl">
+
+    <uib-accordion-heading>
+        <div>
+        No asignado
+
+        <div class="pull-right">
+            <span class="badge">{{delivery.pujas.length}}</span>
+            <i class="glyphicon"
+                ng-class="{'glyphicon-chevron-down': delivery.open,
+                'glyphicon-chevron-right': !delivery.open}"></i>
+            </div>
+        </div>
+
+    </uib-accordion-heading>
+
+    <div class="panel panel-default" ng-repeat="bid in delivery.pujas">
+      <div class="panel-body">
+        {{bid.transportista}}
+        <div class="pull-right">
+            <span class=" label label-default">{{bid.precio | currency}}</span>
+            <button type="button" ng-click="unassignedCtrl.assign()" class="btn btn-default">
+                Asignar
+            </button>
+        </div>
+
+      </div>
+    </div>
+</div>
