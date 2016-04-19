@@ -35,6 +35,10 @@
             return logedUser.username;
         };
 
+        this.toggleCarrier = function(){
+            logedUser.carrier = !logedUser.carrier;
+        }
+
         this.logout = function(){
             logedUser = {};
             console.log("Logout");

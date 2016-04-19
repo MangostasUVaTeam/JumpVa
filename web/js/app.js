@@ -152,9 +152,5 @@
     );
 
 
-    app.controller("ToolController", function($scope, logedUser){
-        this.settings = logedUser;
-    });
-
 
 })();

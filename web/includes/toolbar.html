@@ -17,7 +17,7 @@
                 <li>
                     <!-- Boton para realizar nuevas busquedas de envios. (solo para transportistas)-->
                     <a ng-controller="NewDeliveryController as newDeliveryCtrl"
-                        ng-show="newDeliveryCtrl.logedUser.carrier"
+                        ng-hide="newDeliveryCtrl.logedUser.carrier"
                         ng-click="newDeliveryCtrl.searchDeliveries()"
                         role="button">Crear Envío</a>
                 </li>
@@ -32,10 +32,11 @@
 
                 <li class="dropdown" ng-controller="UserDataController as userDataCtrl">
                     <a class="dropdown-toggle" data-toggle="dropdown"
-                    role="button" aria-haspopup="true" aria-expanded="true">{{userDataCtrl.username()}} <span class="caret"></span></a>
+                    role="button" aria-haspopup="true"
+                    aria-expanded="true">{{userDataCtrl.username()}} <span class="caret"></span></a>
 
                     <ul class="dropdown-menu">
-                        <li><a role="button"> {{userDataCtrl.carrier()}} </a></li>
+                        <li><a ng-click="userDataCtrl.toggleCarrier()" role="button"> {{userDataCtrl.carrier()}} </a></li>
                         <li><a ng-click="userDataCtrl.logout()" role="button">Cerrar Sesion</a></li>
                     </ul>
                 </li>
