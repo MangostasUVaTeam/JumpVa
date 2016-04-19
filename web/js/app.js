@@ -69,11 +69,11 @@
                 destino: "Palencia",
                 transportista: "",
                 pedido:{
-                    descripcion: "tomates",
+                    descripcion: "Tomates",
                     peso: 70,
                     altura: 130,
                     anchura: 20,
-                    tipo: "paquete"
+                    tipo: "Paquete"
                 },
                 pujas: [
                     {
@@ -114,17 +114,17 @@
                 transportista: "Paco",
                 completado: 100,
                 pedido:{
-                    descripcion: "tomates",
+                    descripcion: "Tomates",
                     peso: 70,
                     altura: 130,
                     anchura: 20,
-                    tipo: "paquete"
+                    tipo: "Paquete"
                 },
                 hitos:[
                         {
                             mensaje: "Dueñas, Palencia",
                             tipo: "location",
-                            time: "",
+                            time: "15:30",
                         }
                 ]
             },
@@ -134,15 +134,15 @@
                 transportista: "Paco",
                 completado: 70,
                 pedido:{
-                    descripcion: "tomates",
+                    descripcion: "Tomates",
                     peso: 70,
                     altura: 130,
                     anchura: 20,
-                    tipo: "paquete"
+                    tipo: "Paquete"
                 },
                 hitos:[
                         {
-                            mensaje: "Dueñas, Palencia",
+                            mensaje: "Zaratan, Valladolid",
                             tipo: "location",
                             time: "",
                         }
