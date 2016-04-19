@@ -4,7 +4,8 @@
     <uib-accordion close-others="false">
 
         <uib-accordion-group panel-class="{{mainContentCtrl.getPanelClass(delivery)}}"
-            ng-repeat="delivery in mainContentCtrl.deliveries" >
+            ng-repeat="delivery in mainContentCtrl.deliveries"
+            is-open="delivery.open">
 
             <div ng-include="mainContentCtrl.getHTML(delivery)"></div>
 
