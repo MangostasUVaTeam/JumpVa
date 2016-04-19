@@ -11,17 +11,51 @@
         <fieldset class="form-group">
             <input  class="form-control" type="text" placeholder="Nombre"/>
             <input  class="form-control" type="text" placeholder="Apellidos"/>
-        </fieldset>
-
-
-
-        <fieldset class="form-group">
             <input  class="form-control" type="email" placeholder="Email"/>
-        </fieldset>
-        <fieldset class="form-group">
             <input  class="form-control" type="password" placeholder="Contraseña"/>
         </fieldset>
 
+    <uib-accordion close-others="oneAtATime">
+        <uib-accordion-group is-open="status.open">
+            <uib-accordion-heading>
+                    <div class="row">
+                       <div class="col-xs-2">
+                            <input class="pull-right" type="checkbox" ng-model="delivery.open">
+                        </div>  
+                        <div class="col-xs-0">
+                            Transportista
+                        </div>
+                    </div>
+            </uib-accordion-heading>
+                <input  class="form-control" type="text" placeholder="Número de licencia"/>
+                <h5>Max Dimens</h5>
+        </uib-accordion-group>
+    </uib-accordion> 
+ <!--        <uib-accordion close-others="false">
+
+            <uib-accordion-group panel-class="{{mainContentCtrl.getPanelClass(delivery)}}"
+                is-open="delivery.open">
+                {{m}}
+
+                <uib-accordion-heading ng-model="ma">
+                    <div class="row">
+                       <div class="col-xs-2">
+                            <input class="pull-right" type="checkbox" ng-model="delivery.open">
+                        </div>  
+                        <div class="col-xs-3">
+                            Transportista
+                        </div>
+
+         
+                    </div>
+                </uib-accordion-heading>  -->
+
+
+
+
+            </uib-accordion-group>
+        </uib-accordion>
+          
 
         <fieldset class="form-group">
                 <input  class="btn btn-default" type="button" ng-click="signinCtrl.cancel()" value="Cancelar" />
