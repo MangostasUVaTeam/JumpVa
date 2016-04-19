@@ -5,6 +5,13 @@ body {
     padding-bottom: 40px;
 }
 
+.progress {
+  width: 102px;
+  
+}
+
+
+
 .form-signin, .form-login {
   max-width: 330px;
   padding: 15px;
