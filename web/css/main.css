@@ -7,7 +7,7 @@ body {
 
 .progress {
   width: 102px;
-  
+
 }
 
 
@@ -16,4 +16,26 @@ body {
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
+}
+
+h3 {
+    display: inline;
+}
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 970px;
+    }
+}
+
+#myNavbar .input-group-addon {
+    width: 1%;
+}
+
+#myNavbar .input-group {
+    display: table;
+}
+
+#myNavbar .form-group {
+    display: inline;
 }

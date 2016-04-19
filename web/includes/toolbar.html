@@ -10,21 +10,19 @@
               </button>
         </div>
 
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <!-- Panel de busqueda-->
-            <form class="navbar-form navbar-left" role="search" name="search"
-                ng-controller="SearchController as searchCtrl"
-                ng-submit="searchCtrl.search(text)">
-
-                <div class="form-group">
-                    <input class="form-control" type="text" ng-model="text" placeholder="Buscar"/>
-                </div>
-
-                <input class="btn btn-default" type="submit" value="Submit"/>
-            </form>
+        <div class="navbar-collapse collapse" id="myNavbar">
 
             <ul class="nav navbar-nav navbar-right">
+
                 <li>
+                    <!-- Boton para realizar nuevas busquedas de envios. (solo para transportistas)-->
+                    <a ng-controller="NewDeliveryController as newDeliveryCtrl"
+                        ng-show="newDeliveryCtrl.logedUser.carrier"
+                        ng-click="newDeliveryCtrl.searchDeliveries()"
+                        role="button">Crear Envío</a>
+                </li>
+
+                <li >
                     <!-- Boton para realizar nuevas busquedas de envios. (solo para transportistas)-->
                     <a ng-controller="NewDeliveryController as newDeliveryCtrl"
                         ng-show="newDeliveryCtrl.logedUser.carrier"
@@ -42,6 +40,26 @@
                     </ul>
                 </li>
             </ul>
+
+            <!-- Panel de busqueda-->
+
+            <form class="navbar-form" role="search" name="search"
+                ng-controller="SearchController as searchCtrl"
+                ng-submit="searchCtrl.search(text)">
+                <div class="form-group" >
+                    <div class="input-group" >
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </span>
+
+                        <input class="form-control" name="search"
+                            placeholder="Search Here" autocomplete="off"
+                            autofocus="autofocus" type="text" ng-model="text" >
+                    </div>
+                </div>
+            </form>
+
+
         </div>
     </div>
 </nav>
