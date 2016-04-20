@@ -13,6 +13,9 @@
                 } else {
                     return 'includes/inprogress-delivery.html';
                 }
+            } else if (delivery.pendiente) {
+                return 'includes/pending-to-assign-delivery.html';
+
             } else {
                 return 'includes/unassigned-delivery.html';
             }
@@ -23,9 +26,11 @@
                 if(delivery.completado == 100){
                     return 'panel-success';
                 } else {
-                    return 'panel-info';
+                    return 'panel-primary';
                 }
-            } else {
+            } else if (delivery.pendiente) {
+                return 'panel-info';
+            } else{
                 return 'panel-warning';
             }
         };

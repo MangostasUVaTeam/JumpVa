@@ -32,6 +32,19 @@
     app.value('deliveries', [
             {
                 origen: "Valladolid",
+                destino: "Paredes de nava",
+                transportista: "",
+                pendiente: true,
+                pedido:{
+                    descripcion: "tomates",
+                    peso: 70,
+                    altura: 130,
+                    anchura: 20,
+                    tipo: "paquete"
+                }
+            },
+            {
+                origen: "Valladolid",
                 destino: "Palencia",
                 transportista: "",
                 pedido:{

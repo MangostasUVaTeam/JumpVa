@@ -1,0 +1,30 @@
+<uib-accordion-heading>
+    <div class="row">
+        <div class="col-xs-4">
+            Pendiente
+        </div>
+
+        <div class="col-xs-5">
+
+        </div>
+
+        <div class="col-xs-3">
+            <i class="glyphicon pull-right"
+                ng-class="{'glyphicon-chevron-down': delivery.open,
+                'glyphicon-chevron-right': !delivery.open}"></i>
+            <span class="badge pull-right">{{delivery.hitos.length}}</span>
+
+        </div>
+    </div>
+
+</uib-accordion-heading>
+
+<div>
+    <h4>Origen:</h4>
+    <h5>{{delivery.origen}}</h5>
+</div>
+
+<div>
+    <h4>Destino:</h4>
+    <h5>{{delivery.destino}}</h5>
+</div>
