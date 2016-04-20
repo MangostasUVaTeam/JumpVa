@@ -10,7 +10,7 @@
 <div class="modal-body">
 
    <div class="panel" >
-       <ng-map scrollwheel="false" class="map-view"  center="{{origen}}" zoom="10">
+       <ng-map ng-if="destruyeMapa"scrollwheel="false" class="map-view"  center="{{origen}}" zoom="10">
 
          <directions
            draggable="false"

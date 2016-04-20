@@ -4,6 +4,7 @@
 
     app.controller('SearchDeliveriesController', function ($scope, $uibModalInstance, logedUser  ) {
         $scope.logedUser = logedUser;
+        $scope.destruyeMapa = true;
 
 
         $scope.unassignedDeliveries = [
@@ -60,6 +61,8 @@
             $scope.origen = delivery.origen;
             $scope.destino = delivery.destino;
             console.log(delivery);
+            $scope.destruyeMapa = true;
+
 
         }
     });
