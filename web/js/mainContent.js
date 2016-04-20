@@ -23,14 +23,12 @@
 
         this.getPanelClass = function(delivery){
             if(delivery.transportista){
-                if(delivery.completado == 100){
+                if ( (delivery.completado == 100) || (delivery.pendiente) ){
                     return 'panel-success';
                 } else {
-                    return 'panel-primary';
+                    return 'panel-info';
                 }
-            } else if (delivery.pendiente) {
-                return 'panel-info';
-            } else{
+            } else {
                 return 'panel-warning';
             }
         };
