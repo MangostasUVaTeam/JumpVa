@@ -26,6 +26,11 @@
 
         $scope.asignar = function(){
             delivery.transportista = bid.transportista;
+            delivery.hitos.push( {
+                mensaje: "Envío asignado al transportista",
+                tipo: "evento",
+                time: "",
+            });
             $uibModalInstance.dismiss();
         }
         $scope.cancel = function () {

@@ -41,6 +41,7 @@
                     anchura: 20,
                     tipo: "paquete"
                 },
+                hitos:[],
                 pujas: [
                     {
                         transportista: "Paco",
@@ -75,6 +76,7 @@
                     anchura: 20,
                     tipo: "paquete"
                 },
+                hitos:[],
                 pujas: [
                     {
                         transportista: "Paco",
@@ -122,8 +124,8 @@
                 },
                 hitos:[
                         {
-                            mensaje: "Dueñas, Palencia",
-                            tipo: "location",
+                            mensaje: "Envío asignado",
+                            tipo: "evento",
                             time: "",
                         }
                 ]
