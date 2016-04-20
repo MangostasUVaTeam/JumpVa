@@ -19,6 +19,7 @@
             $uibModal.open({
                 templateUrl: 'includes/search-deliveries.html',
                 controller: 'SearchDeliveriesController',
+                size: 'lg',
                 resolve: {
                     logedUser: function () {
                         return newDeliveryCtrl.logedUser;
