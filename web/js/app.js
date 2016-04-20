@@ -1,6 +1,6 @@
 (function (){
 
-    var app = angular.module('jumpva', ['ngRoute','ui.bootstrap','ngAnimate', 'ngMap',
+    var app = angular.module('jumpva', ['ngRoute','ui.bootstrap','ngAnimate', 'ngMap','number-input',
     'main', 'toolbar','mainContent', 'login', 'signin','unassigned-delivery',
     'completed-delivery','search-deliveries' ]);
 

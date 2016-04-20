@@ -5,26 +5,31 @@
     app.controller('SearchDeliveriesController', function ($scope, $uibModalInstance, logedUser  ) {
         $scope.logedUser = logedUser;
 
-        $scope.pujas = [
+
+        $scope.unassignedDeliveries = [
                 {
-                    transportista: "Paco",
-                    valoracion: 3,
-                    precio: 50
+                    origen: "Valladolid",
+                    destino: "Palencia",
+                    distancia: 50,
+                    puja: 0
                 },
                 {
-                    transportista: "Juan",
-                    valoracion: 3,
-                    precio: 65
+                    origen: "Valladolid",
+                    destino: "Palencia",
+                    distancia: 50,
+                    puja: 0
                 },
                 {
-                    transportista: "Luis",
-                    valoracion: 3,
-                    precio: 32
+                    origen: "Valladolid",
+                    destino: "Palencia",
+                    distancia: 50,
+                    puja: 0
                 },
                 {
-                    transportista: "Miguel",
-                    valoracion: 3,
-                    precio: 45
+                    origen: "Valladolid",
+                    destino: "Palencia",
+                    distancia: 50,
+                    puja:0
                 }
         ];
 
