@@ -23,6 +23,24 @@ body {
     height: 70px;
     border: 2px solid;
   }
+
+.alert-success {
+      color: #3c763d;
+      background-color: #dff0d8;
+      border-color: #d6e9c6;
+  }
+.alert-warning {
+  margin-left: 510px;
+}
+
+.alert {
+    height: 40px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    width: 400px;
+}
+
 .form-signin, .form-login {
   max-width: 330px;
   padding: 15px;

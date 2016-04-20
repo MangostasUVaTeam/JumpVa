@@ -17,7 +17,6 @@
 
         </div>
     </div>
-
 </uib-accordion-heading>
 
 <div class="row">
@@ -40,7 +39,7 @@
       <h4 class="pull-right">{{delivery.pedido.descripcion}}</h4>
     </div>
     <div class="col-xs-1">
-      <img src="images/tomates.jpg" class="img-rounded" alt="Tomates">
+      <img src={{delivery.pedido.imagen}} class="img-rounded" alt="Tomates">
     </div>
 
 </div>
@@ -63,7 +62,10 @@
     <div class="col-xs-2">
       <h4 class="pull-right">{{delivery.pedido.anchura}} X {{delivery.pedido.altura}}</h4>
     </div>
-
-
 </div>
 <hr>
+<h4>Hitos:</h4>
+<div>
+  <uib-alert ng-repeat="hito in delivery.hitos" class={{hito.posicion}} type={{hito.tipo}}>{{hito.mensaje}}</uib-alert>
+<div>
+</div>

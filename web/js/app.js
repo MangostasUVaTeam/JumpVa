@@ -39,7 +39,8 @@
                     peso: 70,
                     altura: 130,
                     anchura: 20,
-                    tipo: "paquete"
+                    tipo: "paquete",
+                    imagen : "images/tomates.jpg"
                 },
                 pujas: [
                     {
@@ -73,7 +74,8 @@
                     peso: 70,
                     altura: 130,
                     anchura: 20,
-                    tipo: "Paquete"
+                    tipo: "Paquete",
+                    imagen : "images/tomates.jpg"
                 },
                 pujas: [
                     {
@@ -118,7 +120,8 @@
                     peso: 70,
                     altura: 130,
                     anchura: 20,
-                    tipo: "Paquete"
+                    tipo: "Paquete",
+                    imagen : "images/tomates.jpg"
                 },
                 hitos:[
                         {
@@ -126,6 +129,7 @@
                             tipo: "location",
                             time: "15:30",
                         }
+
                 ]
             },
             {
@@ -138,13 +142,27 @@
                     peso: 70,
                     altura: 130,
                     anchura: 20,
-                    tipo: "Paquete"
+                    tipo: "Paquete",
+                    imagen : "images/tomates.jpg"
                 },
                 hitos:[
                         {
-                            mensaje: "Zaratan, Valladolid",
-                            tipo: "location",
+                            mensaje: "Saliendo de Zaratan, Valladolid.",
+                            tipo: "success",
                             time: "",
+
+                        },
+
+                        {
+                            mensaje: "De acuerdo, gracias.",
+                            tipo: "",
+                            time: "15:30",
+                        },
+
+                        {
+                          mensaje: "El envío llegara el Martes.",
+                          tipo: "success",
+                          time: "",
                         }
                 ]
             },
