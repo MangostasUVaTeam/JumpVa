@@ -15,87 +15,52 @@
                 },
                 {
                     origen: "Valladolid",
-                    destino: "Palencia",
+                    destino: "Santander",
                     distancia: 50,
                     puja: 0
                 },
                 {
                     origen: "Valladolid",
-                    destino: "Palencia",
+                    destino: "Galicia",
                     distancia: 50,
                     puja: 0
                 },
                 {
                     origen: "Valladolid",
-                    destino: "Palencia",
+                    destino: "LLanes",
                     distancia: 50,
                     puja:0
                 },
                 {
                     origen: "Valladolid",
-                    destino: "Palencia",
+                    destino: "Valencia",
                     distancia: 50,
                     puja:0
                 },
                 {
                     origen: "Valladolid",
-                    destino: "Palencia",
+                    destino: "Cadiz",
                     distancia: 50,
                     puja:0
                 },
                 {
                     origen: "Valladolid",
-                    destino: "Palencia",
-                    distancia: 50,
-                    puja:0
-                },
-                {
-                    origen: "Valladolid",
-                    destino: "Palencia",
-                    distancia: 50,
-                    puja:0
-                },
-                {
-                    origen: "Valladolid",
-                    destino: "Palencia",
-                    distancia: 50,
-                    puja:0
-                },
-                {
-                    origen: "Valladolid",
-                    destino: "Palencia",
-                    distancia: 50,
-                    puja:0
-                },
-                {
-                    origen: "Valladolid",
-                    destino: "Palencia",
-                    distancia: 50,
-                    puja:0
-                },
-                {
-                    origen: "Valladolid",
-                    destino: "Palencia",
-                    distancia: 50,
-                    puja:0
-                },
-                {
-                    origen: "Valladolid",
-                    destino: "Palencia",
-                    distancia: 50,
-                    puja:0
-                },
-                {
-                    origen: "Valladolid",
-                    destino: "Palencia",
+                    destino: "Pamplona",
                     distancia: 50,
                     puja:0
                 }
         ];
-
+        $scope.origen = "Valladolid"
 
         $scope.cancel = function () {
-          $uibModalInstance.dismiss('cancel');
+          $uibModalInstance.close('cancel');
+
         };
+        $scope.setOver = function(delivery) {
+            $scope.origen = delivery.origen;
+            $scope.destino = delivery.destino;
+            console.log(delivery);
+
+        }
     });
 })();
