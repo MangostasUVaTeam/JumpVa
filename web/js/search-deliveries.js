@@ -30,6 +30,66 @@
                     destino: "Palencia",
                     distancia: 50,
                     puja:0
+                },
+                {
+                    origen: "Valladolid",
+                    destino: "Palencia",
+                    distancia: 50,
+                    puja:0
+                },
+                {
+                    origen: "Valladolid",
+                    destino: "Palencia",
+                    distancia: 50,
+                    puja:0
+                },
+                {
+                    origen: "Valladolid",
+                    destino: "Palencia",
+                    distancia: 50,
+                    puja:0
+                },
+                {
+                    origen: "Valladolid",
+                    destino: "Palencia",
+                    distancia: 50,
+                    puja:0
+                },
+                {
+                    origen: "Valladolid",
+                    destino: "Palencia",
+                    distancia: 50,
+                    puja:0
+                },
+                {
+                    origen: "Valladolid",
+                    destino: "Palencia",
+                    distancia: 50,
+                    puja:0
+                },
+                {
+                    origen: "Valladolid",
+                    destino: "Palencia",
+                    distancia: 50,
+                    puja:0
+                },
+                {
+                    origen: "Valladolid",
+                    destino: "Palencia",
+                    distancia: 50,
+                    puja:0
+                },
+                {
+                    origen: "Valladolid",
+                    destino: "Palencia",
+                    distancia: 50,
+                    puja:0
+                },
+                {
+                    origen: "Valladolid",
+                    destino: "Palencia",
+                    distancia: 50,
+                    puja:0
                 }
         ];
 

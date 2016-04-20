@@ -1,46 +1,45 @@
-<div class="modal-body">
-
-    <h1>Buscar Envios</h1>
-    <div class="panel input-group">
-        <input type="text" class="form-control" placeholder="Localizacion de origen">
-
+<div class="modal-header">
+    <div class=" input-group">
+        <input type="text" class="form-control" placeholder="Buscar envíos desde...">
         <span class="input-group-btn">
             <button class="btn btn-default" type="button">Go!</button>
         </span>
-   </div><!-- /input-group -->
+    </div><!-- /input-group -->
+</div>
 
-   <div class="panel " map-lazy-load="https://maps.google.com/maps/api/js">
+<div class="modal-body">
+
+   <div class="panel" map-lazy-load="https://maps.google.com/maps/api/js">
      <ng-map center="41,-87" zoom="3"></ng-map>
    </div>
 
-    <div ng-repeat="unassignedDelivery in unassignedDeliveries">
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-xs-2">
-                    Origen: {{unassignedDelivery.origen}}
-                </div>
+   
+   <div id="table-scroll">
 
-                <div class="col-xs-2">
-                    Destino: {{unassignedDelivery.destino}}
-                </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Origen</th>
+                    <th>Destino</th>
+                    <th>Distancia</th>
+                </tr>
+            </thead>
 
-                <div class="col-xs-2">
-                    <h3><span class=" label label-default pull-right">{{unassignedDelivery.distancia}}</span></h3>
-                </div>
-
-
-                <div class="col-xs-4">
-<number-input ng-model="unassignedDelivey.puja"></number-input>
-                </div>
-
-                <div class="col-xs-2">
+            <tr class="envio-encontrado" ng-repeat="unassignedDelivery in unassignedDeliveries">
+                <td>{{unassignedDelivery.origen}}</td>
+                <td>{{unassignedDelivery.destino}}</td>
+                <td><h3><span class=" label label-default pull-right">{{unassignedDelivery.distancia}}</span></h3></td>
+                <td>
+                    <number-input min="0" ng-model="unassignedDelivey.puja"></number-input>
+                </td>
+                <td>
                     <button type="button" class="btn btn-success pull-right"
                     ng-click="unassignedCtrl.assign(delivery, bid)" >Pujar</button>
-                </div>
-            </div>
-
-        </div>
+                </td>
+            </tr>
+        </table>
     </div>
+
 </div>
 
 
