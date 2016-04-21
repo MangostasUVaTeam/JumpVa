@@ -1,3 +1,4 @@
+
 <uib-accordion-heading>
     <div class="row">
         <div class="col-xs-4">
@@ -72,3 +73,22 @@
         </h5>
       </div>
   </uib-alert>
+<hr>
+<div>
+  <form ng-controller="InprogressController as inprogressCtrl" name="reviewForm" role="form">
+    <h4>Añadir un hito/comentario</h4>
+    <fieldset class="form-group">
+      <select ng-model="inprogressCtrl.nuevoHito.tipo" class="form-control" title="Tipo">
+        <option value="">Seleccione el tipo de hito</option>
+        <option value="success">Localización</option>
+        <option value="success">Envío Completado</option>
+        <option value="danger">Retraso en el envío</option>
+      </select>
+    </fieldset>
+    <fieldset class="form-group">
+      <textarea ng-model="inprogressCtrl.nuevoHito.mensaje" class="form-control" placeholder="Mensaje que se mostrará en el hito" title="Mensaje"></textarea>
+    </fieldset>
+  <button type="button" class="btn btn-success pull-right"
+  ng-click="inprogressCtrl.addHito(delivery)">Enviar</button>
+</form>
+</div>
