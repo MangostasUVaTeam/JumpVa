@@ -20,75 +20,7 @@
     </div>
 </uib-accordion-heading>
 
-<div class="row">
-    <div class="col-xs-1">
-      <h4>Origen:</h4>
-    </div>
-    <div class="col-xs-2">
-      <h4>{{delivery.origen}}</h4>
-    </div>
-    <div class="col-xs-1">
-      <h4>Destino:</h4>
-    </div>
-    <div class="col-xs-2">
-      <h4>{{delivery.destino}}</h4>
-    </div>
-    <div class="col-xs-1">
-      <h4>Mercancia:</h4>
-    </div>
-    <div class="col-xs-2">
-      <h4 class="pull-right">{{delivery.pedido.descripcion}}</h4>
-    </div>
-    <div class="col-xs-1">
-      <img src={{delivery.pedido.imagen}} class="img-rounded" alt="Tomates">
-    </div>
-
-</div>
-<div class="row">
-    <div class="col-xs-1">
-      <h4>Tipo:</h4>
-    </div>
-    <div class="col-xs-2">
-      <h4>{{delivery.pedido.tipo}}</h4>
-    </div>
-    <div class="col-xs-1">
-      <h4>Peso:</h4>
-    </div>
-    <div class="col-xs-2">
-      <h4>{{delivery.pedido.peso}} Kg</h4>
-    </div>
-    <div class="col-xs-1">
-      <h4>Medidas:</h4>
-    </div>
-    <div class="col-xs-2">
-      <h4 class="pull-right">{{delivery.pedido.anchura}} X {{delivery.pedido.altura}}</h4>
-    </div>
-</div>
-<hr>
-<h4>Hitos:</h4>
-  <uib-alert  class="row" ng-repeat="hito in delivery.hitos" type={{hito.tipo}}>
-      <div class="col-xs-12">
-        <h5 class={{hito.posicion}}>
-          {{hito.mensaje}}
-        </h5>
-      </div>
-  </uib-alert>
-<hr>
 <div>
-  <form ng-controller="InprogressController as inprogressCtrl" name="reviewForm" role="form">
-    <h4>Añadir un hito/comentario</h4>
-    <fieldset class="form-group">
-      <select ng-model="inprogressCtrl.nuevoHito.tipo" class="form-control" title="Tipo">
-        <option value="">Seleccione el tipo de hito</option>
-        <option value="success">Localización</option>
-        <option value="success">Envío Completado</option>
-        <option value="danger">Retraso en el envío</option>
-      </select>
-    </fieldset>
-    <fieldset class="form-group">
-      <textarea ng-model="inprogressCtrl.nuevoHito.mensaje" class="form-control" placeholder="Mensaje que se mostrará en el hito" title="Mensaje"></textarea>
-    </fieldset>
-  <button type="button" class="btn btn-success pull-right"
-  ng-click="inprogressCtrl.addHito(delivery)">Enviar</button>
-</form>
-</div>
+    <div ng-include="'includes/delivery-data.html'"></div>
+    <div ng-include="'includes/delivery-milestones.html'"></div>
+<div>

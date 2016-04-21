@@ -1,0 +1,34 @@
+<div ng-controller="MillestoneController as millestoneCtrl">
+    <h4>Hitos:</h4>
+    <uib-alert  ng-repeat="hito in delivery.hitos" type={{hito.tipo}}>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="{{hito.posicion}}">
+                    {{hito.mensaje}}
+                </div>
+            </div>
+        </div>
+    </uib-alert>
+
+    <form name="reviewForm" role="form">
+        <h4>Añadir un hito/comentario</h4>
+
+        <fieldset class="form-group">
+            <select ng-model="millestoneCtrl.nuevoHito.tipo" class="form-control" title="Tipo">
+                <option value="">Seleccione el tipo de hito</option>
+                <option value="success">Localización</option>
+                <option value="success">Envío Completado</option>
+                <option value="danger">Retraso en el envío</option>
+            </select>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <textarea ng-model="millestoneCtrl.nuevoHito.mensaje"
+                class="form-control" title="Mensaje"
+                placeholder="Mensaje que se mostrará en el hito" ></textarea>
+        </fieldset>
+
+        <button type="button" class="btn btn-success pull-right"
+            ng-click="millestoneCtrl.addHito(delivery)">Enviar</button>
+    </form>
+</div>
