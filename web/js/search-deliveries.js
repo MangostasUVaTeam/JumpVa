@@ -2,9 +2,9 @@
 
     var app = angular.module('search-deliveries', ['jumpva']);
 
-    app.controller('SearchDeliveriesController', function ($scope, $uibModalInstance, logedUser  ) {
+    app.controller('SearchDeliveriesController', function ($scope, $uibModalInstance,$uibModal, logedUser  ) {
         $scope.logedUser = logedUser;
-        
+
         $scope.unassignedDeliveries = [
                 {
                     origen: "Valladolid",
@@ -59,5 +59,47 @@
             $scope.origen = delivery.origen;
             $scope.destino = delivery.destino;
         }
+
+        $scope.bid = function(delivery){
+            var modalInstance = $uibModal.open({
+              templateUrl: 'includes/confirm-bid.html',
+              controller: 'ConfirmBidController',
+              resolve: {
+                  delivery: function () {
+                    return delivery;
+                  },
+
+              }
+            });
+
+
+            modalInstance.result.then(function (selectedItem) {
+                $scope.selected = selectedItem;
+
+                if (selectedItem === 'confirm'){
+                    $scope.unassignedDeliveries.splice(
+                        $scope.unassignedDeliveries.indexOf(delivery),
+                        1
+                    );
+                }
+            });
+
+        }
     });
+
+    app.controller('ConfirmBidController', function ($scope, $uibModalInstance, delivery) {
+      $scope.delivery = delivery;
+
+      $scope.confirm = function(){
+        console.log('Confimado');
+        $uibModalInstance.close('confirm');
+      };
+
+      $scope.cancel = function() {
+        console.log('No Confimado');
+        $uibModalInstance.close('cancel');
+      };
+    });
+
+
 })();

@@ -40,11 +40,11 @@
                     <td>{{unassignedDelivery.destino}}</td>
                     <td><h3><span class=" label label-default pull-right">{{unassignedDelivery.distancia}} kms</span></h3></td>
                     <td>
-                        <number-input min="0" ng-model="unassignedDelivey.puja"></number-input>
+                        <number-input min="1" ng-model="unassignedDelivery.puja"></number-input>
                     </td>
                     <td>
                         <button type="button" class="btn btn-success pull-right"
-                        ng-click="unassignedCtrl.assign(delivery, bid)" >Pujar</button>
+                        ng-click="bid(unassignedDelivery)" >Pujar</button>
                     </td>
                 </tr>
             </table>
