@@ -65,7 +65,10 @@
 </div>
 <hr>
 <h4>Hitos:</h4>
-<div>
-  <uib-alert ng-repeat="hito in delivery.hitos" class={{hito.posicion}} type={{hito.tipo}}>{{hito.mensaje}}</uib-alert>
-<div>
-</div>
+  <uib-alert  class="row" ng-repeat="hito in delivery.hitos" type={{hito.tipo}}>
+      <div class="col-xs-12">
+        <h5 class={{hito.posicion}}>
+          {{hito.mensaje}}
+        </h5>
+      </div>
+  </uib-alert>

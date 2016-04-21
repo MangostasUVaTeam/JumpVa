@@ -125,8 +125,8 @@
                 },
                 hitos:[
                         {
-                            mensaje: "Dueñas, Palencia",
-                            tipo: "location",
+                            mensaje: "Envío Completado",
+                            tipo: "success",
                             time: "15:30",
                         }
 
@@ -150,19 +150,21 @@
                             mensaje: "Saliendo de Zaratan, Valladolid.",
                             tipo: "success",
                             time: "",
-
+                            posicion: "pull-left"
                         },
 
                         {
                             mensaje: "De acuerdo, gracias.",
                             tipo: "",
                             time: "15:30",
+                            posicion: "pull-right"
                         },
 
                         {
                           mensaje: "El envío llegara el Martes.",
                           tipo: "success",
                           time: "",
+                          posicion: "pull-left"
                         }
                 ]
             },
