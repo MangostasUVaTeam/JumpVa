@@ -9,6 +9,18 @@ body {
   width: 102px;
 
 }
+.map-view{
+    height: 25vh;
+}
+
+.panel {
+    overflow-y: initial !important
+}
+
+.envio-encontrado:hover {
+    border-radius: 5px;
+    background-color: #eeeeee;
+}
 
 .panel-title {
     margin-top: 0;
@@ -17,6 +29,29 @@ body {
     color: inherit;
     height: 20px;
   }
+
+.img-rounded {
+    width: 130px;
+    height: 70px;
+    border: 2px solid;
+  }
+
+.alert-success {
+      color: #3c763d;
+      background-color: #dff0d8;
+      border-color: #d6e9c6;
+  }
+.alert-warning {
+  margin-left: 510px;
+}
+
+.alert {
+    height: 40px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    width: 400px;
+}
 
 .form-signin, .form-login {
   max-width: 330px;
@@ -44,4 +79,10 @@ h3 {
 
 #myNavbar .form-group {
     display: inline;
+}
+
+#table-scroll {
+    height: 40vh;
+    overflow:auto;
+    margin-top:20px;
 }

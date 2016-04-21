@@ -17,22 +17,55 @@
 
         </div>
     </div>
-
 </uib-accordion-heading>
 
-<h4>Esto es un Desplegable</h4>
+<div class="row">
+    <div class="col-xs-1">
+      <h4>Origen:</h4>
+    </div>
+    <div class="col-xs-2">
+      <h4>{{delivery.origen}}</h4>
+    </div>
+    <div class="col-xs-1">
+      <h4>Destino:</h4>
+    </div>
+    <div class="col-xs-2">
+      <h4>{{delivery.destino}}</h4>
+    </div>
+    <div class="col-xs-1">
+      <h4>Mercancia:</h4>
+    </div>
+    <div class="col-xs-2">
+      <h4 class="pull-right">{{delivery.pedido.descripcion}}</h4>
+    </div>
+    <div class="col-xs-1">
+      <img src="{{delivery.pedido.imagen}}" class="img-rounded" alt="Tomates">
+    </div>
 
-<div>
-    <h4>Origen:</h4>
-    <h5>{{delivery.origen}}</h5>
 </div>
-
-<div>
-    <h4>Destino:</h4>
-    <h5>{{delivery.destino}}</h5>
+<div class="row">
+    <div class="col-xs-1">
+      <h4>Tipo:</h4>
+    </div>
+    <div class="col-xs-2">
+      <h4>{{delivery.pedido.tipo}}</h4>
+    </div>
+    <div class="col-xs-1">
+      <h4>Peso:</h4>
+    </div>
+    <div class="col-xs-2">
+      <h4>{{delivery.pedido.peso}} Kg</h4>
+    </div>
+    <div class="col-xs-1">
+      <h4>Medidas:</h4>
+    </div>
+    <div class="col-xs-2">
+      <h4 class="pull-right">{{delivery.pedido.anchura}} X {{delivery.pedido.altura}}</h4>
+    </div>
 </div>
-
+<hr>
+<h4>Hitos:</h4>
 <div>
-    <h4>Transportista:</h4>
-    <h5>{{delivery.transportista}}</h5>
+  <uib-alert ng-repeat="hito in delivery.hitos" class={{hito.posicion}} type={{hito.tipo}}>{{hito.mensaje}}</uib-alert>
+<div>
 </div>

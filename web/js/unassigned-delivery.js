@@ -40,6 +40,7 @@
           });
           $uibModalInstance.dismiss('cancel');
         };
+
         $scope.cancel = function () {
           $uibModalInstance.dismiss('cancel');
         };

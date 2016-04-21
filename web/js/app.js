@@ -1,6 +1,6 @@
 (function (){
 
-    var app = angular.module('jumpva', ['ngRoute','ui.bootstrap','ngAnimate',
+    var app = angular.module('jumpva', ['ngRoute','ui.bootstrap','ngAnimate', 'ngMap','number-input',
     'main', 'toolbar','mainContent', 'login', 'signin','unassigned-delivery',
     'completed-delivery','search-deliveries' ]);
 
@@ -39,8 +39,10 @@
                     peso: 70,
                     altura: 130,
                     anchura: 20,
-                    tipo: "paquete"
+                    tipo: "paquete",
+                    imagen : "images/tomates.jpg"
                 },
+                hitos:[],
                 pujas: [
                     {
                         transportista: "Paco",
@@ -69,12 +71,14 @@
                 destino: "Palencia",
                 transportista: "",
                 pedido:{
-                    descripcion: "tomates",
+                    descripcion: "Tomates",
                     peso: 70,
                     altura: 130,
                     anchura: 20,
-                    tipo: "paquete"
+                    tipo: "Paquete",
+                    imagen : "images/tomates.jpg"
                 },
+                hitos:[],
                 pujas: [
                     {
                         transportista: "Paco",
@@ -114,18 +118,20 @@
                 transportista: "Paco",
                 completado: 100,
                 pedido:{
-                    descripcion: "tomates",
+                    descripcion: "Tomates",
                     peso: 70,
                     altura: 130,
                     anchura: 20,
-                    tipo: "paquete"
+                    tipo: "Paquete",
+                    imagen : "images/tomates.jpg"
                 },
                 hitos:[
                         {
                             mensaje: "Dueñas, Palencia",
                             tipo: "location",
-                            time: "",
+                            time: "15:30",
                         }
+
                 ]
             },
             {
@@ -134,17 +140,31 @@
                 transportista: "Paco",
                 completado: 70,
                 pedido:{
-                    descripcion: "tomates",
+                    descripcion: "Tomates",
                     peso: 70,
                     altura: 130,
                     anchura: 20,
-                    tipo: "paquete"
+                    tipo: "Paquete",
+                    imagen : "images/tomates.jpg"
                 },
                 hitos:[
                         {
-                            mensaje: "Dueñas, Palencia",
-                            tipo: "location",
+                            mensaje: "Saliendo de Zaratan, Valladolid.",
+                            tipo: "success",
                             time: "",
+
+                        },
+
+                        {
+                            mensaje: "De acuerdo, gracias.",
+                            tipo: "",
+                            time: "15:30",
+                        },
+
+                        {
+                          mensaje: "El envío llegara el Martes.",
+                          tipo: "success",
+                          time: "",
                         }
                 ]
             },
