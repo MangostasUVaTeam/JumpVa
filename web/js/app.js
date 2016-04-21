@@ -35,13 +35,24 @@
                 destino: "Paredes de nava",
                 transportista: "",
                 pendiente: true,
+                puja: {
+                    precio: 50,
+                    date: Date.now()
+                },
                 pedido:{
                     descripcion: "tomates",
                     peso: 70,
                     altura: 130,
                     anchura: 20,
                     tipo: "paquete"
-                }
+                },
+                hitos:[
+                        {
+                            mensaje: "Creacion del envío",
+                            tipo: "time",
+                            time: Date.now()
+                        }
+                ]
             },
             {
                 origen: "Valladolid",
