@@ -1,8 +1,61 @@
-<div class="modal-body">
+<div ng-mouseenter="vermapa = true">
+    <div class="modal-header">
+        <div class=" input-group">
+            <input type="text" class="form-control" ng-model="origen" placeholder="Buscar envíos desde...">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Go!</button>
+            </span>
+        </div><!-- /input-group -->
+    </div>
 
-    <h1>Buscar Envios</h1>
-</div>
+    <div class="modal-body">
 
-<div class="modal-footer">
-    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+       <div class="panel">
+           <ng-map ng-if="vermapa" scrollwheel="false" class="map-view"  center="{{origen}}" zoom="10">
+             <directions
+               draggable="false"
+               travel-mode="DRIVING"
+               origin="{{origen}}"
+               destination="{{destino}}">
+             </directions>
+           </ng-map>
+        </div>
+
+
+       <div id="table-scroll">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Origen</th>
+                        <th>Destino</th>
+                        <th>Distancia</th>
+                        <th>Puja</th>
+                    </tr>
+                </thead>
+
+                <tr class="envio-encontrado" ng-repeat="unassignedDelivery in unassignedDeliveries"
+                    ng-mouseenter="setOver(unassignedDelivery)">
+
+                    <td>{{unassignedDelivery.origen}}</td>
+                    <td>{{unassignedDelivery.destino}}</td>
+                    <td><h3><span class=" label label-default pull-right">{{unassignedDelivery.distancia}} kms</span></h3></td>
+                    <td>
+                        <number-input min="1" ng-model="unassignedDelivery.puja"></number-input>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success pull-right"
+                        ng-click="bid(unassignedDelivery)" >Pujar</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+
+
+    <div class="modal-footer">
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+    </div>
 </div>

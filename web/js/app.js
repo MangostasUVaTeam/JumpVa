@@ -1,6 +1,6 @@
 (function (){
 
-    var app = angular.module('jumpva', ['ngRoute','ui.bootstrap','ngAnimate',
+    var app = angular.module('jumpva', ['ngRoute','ui.bootstrap','ngAnimate', 'ngMap','number-input',
     'main', 'toolbar','mainContent', 'login', 'signin','unassigned-delivery',
     'completed-delivery','search-deliveries', 'inprogress-delivery','millestone-delivery' ]);
 
@@ -32,6 +32,30 @@
     app.value('deliveries', [
             {
                 origen: "Valladolid",
+                destino: "Paredes de nava",
+                transportista: "",
+                pendiente: true,
+                puja: {
+                    precio: 50,
+                    date: Date.now()
+                },
+                pedido:{
+                    descripcion: "tomates",
+                    peso: 70,
+                    altura: 130,
+                    anchura: 20,
+                    tipo: "paquete"
+                },
+                hitos:[
+                        {
+                            mensaje: "Creacion del envío",
+                            tipo: "time",
+                            time: Date.now()
+                        }
+                ]
+            },
+            {
+                origen: "Valladolid",
                 destino: "Palencia",
                 transportista: "",
                 pedido:{
@@ -42,6 +66,7 @@
                     tipo: "paquete",
                     imagen : "images/tomates.jpg"
                 },
+                hitos:[],
                 pujas: [
                     {
                         transportista: "Paco",
@@ -77,6 +102,7 @@
                     tipo: "Paquete",
                     imagen : "images/tomates.jpg"
                 },
+                hitos:[],
                 pujas: [
                     {
                         transportista: "Paco",

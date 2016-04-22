@@ -9,6 +9,18 @@ body {
   width: 102px;
 
 }
+.map-view{
+    height: 25vh;
+}
+
+.panel {
+    overflow-y: initial !important
+}
+
+.envio-encontrado:hover {
+    border-radius: 5px;
+    background-color: #eeeeee;
+}
 
 .panel-title {
     margin-top: 0;
@@ -48,4 +60,10 @@ h3 {
 
 #myNavbar .form-group {
     display: inline;
+}
+
+#table-scroll {
+    height: 40vh;
+    overflow:auto;
+    margin-top:20px;
 }
