@@ -7,6 +7,7 @@
             $uibModal.open({
                 templateUrl: 'includes/assign-delivery.html',
                 controller: 'AssignDeliveryController',
+                size: 'lg',
                 resolve: {
                     delivery: function () {
                       return delivery;

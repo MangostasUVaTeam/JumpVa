@@ -1,17 +1,56 @@
 <div ng-controller="UserInfoController as userInfoCtrl">
-    <div class="panel panel-success">
 
-        <div class="panel-heading">
-            <div class="row">
-                <div>
-                </div>
+    <div class="row">
+
+        <div class="col-xs-2">
+
+            <div class="thumbnail">
+                <img src="images/default.gif" alt="...">
+
             </div>
-        <h1>{{bid.transportista}}</h1>
+
+            <h4><uib-rating ng-model="userInfoCtrl.user.valoracion"
+              max="5" read-only="true" aria-labelledby="default-rating">
+          </uib-rating></h4>
+
+        </div>
+
+        <div class="col-xs-9">
+
+            <h1>{{ userInfoCtrl.user.username }}</h1>
+            <h3>{{ userInfoCtrl.getRol(userInfoCtrl.user) }}</h3>
+            <h4>{{ userInfoCtrl.user.enviosRealizados}} envíos completados</h4>
+            <h4>Se unió el {{userInfoCtrl.user.fechaRegistro | date}}</h4>
+
+        </div>
+
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-xs-8">
+            <h4>Historial</h4>
+        </div>
+
+        <div class="col-xs-4">
+            <h4>Tipo de producto</h4>
         </div>
     </div>
 
+    <div class="row">
 
-    <h2><uib-rating ng-model="bid.valoracion"
-      max="5" read-only="true" aria-labelledby="default-rating">
-    </uib-rating></h2>
+        <div class="col-xs-8">
+            <div class="thumbnail">
+                <img src="images/line-chart.png" alt="...">
+            </div>
+        </div>
+
+        <div class="col-xs-4">
+            <div class="thumbnail">
+                <img src="images/pie-chart.jpg" alt="...">
+            </div>
+        </div>
+    </div>
+
 </div>
