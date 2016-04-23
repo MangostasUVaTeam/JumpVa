@@ -44,12 +44,12 @@
                        <div class="col-xs-2">
                             <input class="pull-right" type="checkbox" ng-model="delivery.open">
                         </div>  
-                        <div class="col-xs-0">
+                        <div class="col-xs-10">
                             Soy transportista
                         </div>
                     </div>
             </uib-accordion-heading>
-                <input  class="form-control" type="text" placeholder="Número de licencia"/>
+                <input   type="text" placeholder="Número de licencia"/>
                 <h5>Dimensiones máximas de transporte</h5>
                 <div class="row">
                     <div class="col-xs-6">
@@ -62,7 +62,40 @@
                         <number-input ng-model="signinMaxDepth" min="0" step="0.01" start="0"hint="Profundidad" decimalPlaces="2"></number-input>
                     </div>
                     <div class="col-xs-6">
-                        <select></select>
+                        <select ng-model="" class="form-control" title="Tipo">
+                            <option value="">Unidades</option>
+                            <option value="cm">cm</option>
+                            <option value="pulg">pulgadas</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h5>Peso máximo autorizado en el transporte (PMA)</h5>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <number-input ng-model="signinMaxWeight" min="0" step="0.01" start="0" hint="Peso" decimalPlaces="2"></number-input>
+                    </div>                    <div class="col-xs-6">
+                        <select ng-model="" class="form-control" title="Tipo">
+                            <option value="">Unidades</option>
+                            <option value="cm">kg</option>
+                            <option value="pulg">toneladas</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h5>Tipos de mercancía permitidos</h5>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <input class="pull-right" type="checkbox" ng-model="">Paquetes<br>
+                    </div>
+                    <div class="col-xs-6">
+                        <input class="pull-right" type="checkbox" ng-model="">Liquidos<br>
+                    </div>
+                    <div class="col-xs-6">
+                        <input class="pull-right" type="checkbox" ng-model="">Animales<br>
+                    </div>
+                    <div class="col-xs-6">
+                        <input class="pull-right" type="checkbox" ng-model="">Vehículos<br>
                     </div>
                 </div>
         </uib-accordion-group>
