@@ -5,10 +5,10 @@
 
     app.controller("SigninController", function($scope,$location,logedUser){
 
-        var loginCtrl = this;
+        var signinCtrl = this;
 
         this.cancel = function(){
-            $location.path('/login');
+            $location.path('/home');
         };
 
         this.createAccount = function(){

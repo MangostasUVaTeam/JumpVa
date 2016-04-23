@@ -13,8 +13,8 @@
             $location.path('/main');
         };
 
-        this.signin = function(){
-            $location.path('/signin');
+        this.cancel = function(){
+            $location.path('/home');
         };
 
     });
