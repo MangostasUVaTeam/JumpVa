@@ -2,7 +2,7 @@
 
     var app = angular.module('jumpva', ['ngRoute','ui.bootstrap','ngAnimate', 'ngMap','number-input',
     'main', 'toolbar','mainContent', 'login', 'signin','unassigned-delivery',
-    'completed-delivery','search-deliveries', 'user-info' ]);
+    'completed-delivery','search-deliveries', 'inprogress-delivery','millestone-delivery','user-info' ]);
 
     app.config(['$routeProvider',
         function($routeProvider) {
@@ -151,8 +151,8 @@
                 },
                 hitos:[
                         {
-                            mensaje: "Dueñas, Palencia",
-                            tipo: "location",
+                            mensaje: "Envío Completado",
+                            tipo: "success",
                             time: "15:30",
                         }
 
@@ -176,19 +176,21 @@
                             mensaje: "Saliendo de Zaratan, Valladolid.",
                             tipo: "success",
                             time: "",
-
+                            posicion: "pull-left"
                         },
 
                         {
                             mensaje: "De acuerdo, gracias.",
                             tipo: "",
                             time: "15:30",
+                            posicion: "pull-right"
                         },
 
                         {
                           mensaje: "El envío llegara el Martes.",
                           tipo: "success",
                           time: "",
+                          posicion: "pull-left"
                         }
                 ]
             },
