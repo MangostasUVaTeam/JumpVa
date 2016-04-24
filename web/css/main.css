@@ -9,6 +9,18 @@ body {
   width: 102px;
 
 }
+.map-view{
+    height: 25vh;
+}
+
+.panel {
+    overflow-y: initial !important
+}
+
+.envio-encontrado:hover {
+    border-radius: 5px;
+    background-color: #eeeeee;
+}
 
 .panel-title {
     margin-top: 0;
@@ -17,7 +29,11 @@ body {
     color: inherit;
     height: 20px;
   }
-
+.img-rounded {
+    width: 130px;
+    height: 70px;
+    border: 2px solid;
+  }
 .form-signin, .form-login {
   max-width: 400px;
   padding: 15px;
@@ -44,4 +60,10 @@ h3 {
 
 #myNavbar .form-group {
     display: inline;
+}
+
+#table-scroll {
+    height: 40vh;
+    overflow:auto;
+    margin-top:20px;
 }

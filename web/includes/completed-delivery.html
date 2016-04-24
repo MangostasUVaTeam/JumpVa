@@ -20,18 +20,7 @@
 
   </uib-accordion-heading>
 
-  <div>
-      <h4>Origen:</h4>
-      <h5>{{delivery.origen}}</h5>
-  </div>
+    <div class="panel panel-default" ng-include="'includes/delivery-data.html'"></div>
+    <div class="panel panel-default" ng-include="'includes/delivery-milestones.html'"></div>
 
-  <div>
-      <h4>Destino:</h4>
-      <h5>{{delivery.destino}}</h5>
-  </div>
-
-  <div>
-      <h4>Transportista:</h4>
-      <h5>{{delivery.transportista}}</h5>
-  </div>
 </div>

@@ -1,8 +1,8 @@
 (function (){
 
-    var app = angular.module('jumpva', ['ngRoute','ui.bootstrap','ngAnimate', 'number-input',
+    var app = angular.module('jumpva', ['ngRoute','ui.bootstrap','ngAnimate', 'ngMap','number-input',
     'main', 'toolbar','mainContent', 'login', 'signin','unassigned-delivery',
-    'completed-delivery','search-deliveries' ]);
+    'completed-delivery','search-deliveries', 'inprogress-delivery','millestone-delivery' ]);
 
     app.config(['$routeProvider',
         function($routeProvider) {
@@ -32,8 +32,13 @@
     app.value('deliveries', [
             {
                 origen: "Valladolid",
-                destino: "Palencia",
+                destino: "Paredes de nava",
                 transportista: "",
+                pendiente: true,
+                puja: {
+                    precio: 50,
+                    date: Date.now()
+                },
                 pedido:{
                     descripcion: "tomates",
                     peso: 70,
@@ -41,6 +46,27 @@
                     anchura: 20,
                     tipo: "paquete"
                 },
+                hitos:[
+                        {
+                            mensaje: "Creacion del envío",
+                            tipo: "time",
+                            time: Date.now()
+                        }
+                ]
+            },
+            {
+                origen: "Valladolid",
+                destino: "Palencia",
+                transportista: "",
+                pedido:{
+                    descripcion: "tomates",
+                    peso: 70,
+                    altura: 130,
+                    anchura: 20,
+                    tipo: "paquete",
+                    imagen : "images/tomates.jpg"
+                },
+                hitos:[],
                 pujas: [
                     {
                         transportista: "Paco",
@@ -69,12 +95,14 @@
                 destino: "Palencia",
                 transportista: "",
                 pedido:{
-                    descripcion: "tomates",
+                    descripcion: "Tomates",
                     peso: 70,
                     altura: 130,
                     anchura: 20,
-                    tipo: "paquete"
+                    tipo: "Paquete",
+                    imagen : "images/tomates.jpg"
                 },
+                hitos:[],
                 pujas: [
                     {
                         transportista: "Paco",
@@ -114,18 +142,20 @@
                 transportista: "Paco",
                 completado: 100,
                 pedido:{
-                    descripcion: "tomates",
+                    descripcion: "Tomates",
                     peso: 70,
                     altura: 130,
                     anchura: 20,
-                    tipo: "paquete"
+                    tipo: "Paquete",
+                    imagen : "images/tomates.jpg"
                 },
                 hitos:[
                         {
-                            mensaje: "Dueñas, Palencia",
-                            tipo: "location",
-                            time: "",
+                            mensaje: "Envío Completado",
+                            tipo: "success",
+                            time: "15:30",
                         }
+
                 ]
             },
             {
@@ -134,17 +164,33 @@
                 transportista: "Paco",
                 completado: 70,
                 pedido:{
-                    descripcion: "tomates",
+                    descripcion: "Tomates",
                     peso: 70,
                     altura: 130,
                     anchura: 20,
-                    tipo: "paquete"
+                    tipo: "Paquete",
+                    imagen : "images/tomates.jpg"
                 },
                 hitos:[
                         {
-                            mensaje: "Dueñas, Palencia",
-                            tipo: "location",
+                            mensaje: "Saliendo de Zaratan, Valladolid.",
+                            tipo: "success",
                             time: "",
+                            posicion: "pull-left"
+                        },
+
+                        {
+                            mensaje: "De acuerdo, gracias.",
+                            tipo: "",
+                            time: "15:30",
+                            posicion: "pull-right"
+                        },
+
+                        {
+                          mensaje: "El envío llegara el Martes.",
+                          tipo: "success",
+                          time: "",
+                          posicion: "pull-left"
                         }
                 ]
             },

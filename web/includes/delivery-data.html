@@ -1,0 +1,50 @@
+<div class="panel-body">
+    <div class="row">
+        <div  class="col-md-10">
+        <div class="row">
+            <div class="col-md-2">
+              <h4>Origen:</h4>
+            </div>
+            <div class="col-md-2">
+              <h4>{{delivery.origen}}</h4>
+            </div>
+            <div class="col-md-2">
+              <h4>Destino:</h4>
+            </div>
+            <div class="col-md-2">
+              <h4>{{delivery.destino}}</h4>
+            </div>
+            <div class="col-md-2">
+              <h4>Mercancia:</h4>
+            </div>
+            <div class="col-md-2">
+              <h4 >{{delivery.pedido.descripcion}}</h4>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+              <h4>Tipo:</h4>
+            </div>
+            <div class="col-md-2">
+              <h4>{{delivery.pedido.tipo}}</h4>
+            </div>
+            <div class="col-md-2">
+              <h4>Peso:</h4>
+            </div>
+            <div class="col-md-2">
+              <h4>{{delivery.pedido.peso}} Kg</h4>
+            </div>
+            <div class="col-md-2">
+              <h4>Medidas:</h4>
+            </div>
+            <div class="col-md-2">
+              <h4>{{delivery.pedido.anchura}} X {{delivery.pedido.altura}}</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+      <img src={{delivery.pedido.imagen}} class="img-rounded" alt="Tomates">
+    </div>
+</div>
+</div>

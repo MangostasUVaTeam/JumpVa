@@ -13,6 +13,9 @@
                 } else {
                     return 'includes/inprogress-delivery.html';
                 }
+            } else if (delivery.pendiente) {
+                return 'includes/pending-to-assign-delivery.html';
+
             } else {
                 return 'includes/unassigned-delivery.html';
             }
@@ -20,7 +23,7 @@
 
         this.getPanelClass = function(delivery){
             if(delivery.transportista){
-                if(delivery.completado == 100){
+                if ( (delivery.completado == 100) || (delivery.pendiente) ){
                     return 'panel-success';
                 } else {
                     return 'panel-info';
