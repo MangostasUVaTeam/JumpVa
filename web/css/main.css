@@ -1,22 +1,44 @@
 
-
-body {
-    padding-top: 70px;
-    padding-bottom: 40px;
-}
-
 .progress {
   width: 102px;
 
 }
-
-
-
-.form-signin, .form-login {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
+.map-view{
+    height: 25vh;
 }
+
+.panel {
+    overflow-y: initial !important
+}
+
+.content {
+    background-color: #306d9f;
+}
+
+main {
+    padding-top: 70px;
+    padding-bottom: 40px;
+    min-height: 100vh;
+    background-color: #fdfdfd;
+}
+
+.envio-encontrado:hover {
+    border-radius: 5px;
+    background-color: #eeeeee;
+}
+
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+    height: 20px;
+  }
+.img-rounded {
+    width: 130px;
+    height: 70px;
+    border: 2px solid;
+  }
 
 h3 {
     display: inline;
@@ -38,4 +60,10 @@ h3 {
 
 #myNavbar .form-group {
     display: inline;
+}
+
+#table-scroll {
+    height: 40vh;
+    overflow:auto;
+    margin-top:20px;
 }

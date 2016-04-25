@@ -11,25 +11,38 @@
     });
 
 
-    app.controller("NewDeliveryController", function($scope,$uibModal, logedUser){
-        var newDeliveryCtrl =this;
-        newDeliveryCtrl.logedUser = logedUser;
+    app.controller("ButtonsController", function($scope,$uibModal, logedUser){
+        var buttonsCtrl =this;
+        buttonsCtrl.logedUser = logedUser;
 
-        newDeliveryCtrl.searchDeliveries = function(){
+        buttonsCtrl.searchDeliveries = function(){
             $uibModal.open({
                 templateUrl: 'includes/search-deliveries.html',
                 controller: 'SearchDeliveriesController',
                 resolve: {
                     logedUser: function () {
-                        return newDeliveryCtrl.logedUser;
+                        return buttonsCtrl.logedUser;
                     }
                 }
             });
         };
+
+        buttonsCtrl.createDelivery = function(){
+            $uibModal.open({
+                templateUrl: 'includes/create-delivery.html',
+                controller: 'CreateDeliveryController',
+                resolve: {
+                    logedUser: function () {
+                        return buttonsCtrl.logedUser;
+                    }
+                }
+            });
+        };
+
     });
 
 
-    app.controller("UserDataController", function($scope,$location, logedUser){
+    app.controller("UserDataController", function($scope,$location, logedUser, deliveries){
 
         this.username = function(){
             return logedUser.username;
@@ -40,9 +53,11 @@
         }
 
         this.logout = function(){
-            logedUser = {};
+            logedUser.username = "";
+            deliveries.splice(0,deliveries.length);
             console.log("Logout");
-            $location.path('/login');
+            $location.path('/home');
+
         };
 
         this.carrier = function(){
