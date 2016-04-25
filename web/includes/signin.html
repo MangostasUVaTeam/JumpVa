@@ -1,6 +1,6 @@
-<div class="container" ng-controller="SigninController as signinCtrl">
+<div class="modal-body" >
 
-    <form name="signin" class="form-signin">
+    <form name="signin" >
 
         <a class="thumbnail">
           <img src="images/logo.png" alt="JumpVa">
@@ -24,8 +24,8 @@
 
 
         <fieldset class="form-group">
-                <input  class="btn btn-default" type="button" ng-click="signinCtrl.cancel()" value="Cancelar" />
-                <input  class="btn btn-default" type="submit" ng-click="signinCtrl.createAccount()" value="Crear Cuenta"/>
+                <input  class="btn btn-default" type="button" ng-click="cancel()" value="Cancelar" />
+                <input  class="btn btn-default" type="submit" ng-click="createAccount()" value="Crear Cuenta"/>
         </fieldset>
     <form>
 </div>

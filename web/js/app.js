@@ -7,16 +7,9 @@
     app.config(['$routeProvider',
         function($routeProvider) {
             $routeProvider.
-                
+
                 when('/home', {
                     templateUrl: 'includes/home.html',
-                }).
-                when('/login', {
-                    templateUrl: 'includes/login.html',
-                }).
-
-                when('/signin', {
-                    templateUrl: 'includes/signin.html',
                 }).
 
                 when('/main', {

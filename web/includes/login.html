@@ -1,7 +1,7 @@
-<div class="container" ng-controller="LoginController as loginCtrl">
+<div class="modal-body">
 
 
-    <form class="form-login">
+    <form>
 
         <a class="thumbnail">
           <img src="images/logo.png" alt="JumpVa">
@@ -17,9 +17,9 @@
         <fieldset class="form-group">
 
             <!-- Boton para iniciar sesion-->
-            <input  class="btn btn-default" ng-click="loginCtrl.cancel()" type="button" value="Cancelar" />
+            <input  class="btn btn-default" ng-click="cancel()" type="button" value="Cancelar" />
 
-            <input  class="btn btn-default" ng-click="loginCtrl.login()" type="button" value="Iniciar Sesión" />
+            <input  class="btn btn-default" ng-click="login()" type="button" value="Iniciar Sesión" />
 
             <!-- Boton para registrarse-->
         </fieldset>

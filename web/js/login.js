@@ -3,17 +3,19 @@
     var app = angular.module('login', ['jumpva']);
 
 
-    app.controller("LoginController", function($scope,$location,logedUser){
+    app.controller("LoginController", function($scope,$location,$uibModalInstance,logedUser){
 
         var loginCtrl = this;
 
 
-        this.login = function(){
-            console.log("Login");
+        $scope.login = function(){
             $location.path('/main');
+            $uibModalInstance.close('main');
+
         };
 
-        this.cancel = function(){
+        $scope.cancel = function(){
+            $uibModalInstance.close('cancel');
             $location.path('/home');
         };
 

@@ -1,43 +1,14 @@
 <div ng-controller="HomeController as homeCtrl">
 
-
-        <!-- navigation panel -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Your Brand Name</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="navbar-collapse-main">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#information">Information</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-
-    <!-- first section - Home -->
     <div id="home" class="home">
       <div class="text-vcenter">
         <h1>JumpVa</h1>
-        <h3>La mejor opción web para el transporte de mercancias</h3>
-        <a href="#about" class="btn btn-default btn-lg">Continue</a>
+        <h2>La mejor opción web para el transporte de mercancias</h2>
+        <btn class="btn btn-default btn-lg" ng-click="homeCtrl.login()">Login</btn>
+        <btn class="btn btn-default btn-lg" ng-click="homeCtrl.signin()">Signin</btn>
       </div>
     </div>
-    <!-- /first section -->
 
-
-    <!-- second section - About -->
     <div id="about" class="pad-section">
       <div class="container">
         <div class="row">
@@ -52,9 +23,7 @@
         </div>
       </div>
     </div>
-    <!-- /second section -->
 
-    <!-- third section - Services -->
     <div id="services" class="pad-section">
       <div class="container">
         <h2 class="text-center">Nuestros Servicios</h2> <hr />
@@ -82,10 +51,7 @@
         </div>
       </div>
     </div>
-    <!-- /third section -->
 
-
-    <!-- fourth section - Information -->
     <div id="information" class="pad-section">
       <div class="container">
         <div class="row">
@@ -113,13 +79,12 @@
         </div>
       </div>
     </div>
-    <!-- /fourth section -->
 
     <!-- footer -->
     <footer>
       <hr />
       <div class="container">
-        <p class="text-right">Copyright &copy; Your Company 2014</p>
+        <p class="text-right">JumpVa 2016</p>
       </div>
     </footer>
     <!-- /footer -->
