@@ -11,21 +11,34 @@
     });
 
 
-    app.controller("NewDeliveryController", function($scope,$uibModal, logedUser){
-        var newDeliveryCtrl =this;
-        newDeliveryCtrl.logedUser = logedUser;
+    app.controller("ButtonsController", function($scope,$uibModal, logedUser){
+        var buttonsCtrl =this;
+        buttonsCtrl.logedUser = logedUser;
 
-        newDeliveryCtrl.searchDeliveries = function(){
-            $uibModal.open({
+        buttonsCtrl.searchDeliveries = function(){
+            $uibModal.open({                
                 templateUrl: 'includes/search-deliveries.html',
                 controller: 'SearchDeliveriesController',
                 resolve: {
                     logedUser: function () {
-                        return newDeliveryCtrl.logedUser;
+                        return buttonsCtrl.logedUser;
                     }
                 }
             });
         };
+
+        buttonsCtrl.createDelivery = function(){
+            $uibModal.open({
+                templateUrl: 'includes/create-delivery.html',
+                controller: 'CreateDeliveryController',
+                resolve: {
+                    logedUser: function () {
+                        return buttonsCtrl.logedUser;
+                    }
+                }
+            });
+        };
+
     });
 
 
@@ -43,7 +56,7 @@
             logedUser = {};
             console.log("Logout");
             $location.path('/home');
-            
+
         };
 
         this.carrier = function(){

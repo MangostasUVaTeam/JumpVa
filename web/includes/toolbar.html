@@ -12,21 +12,19 @@
 
         <div class="navbar-collapse collapse" id="myNavbar">
 
-            <ul class="nav navbar-nav navbar-right">
+            <ul ng-controller="ButtonsController as buttonsCtrl" class="nav navbar-nav navbar-right">
 
                 <li>
                     <!-- Boton para realizar nuevas busquedas de envios. (solo para transportistas)-->
-                    <a ng-controller="NewDeliveryController as newDeliveryCtrl"
-                        ng-hide="newDeliveryCtrl.logedUser.carrier"
-                        ng-click="newDeliveryCtrl.searchDeliveries()"
+                    <a ng-hide="buttonsCtrl.logedUser.carrier"
+                        ng-click="buttonsCtrl.createDelivery()"
                         role="button">Crear Envío</a>
                 </li>
 
                 <li >
                     <!-- Boton para realizar nuevas busquedas de envios. (solo para transportistas)-->
-                    <a ng-controller="NewDeliveryController as newDeliveryCtrl"
-                        ng-show="newDeliveryCtrl.logedUser.carrier"
-                        ng-click="newDeliveryCtrl.searchDeliveries()"
+                    <a ng-show="buttonsCtrl.logedUser.carrier"
+                        ng-click="buttonsCtrl.searchDeliveries()"
                         role="button">Buscar Envíos</a>
                 </li>
 
@@ -36,7 +34,7 @@
                     aria-expanded="true">{{userDataCtrl.username()}} <span class="caret"></span></a>
 
                     <ul class="dropdown-menu">
-                        <li><a ng-click="userDataCtrl.toggleCarrier()" role="button"> {{userDataCtrl.carrier()}} </a></li>
+                        <li><a > {{userDataCtrl.carrier()}} </a></li>
                         <li><a ng-click="userDataCtrl.logout()" role="button">Cerrar Sesion</a></li>
                     </ul>
                 </li>
