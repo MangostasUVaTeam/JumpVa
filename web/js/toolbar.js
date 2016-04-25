@@ -16,7 +16,7 @@
         buttonsCtrl.logedUser = logedUser;
 
         buttonsCtrl.searchDeliveries = function(){
-            $uibModal.open({                
+            $uibModal.open({
                 templateUrl: 'includes/search-deliveries.html',
                 controller: 'SearchDeliveriesController',
                 resolve: {
@@ -42,7 +42,7 @@
     });
 
 
-    app.controller("UserDataController", function($scope,$location, logedUser){
+    app.controller("UserDataController", function($scope,$location, logedUser, deliveries){
 
         this.username = function(){
             return logedUser.username;
@@ -53,7 +53,8 @@
         }
 
         this.logout = function(){
-            logedUser = {};
+            logedUser.username = "";
+            deliveries.splice(0,deliveries.length);
             console.log("Logout");
             $location.path('/home');
 
