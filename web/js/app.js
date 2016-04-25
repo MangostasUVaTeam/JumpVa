@@ -1,8 +1,10 @@
 (function (){
 
-    var app = angular.module('jumpva', ['ngRoute','ui.bootstrap','ngAnimate', 'ngMap','number-input',
-    'main', 'toolbar','mainContent', 'home','login', 'signin','unassigned-delivery',
-    'completed-delivery','search-deliveries', 'inprogress-delivery','millestone-delivery','user-info' ]);
+    var app = angular.module('jumpva', ['ngRoute','ui.bootstrap','ngAnimate',
+    'ngMap','number-input',
+    'main', 'toolbar','mainContent', 'home','login', 'signin',
+    'unassigned-delivery','completed-delivery','search-deliveries',
+    'inprogress-delivery','millestone-delivery','user-info','create-delivery' ]);
 
     app.config(['$routeProvider',
         function($routeProvider) {
@@ -23,7 +25,7 @@
 
     app.value('logedUser', {
         username: "Paco",
-        carrier: true
+        carrier: false
     });
 
     app.value('deliveries', [
