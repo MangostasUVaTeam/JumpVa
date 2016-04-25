@@ -1,25 +1,22 @@
 (function (){
 
     var app = angular.module('jumpva', ['ngRoute','ui.bootstrap','ngAnimate', 'ngMap','number-input',
-    'main', 'toolbar','mainContent', 'login', 'signin','unassigned-delivery',
+    'main', 'toolbar','mainContent', 'home','login', 'signin','unassigned-delivery',
     'completed-delivery','search-deliveries', 'inprogress-delivery','millestone-delivery','user-info' ]);
 
     app.config(['$routeProvider',
         function($routeProvider) {
             $routeProvider.
-                when('/login', {
-                    templateUrl: 'includes/login.html',
-                }).
 
-                when('/signin', {
-                    templateUrl: 'includes/signin.html',
+                when('/home', {
+                    templateUrl: 'includes/home.html',
                 }).
 
                 when('/main', {
                     templateUrl: 'includes/main.html',
                 }).
                 otherwise({
-                    redirectTo: '/login'
+                    redirectTo: '/home'
                 });
     }]);
 

@@ -42,7 +42,8 @@
         this.logout = function(){
             logedUser = {};
             console.log("Logout");
-            $location.path('/login');
+            $location.path('/home');
+            
         };
 
         this.carrier = function(){

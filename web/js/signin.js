@@ -3,16 +3,17 @@
     var app = angular.module('signin', ['jumpva']);
 
 
-    app.controller("SigninController", function($scope,$location,logedUser){
+    app.controller("SigninController", function($scope,$location,$uibModalInstance,logedUser){
 
-        var loginCtrl = this;
+        var signinCtrl = this;
 
-        this.cancel = function(){
-            $location.path('/login');
+        $scope.cancel = function(){
+            $uibModalInstance.close('cancel');
         };
 
-        this.createAccount = function(){
+        $scope.createAccount = function(){
             $location.path('/main');
+            $uibModalInstance.close('main');
         };
 
 
@@ -115,5 +116,5 @@
     });
 
 
- 
+
 })();
