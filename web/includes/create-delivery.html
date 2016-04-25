@@ -1,3 +1,110 @@
-<div class="modal-body">
-    <h1>Hola</h1>
+<div ng-mouseenter="vermapa = true">
+
+    <div class="modal-body">
+
+        <div class="row form-group">
+            <div class="col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon2">Origen</span>
+                    <input type="text" class="form-control" ng-model="origen" placeholder="Origen">
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon2">Destino</span>
+                    <input type="text" class="form-control" ng-model="destino" placeholder="Destino">
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <ng-map ng-if="vermapa" scrollwheel="false" class="map-view"  center="{{origen}}" zoom="10">
+              <directions
+                draggable="false"
+                travel-mode="DRIVING"
+                origin="{{origen}}"
+                destination="{{destino}}">
+              </directions>
+            </ng-map>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon2">Recogida</span>
+
+                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon2">Llegada</span>
+                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <h5>Dimensiones </h5>
+        <div class="row">
+            <div class="col-xs-6">
+                <number-input ng-model="signinMaxHeight" min="0" step="0.01" start="0" hint="Altura" decimalPlaces="2"></number-input>
+            </div>
+            <div class="col-xs-6">
+                <number-input ng-model="signinMaxWidth" min="0" step="0.01" start="0" hint="Anchura" decimalPlaces="2"></number-input>
+            </div>
+            <div class="col-xs-6">
+                <number-input ng-model="signinMaxDepth" min="0" step="0.01" start="0"hint="Profundidad" decimalPlaces="2"></number-input>
+            </div>
+            <div class="col-xs-6">
+                <select class="form-control" title="Tipo">
+                    <option value="">Unidades</option>
+                    <option value="m">m</option>
+                    <option value="pulg">pulgadas</option>
+                </select>
+            </div>
+        </div>
+
+        <h5>Peso</h5>
+        <div class="row">
+            <div class="col-xs-6">
+                <number-input ng-model="signinMaxWeight" min="0" step="0.01" start="0" hint="Peso" decimalPlaces="2"></number-input>
+            </div>                    <div class="col-xs-6">
+                <select  class="form-control" title="Tipo">
+                    <option value="">Unidades</option>
+                    <option value="kg">kg</option>
+                    <option value="t">toneladas</option>
+                </select>
+            </div>
+        </div>
+
+        <h5>Tipos de mercancía</h5>
+        <div class="row">
+            <div class="col-xs-6">
+                <input class="pull-right" name="tipoEnvio" type="radio" >Paquetes<br>
+            </div>
+            <div class="col-xs-6">
+                <input class="pull-right" name="tipoEnvio" type="radio" >Liquidos<br>
+            </div>
+            <div class="col-xs-6">
+                <input class="pull-right" name="tipoEnvio" type="radio" >Animales<br>
+            </div>
+            <div class="col-xs-6">
+                <input class="pull-right" name="tipoEnvio" type="radio" >Vehículos<br>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-success" type="button" ng-click="createDelivery()">Crear Envío</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+    </div>
+
 </div>
