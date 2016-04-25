@@ -16,7 +16,6 @@
 
         $scope.cancel = function(){
             $uibModalInstance.close('cancel');
-            $location.path('/home');
         };
 
     });

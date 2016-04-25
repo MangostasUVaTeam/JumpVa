@@ -1,15 +1,11 @@
-<div class="modal-body">
-
-    <h1>{{bid.transportista}}</h1>
-    <h1>{{bid.precio |currency}}</h1>
-
-    <h2><uib-rating ng-model="bid.valoracion"
-      max="5" read-only="true" aria-labelledby="default-rating">
-    </uib-rating></h2>
-
+<div class="modal-body" ng-include="'includes/user-info.html'">
 </div>
 
 <div class="modal-footer">
-    <button class="btn btn-success" type="button" ng-click="asignar(delivery, bid)">Asignar</button>
+
+    <button class="btn btn-success" type="button" ng-click="asignar(delivery, bid)">
+        Asignar puja  por {{bid.precio | currency}}
+    </button>
     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+
 </div>

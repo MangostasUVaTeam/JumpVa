@@ -8,24 +8,104 @@
 
         <h1 class="form-signin-heading">Crear Cuenta</h1>
 
-        <fieldset class="form-group">
-            <input  class="form-control" type="text" placeholder="Nombre"/>
-            <input  class="form-control" type="text" placeholder="Apellidos"/>
-        </fieldset>
+        <div class="row">
+            <div class="col-xs-6">
+                <h5>Datos personales</h5>
+                <fieldset class="form-group">
+                    <input  class="form-control" type="text" placeholder="Nombre"/>
+                    <input  class="form-control" type="text" placeholder="Apellidos"/>
+                    <p class="input-group">
+                      <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                <input  class="form-control" type="location" placeholder="Dirección"/>
+                </fieldset>
+            </div>
+
+            <div class="col-xs-6">
+                <h5>Información de la cuenta</h5>
+                <fieldset class="form-group">
+                    <input  class="form-control" type="email" placeholder="E-mail"/>
+                    <input  class="form-control" type="email" placeholder="Confirmar e-mail"/>
+                    <input  class="form-control" type="password" placeholder="Contraseña"/>
+                    <input  class="form-control" type="password" placeholder="Confirmar contraseña"/>
+                </fieldset>
+            </div>
+        </div>
 
 
 
-        <fieldset class="form-group">
-            <input  class="form-control" type="email" placeholder="Email"/>
-        </fieldset>
-        <fieldset class="form-group">
-            <input  class="form-control" type="password" placeholder="Contraseña"/>
-        </fieldset>
+    <uib-accordion close-others="oneAtATime">
+        <uib-accordion-group is-open="delivery.open">
+            <uib-accordion-heading>
+                    <div class="row">
+                       <div class="col-xs-2">
+                            <input class="pull-right" type="checkbox" ng-model="delivery.open">
+                        </div>
+                        <div class="col-xs-10">
+                            Soy transportista
+                        </div>
+                    </div>
+            </uib-accordion-heading>
 
+            <input   type="text" placeholder="Número de licencia"/>
+            <h5>Dimensiones máximas de transporte</h5>
+            <div class="row">
+                <div class="col-xs-6">
+                    <number-input ng-model="signinMaxHeight" min="0" step="0.01" start="0" hint="Altura" decimalPlaces="2"></number-input>
+                </div>
+                <div class="col-xs-6">
+                    <number-input ng-model="signinMaxWidth" min="0" step="0.01" start="0" hint="Anchura" decimalPlaces="2"></number-input>
+                </div>
+                <div class="col-xs-6">
+                    <number-input ng-model="signinMaxDepth" min="0" step="0.01" start="0"hint="Profundidad" decimalPlaces="2"></number-input>
+                </div>
+                <div class="col-xs-6">
+                    <select class="form-control" title="Tipo">
+                        <option value="">Unidades</option>
+                        <option value="cm">cm</option>
+                        <option value="pulg">pulgadas</option>
+                    </select>
+                </div>
+            </div>
+
+            <h5>Peso máximo autorizado en el transporte (PMA)</h5>
+            <div class="row">
+                <div class="col-xs-6">
+                    <number-input ng-model="signinMaxWeight" min="0" step="0.01" start="0" hint="Peso" decimalPlaces="2"></number-input>
+                </div>                    <div class="col-xs-6">
+                    <select  class="form-control" title="Tipo">
+                        <option value="">Unidades</option>
+                        <option value="cm">kg</option>
+                        <option value="pulg">toneladas</option>
+                    </select>
+                </div>
+            </div>
+
+            <h5>Tipos de mercancía permitidos</h5>
+            <div class="row">
+                <div class="col-xs-6">
+                    <input class="pull-right" type="checkbox" >Paquetes<br>
+                </div>
+                <div class="col-xs-6">
+                    <input class="pull-right" type="checkbox" >Liquidos<br>
+                </div>
+                <div class="col-xs-6">
+                    <input class="pull-right" type="checkbox" >Animales<br>
+                </div>
+                <div class="col-xs-6">
+                    <input class="pull-right" type="checkbox" >Vehículos<br>
+                </div>
+            </div>
+
+        </uib-accordion-group>
+    </uib-accordion>
 
         <fieldset class="form-group">
                 <input  class="btn btn-default" type="button" ng-click="cancel()" value="Cancelar" />
                 <input  class="btn btn-default" type="submit" ng-click="createAccount()" value="Crear Cuenta"/>
         </fieldset>
-    <form>
+    </form>
 </div>
