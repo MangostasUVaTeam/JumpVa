@@ -1,10 +1,4 @@
 
-
-main {
-    padding-top: 70px;
-    padding-bottom: 40px;
-}
-
 .progress {
   width: 102px;
 
@@ -15,6 +9,17 @@ main {
 
 .panel {
     overflow-y: initial !important
+}
+
+.content {
+    background-color: #306d9f;
+}
+
+main {
+    padding-top: 70px;
+    padding-bottom: 40px;
+    min-height: 100vh;
+    background-color: #fdfdfd;
 }
 
 .envio-encontrado:hover {
