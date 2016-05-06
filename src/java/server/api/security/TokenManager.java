@@ -29,7 +29,6 @@ public class TokenManager {
     
     public static String issueToken(String username){
         return Jwts.builder().setSubject(username)
-                .setExpiration(new Date(System.currentTimeMillis() + 60000l))
                 .signWith(SignatureAlgorithm.HS256, KEY).compact();
     }
 }

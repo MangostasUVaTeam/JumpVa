@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Priority;
+import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.Priorities;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
@@ -41,14 +42,18 @@ public class AuthorizationFilter implements ContainerRequestFilter {
         // Extract the roles declared by it
         Method resourceMethod = resourceInfo.getResourceMethod();
         List<Role> methodRoles = extractRoles(resourceMethod);
+        
+        
+        // TODO Obtener los roles del usuario
+        List<Role> userRoles = Arrays.asList(Role.CLIENTE, Role.TRANSPORTISTA);
         try {
 
             // Check if the user is allowed to execute the method
             // The method annotations override the class annotations
             if (methodRoles.isEmpty()) {
-                checkPermissions(classRoles);
+                checkPermissions(classRoles, userRoles);
             } else {
-                checkPermissions(methodRoles);
+                checkPermissions(methodRoles, userRoles);
             }
 
         } catch (Exception e) {
@@ -60,11 +65,11 @@ public class AuthorizationFilter implements ContainerRequestFilter {
     // Extract the roles from the annotated element
     private List<Role> extractRoles(AnnotatedElement annotatedElement) {
         if (annotatedElement == null) {
-            return new ArrayList<Role>();
+            return new ArrayList<>();
         } else {
             Secured secured = annotatedElement.getAnnotation(Secured.class);
             if (secured == null) {
-                return new ArrayList<Role>();
+                return new ArrayList<>();
             } else {
                 Role[] allowedRoles = secured.value();
                 return Arrays.asList(allowedRoles);
@@ -72,8 +77,12 @@ public class AuthorizationFilter implements ContainerRequestFilter {
         }
     }
 
-    private void checkPermissions(List<Role> allowedRoles) throws Exception {
-        // Check if the user contains one of the allowed roles
-        // Throw an Exception if the user has not permission to execute the method
+    private void checkPermissions(List<Role> allowedRoles,
+            List<Role> userRoles) throws Exception {
+        if (!userRoles.containsAll(allowedRoles)){
+            throw new NotAuthorizedException(
+                    "User roles not allowed"
+            );
+        }
     }
 }
