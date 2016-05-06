@@ -24,6 +24,8 @@ public class APIConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(server.api.AuthenticationEndpoint.class);
+        resources.add(server.api.AuthenticationFilter.class);
         resources.add(server.api.HelloWorld.class);
     }
     
