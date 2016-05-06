@@ -1,11 +1,13 @@
-package server.api;
+package server.api.request;
 
+import server.api.security.Secured;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.core.UriInfo;
+import server.user.Role;
  
 /**
  * Root resource (exposed at "helloworld" path)
@@ -25,7 +27,7 @@ public class HelloWorld {
      * @return an instance of java.lang.String
      */
     @GET
-    @Secured
+    @Secured({Role.CLIENTE, Role.TRANSPORTISTA})
     @Produces("text/html")
     public String getHtml(@Context SecurityContext securityContext) {
         

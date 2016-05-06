@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package server.api;
+package server.api.security;
 
+import server.user.Credentials;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 
@@ -12,6 +13,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import server.api.security.TokenManager;
 
 @Path("authentication")
 @Consumes("application/x-www-form-urlencoded")
