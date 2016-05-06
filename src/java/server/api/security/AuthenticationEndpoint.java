@@ -5,7 +5,7 @@
  */
 package server.api.security;
 
-import server.user.Credentials;
+import server.model.user.Credentials;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 

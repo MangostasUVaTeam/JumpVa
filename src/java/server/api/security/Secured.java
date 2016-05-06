@@ -11,7 +11,7 @@ import java.lang.annotation.Retention;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.Target;
 import javax.ws.rs.NameBinding;
-import server.user.Role;
+import server.model.user.Role;
 
 @NameBinding
 @Retention(RUNTIME)

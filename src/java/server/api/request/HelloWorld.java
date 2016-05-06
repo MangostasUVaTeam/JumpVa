@@ -7,7 +7,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.core.UriInfo;
-import server.user.Role;
+import server.model.user.Role;
  
 /**
  * Root resource (exposed at "helloworld" path)
