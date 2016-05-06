@@ -9,6 +9,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.crypto.MacProvider;
 import java.security.Key;
+import java.util.Date;
 
 /**
  *
@@ -17,17 +18,18 @@ import java.security.Key;
 public class TokenManager {
     
     
-    private static Key key = MacProvider.generateKey();
+    private static Key KEY = MacProvider.generateKey();
 
     
-    public static  String validateToken(String token) throws Exception{
-        return Jwts.parser().setSigningKey(key)
+    public static String validateToken(String token) throws Exception{
+        return Jwts.parser().setSigningKey(KEY)
                 .parseClaimsJws(token).getBody().getSubject();
     }
     
     
     public static String issueToken(String username){
         return Jwts.builder().setSubject(username)
-                .signWith(SignatureAlgorithm.HS256, key).compact();
+                .setExpiration(new Date(System.currentTimeMillis() + 60000l))
+                .signWith(SignatureAlgorithm.HS256, KEY).compact();
     }
 }
