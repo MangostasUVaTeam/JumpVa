@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package server.api;
+package server.model.user;
 
 import java.io.Serializable;
 
@@ -17,11 +17,11 @@ public class Credentials implements Serializable {
     }
 
 
-    private void setUsername(String username){
+    public void setUsername(String username){
         this.username = username;
     }
     
-    private void setPassword(String password){
+    public void setPassword(String password){
         this.password = password;
     }
     public String getPassword() {

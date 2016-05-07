@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package server.api;
+package server.api.security;
 
+import server.model.user.Credentials;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 
@@ -14,7 +15,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("authentication")
-@Consumes("application/x-www-form-urlencoded")
 public class AuthenticationEndpoint {
 
     @POST
@@ -27,10 +27,10 @@ public class AuthenticationEndpoint {
             authenticate(credentials);
 
             // Issue a token for the user
-            String token = TokenManager.issueToken(credentials.getUsername());
-
+            Token token = new Token(TokenManager.issueToken(credentials.getUsername()));
+            
             // Return the token on the response
-            return Response.ok(token).build();
+            return Response.ok(token).status(Response.Status.ACCEPTED).build();
 
         } catch (Exception e) {
             return Response.status(Response.Status.UNAUTHORIZED).build();
