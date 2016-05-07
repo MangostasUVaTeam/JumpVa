@@ -13,10 +13,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import server.api.security.TokenManager;
 
 @Path("authentication")
-@Consumes("application/x-www-form-urlencoded")
 public class AuthenticationEndpoint {
 
     @POST
@@ -29,8 +27,8 @@ public class AuthenticationEndpoint {
             authenticate(credentials);
 
             // Issue a token for the user
-            String token = TokenManager.issueToken(credentials.getUsername());
-
+            Token token = new Token(TokenManager.issueToken(credentials.getUsername()));
+            
             // Return the token on the response
             return Response.ok(token).build();
 
