@@ -4,7 +4,7 @@
 
     app.constant('rootPath', 'api/');
 
-    app.service('loginRequest', function($http) {
+    app.service('apiRequest', function($http) {
         delete $http.defaults.headers.common['X-Requested-With'];
         this.getData = function(callbackFunc) {
             $http({
