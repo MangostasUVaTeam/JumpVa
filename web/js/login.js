@@ -11,13 +11,23 @@
         $scope.login = function(loginRequest){
             $location.path('/main');
             $uibModalInstance.close('main');
-            //apiRequest.getData();
+
+            /*
+            apiRequest.getData(function(dataResponse) {
+                console.log(dataResponse);
+            });
+
+            var user = {
+                "username": "garciparedes",
+                "password": "123456"
+            }; 
+            
+            apiRequest.setData(user, function(dataResponse) {
+                console.log(dataResponse);
+            });
+            */
         };
         
-        apiRequest.getData(function(dataResponse) {
-            console.log(dataResponse);
-        });
-
         $scope.cancel = function(){
             $uibModalInstance.close('cancel');
         };

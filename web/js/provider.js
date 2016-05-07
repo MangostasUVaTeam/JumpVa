@@ -6,6 +6,9 @@
 
     app.service('apiRequest', function($http) {
         delete $http.defaults.headers.common['X-Requested-With'];
+        
+        delete $http.defaults.headers.common['X-Requested-With'];
+
         this.getData = function(callbackFunc) {
             $http({
                 method: 'GET',
@@ -17,6 +20,21 @@
             }).error(function(){
                 alert("error");
             });
-        }
+        };
+
+        this.setData = function(user, callbackFunc) {
+            
+
+            $http({
+                method: 'POST',
+                url: 'api/authentication',
+                data: user
+             }).success(function(data){
+                // With the data succesfully returned, call our callback
+                callbackFunc(data);
+            }).error(function(){
+                alert("error");
+            });
+        };
     });
 })();
