@@ -37,8 +37,6 @@ public class SignInEndPoint {
 
             
             Token token = new Token(TokenManager.issueToken(newUser.getUsername()));
-            System.out.println(newUser.getRole());
-
             return Response.ok(token).status(Response.Status.CREATED).build();
 
         } catch (Exception e) {

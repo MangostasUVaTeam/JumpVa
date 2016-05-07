@@ -6,6 +6,7 @@
 package server.model.user;
 
 import java.io.Serializable;
+import javax.ws.rs.QueryParam;
 
 /**
  *
@@ -14,6 +15,8 @@ import java.io.Serializable;
 public class User implements Serializable{
     
     private Credentials credentials;
+    
+    @QueryParam(value = "role")
     private Role role;
     
     public User(){   
@@ -33,6 +36,10 @@ public class User implements Serializable{
             this.credentials = new Credentials();
         }
         getCredentials().setUsername(username);
+    }
+    
+    public void setRole(Role role){
+        this.role = role;
     }
     
     private Credentials getCredentials() {

@@ -11,5 +11,14 @@ package server.model.user;
  */
 public enum Role {
     CLIENTE,
-    TRANSPORTISTA
+    TRANSPORTISTA;
+    
+    public Role fromString(String param) {
+        String toUpper = param.toUpperCase();
+        try {
+            return valueOf(toUpper);
+        } catch (Exception e) {
+            return null;
+        }
+    }
 }
