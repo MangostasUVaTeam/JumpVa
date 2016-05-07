@@ -25,6 +25,7 @@ public class APIConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(server.api.request.HelloWorld.class);
+        resources.add(server.api.request.SignInEndPoint.class);
         resources.add(server.api.security.AuthenticationEndpoint.class);
         resources.add(server.api.security.AuthenticationFilter.class);
         resources.add(server.api.security.AuthorizationFilter.class);

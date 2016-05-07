@@ -30,7 +30,7 @@ public class AuthenticationEndpoint {
             Token token = new Token(TokenManager.issueToken(credentials.getUsername()));
             
             // Return the token on the response
-            return Response.ok(token).build();
+            return Response.ok(token).status(Response.Status.ACCEPTED).build();
 
         } catch (Exception e) {
             return Response.status(Response.Status.UNAUTHORIZED).build();

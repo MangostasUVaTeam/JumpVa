@@ -17,11 +17,11 @@ public class Credentials implements Serializable {
     }
 
 
-    private void setUsername(String username){
+    public void setUsername(String username){
         this.username = username;
     }
     
-    private void setPassword(String password){
+    public void setPassword(String password){
         this.password = password;
     }
     public String getPassword() {
