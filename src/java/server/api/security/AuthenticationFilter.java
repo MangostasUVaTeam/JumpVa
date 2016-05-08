@@ -5,6 +5,7 @@
  */
 package server.api.security;
 
+import server.api.token.TokenManager;
 import java.io.IOException;
 import java.security.Principal;
 import javax.annotation.Priority;

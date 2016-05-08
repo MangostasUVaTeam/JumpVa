@@ -12,7 +12,7 @@ import javax.ws.rs.QueryParam;
  *
  * @author garciparedes
  */
-public class User implements Serializable{
+public class User implements Serializable {
     
     private Credentials credentials;
     
@@ -20,6 +20,11 @@ public class User implements Serializable{
     private Role role;
     
     public User(){   
+    }
+    
+    public User(Credentials credentials, Role role){
+        this.credentials = credentials;
+        this.role = role;
     }
     
     

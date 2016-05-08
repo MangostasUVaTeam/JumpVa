@@ -1,4 +1,4 @@
-package server.api.request;
+package server.api;
 
 import server.api.security.Secured;
 import javax.ws.rs.GET;
