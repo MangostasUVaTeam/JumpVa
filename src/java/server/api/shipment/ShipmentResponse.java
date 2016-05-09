@@ -5,6 +5,7 @@
  */
 package server.api.shipment;
 
+import java.io.Serializable;
 import java.util.List;
 import server.model.shipment.Shipment;
 
@@ -12,7 +13,7 @@ import server.model.shipment.Shipment;
  *
  * @author garciparedes
  */
-public class ShipmentResponse {
+public class ShipmentResponse implements Serializable{
     
     private List<Shipment> shipmentList;
 
