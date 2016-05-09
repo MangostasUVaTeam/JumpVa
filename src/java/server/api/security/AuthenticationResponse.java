@@ -19,7 +19,7 @@ import server.model.user.User;
 public class AuthenticationResponse implements Serializable{
     
     private String token;
-    private String name;
+    private String nombre;
     private Role role;
     
     
@@ -29,24 +29,24 @@ public class AuthenticationResponse implements Serializable{
     
     public AuthenticationResponse(Token token, User user){
         this.token = token.getToken();
-        this.name = user.getUsername();
+        this.nombre = user.getUsername();
         this.role = user.getRole();
     }
 
     
     public AuthenticationResponse(String token, String name, Role role) {
         this.token = token;
-        this.name = name;
+        this.nombre = name;
         this.role = role;
     }
     
     
-    public String getName() {
-        return name;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public Role getRole() {
