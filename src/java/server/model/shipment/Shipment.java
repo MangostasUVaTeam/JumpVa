@@ -23,7 +23,7 @@ public class Shipment implements Serializable{
     private ShipmentType type;
     private String description;
     
-    private float weight;
+    private double weight;
 
     
     private Dimens dimens;
@@ -44,6 +44,25 @@ public class Shipment implements Serializable{
     public Shipment() {
     }
 
+
+    public Shipment(int id, ShipmentType type, String description,double weight,
+            Dimens dimens, String origin, String destination, Date pickUpDate,
+            Date arrivalDate, List<Milestone> milestoneList, Bid assignedBid,
+            List<Bid> bidList) {
+        
+        this.id = id;
+        this.type = type;
+        this.description = description;
+        this.weight = weight;
+        this.dimens = dimens;
+        this.origin = origin;
+        this.destination = destination;
+        this.pickUpDate = pickUpDate;
+        this.arrivalDate = arrivalDate;
+        this.milestoneList = milestoneList;
+        this.assignedBid = assignedBid;
+        this.bidList = bidList;
+    }
     
     
     public int getId() {
@@ -70,11 +89,11 @@ public class Shipment implements Serializable{
         this.description = description;
     }
 
-    public float getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(float weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 

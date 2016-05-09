@@ -14,13 +14,13 @@ import java.io.Serializable;
 public class Bid implements Serializable {
     
     private String carrier;
-    private float offer;
+    private double offer;
     
     public Bid (){
         
     } 
     
-    public Bid (String carrier, float offer){
+    public Bid (String carrier, double offer){
         this.carrier = carrier;
         this.offer = offer; 
     }
@@ -33,11 +33,11 @@ public class Bid implements Serializable {
         this.carrier = carrier;
     }
 
-    public float getOffer() {
+    public double getOffer() {
         return offer;
     }
 
-    public void setOffer(float offer) {
+    public void setOffer(double offer) {
         this.offer = offer;
     }
 }
