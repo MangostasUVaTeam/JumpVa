@@ -3,6 +3,7 @@ package server.api.security;
 
 import java.io.Serializable;
 import server.api.token.Token;
+import server.model.user.Role;
 import server.model.user.User;
 
 /*
@@ -17,8 +18,9 @@ import server.model.user.User;
  */
 public class AuthenticationResponse implements Serializable{
     
-    private Token token;
-    private User user;
+    private String token;
+    private String name;
+    private Role role;
     
     
     public AuthenticationResponse() {
@@ -26,24 +28,43 @@ public class AuthenticationResponse implements Serializable{
     
     
     public AuthenticationResponse(Token token, User user){
+        this.token = token.getToken();
+        this.name = user.getUsername();
+        this.role = user.getRole();
+    }
+
+    
+    public AuthenticationResponse(String token, String name, Role role) {
         this.token = token;
-        this.user = user;
+        this.name = name;
+        this.role = role;
     }
     
-    public void setToken(Token token){
+    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+
+    
+    public void setToken(String token){
         this.token = token;
     }
     
-    public void setUser(User user){
-        this.user = user;
-    }
-    
-    public Token getToken(){
+    public String getToken() {
         return token;
-    }
-    
-    public User getUser(){
-        return user;
     }
     
     
