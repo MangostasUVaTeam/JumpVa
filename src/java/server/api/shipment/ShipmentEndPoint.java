@@ -24,6 +24,7 @@ import server.model.shipment.bid.Bid;
 import server.model.shipment.milestone.Milestone;
 import server.model.shipment.milestone.MilestoneType;
 import server.model.util.Dimens;
+import server.model.util.DimensType;
 
 /**
  *
@@ -49,7 +50,7 @@ public class ShipmentEndPoint {
     public ShipmentResponse getShipmentList(String username){
         System.out.println(username);
         Shipment shipment = new Shipment(23, ShipmentType.ANIMAL, 
-                    "transporte de pollos", 44.4, new Dimens(4243,324,432),
+                    "transporte de pollos", 44.4, new Dimens(4243,324,432, DimensType.METER),
                     "Madrid", "Sevilla", new Date(), new Date(),
                     Arrays.asList(
                         new Milestone(new Date(), MilestoneType.COMMENT, "Coño, un hito"),
@@ -59,7 +60,7 @@ public class ShipmentEndPoint {
             );
             
             Shipment shipment2 = new Shipment(23, ShipmentType.ANIMAL, 
-                    "transporte de pollos", 44.4, new Dimens(4243,324,432),
+                    "transporte de pollos", 44.4, new Dimens(4243,324,432, DimensType.METER),
                     "Madrid", "Sevilla", new Date(), new Date(),
                     Arrays.asList(
                         new Milestone(new Date(), MilestoneType.COMMENT, "Coño, un hito"),

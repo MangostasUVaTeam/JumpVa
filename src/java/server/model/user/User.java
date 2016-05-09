@@ -46,6 +46,11 @@ public class User implements Serializable {
         this.shipmentTypeList = shipmentTypeList;
         this.role = role;
     }
+
+    public User(Credentials credentials, Role role) {
+        this.credentials = credentials;
+        this.role = role;
+    }
     
     public void setPassword(String password){
         if (getCredentials() == null){
