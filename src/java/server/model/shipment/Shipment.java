@@ -11,6 +11,7 @@ import server.model.shipment.milestone.Milestone;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import server.model.util.Rate;
 
 /**
  *
@@ -38,6 +39,8 @@ public class Shipment implements Serializable{
     
     private Bid assignedBid;
     private List<Bid> bidList;
+    
+    private Rate rate;
     
     
     
@@ -160,4 +163,13 @@ public class Shipment implements Serializable{
     public void setBidList(List<Bid> bidList) {
         this.bidList = bidList;
     }
+
+    public Rate getRate() {
+        return rate;
+    }
+
+    public void setRate(Rate rate) {
+        this.rate = rate;
+    }
+    
 }
