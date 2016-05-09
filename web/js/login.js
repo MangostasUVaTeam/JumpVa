@@ -7,27 +7,23 @@
 
         var loginCtrl = this;
 
+        $scope.credentials = null;
 
         $scope.login = function(loginRequest){
             $location.path('/main');
             $uibModalInstance.close('main');
-
-            /*
-            apiRequest.getData(function(dataResponse) {
-                console.log(dataResponse);
-            });
-
-            var user = {
-                "username": "garciparedes",
-                "password": "123456"
-            }; 
-            
-            apiRequest.setData(user, function(dataResponse) {
-                console.log(dataResponse);
-            });
-            */
-        };
         
+
+            console.log($scope.credentials);
+            apiRequest.authenticate($scope.credentials,
+                function(dataResponse) {
+                    logedUser = dataResponse;
+                    console.log(logedUser);
+                }
+            );
+
+        };
+
         $scope.cancel = function(){
             $uibModalInstance.close('cancel');
         };

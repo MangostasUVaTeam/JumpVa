@@ -16,14 +16,14 @@
 
                 <li>
                     <!-- Boton para realizar nuevas busquedas de envios. (solo para transportistas)-->
-                    <a ng-hide="buttonsCtrl.logedUser.carrier"
+                    <a ng-hide="buttonsCtrl.isCarrier()"
                         ng-click="buttonsCtrl.createDelivery()"
                         role="button">Crear Envío</a>
                 </li>
 
                 <li >
                     <!-- Boton para realizar nuevas busquedas de envios. (solo para transportistas)-->
-                    <a ng-show="buttonsCtrl.logedUser.carrier"
+                    <a ng-show="buttonsCtrl.isCarrier()"
                         ng-click="buttonsCtrl.searchDeliveries()"
                         role="button">Buscar Envíos</a>
                 </li>
