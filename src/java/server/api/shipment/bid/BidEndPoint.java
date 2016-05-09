@@ -14,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import server.api.security.Secured;
+import server.model.user.Role;
 
 /**
  *
@@ -24,7 +25,7 @@ public class BidEndPoint {
     
     
     @POST
-    @Secured()
+    @Secured({Role.TRANSPORTISTA})
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response postBid(@Context SecurityContext securityContext,
