@@ -29,6 +29,7 @@ public class APIConfig extends Application {
         resources.add(server.api.security.AuthenticationFilter.class);
         resources.add(server.api.security.AuthorizationFilter.class);
         resources.add(server.api.shipment.ShipmentEndPoint.class);
+        resources.add(server.api.shipment.search.unassigned.ShipmentSearchUnassignedEndPoint.class);
         resources.add(server.api.signIn.SignInEndPoint.class);
     }
     

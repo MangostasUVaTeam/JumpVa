@@ -35,14 +35,10 @@ public class ShipmentEndPoint {
     @GET
     @Secured()
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response signInUser(@Context SecurityContext securityContext) {
+    public Response getAllShipmentList(@Context SecurityContext securityContext) {
         try {
-            
-            
-            
-        return Response.ok(getShipmenList(securityContext.getUserPrincipal().getName()))
-            .status(Response.Status.OK).build();
+            return Response.ok(getShipmentList(securityContext.getUserPrincipal().getName()))
+                .status(Response.Status.OK).build();
 
         } catch (Exception e) {
             return Response.status(Response.Status.BAD_REQUEST).build();
@@ -50,7 +46,7 @@ public class ShipmentEndPoint {
     }
     
     
-    public ShipmentResponse getShipmenList(String username){
+    public ShipmentResponse getShipmentList(String username){
         System.out.println(username);
         Shipment shipment = new Shipment(23, ShipmentType.ANIMAL, 
                     "transporte de pollos", 44.4, new Dimens(4243,324,432),
