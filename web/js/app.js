@@ -23,10 +23,7 @@
     }]);
 
 
-    app.value('logedUser', {
-        username: "Paco",
-        carrier: true
-    });
+    app.value('logedUser', {});
 
     app.value('deliveries', []);
 

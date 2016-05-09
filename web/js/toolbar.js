@@ -14,7 +14,7 @@
     app.controller("ButtonsController", function($scope,$uibModal, logedUser){
         var buttonsCtrl =this;
         buttonsCtrl.isCarrier = function(){
-            if (logedUser.role = "TRANSPORTISTA"){
+            if (logedUser.role === "TRANSPORTISTA"){
                 return true;
             } else {
                 return false;
@@ -50,14 +50,11 @@
 
     app.controller("UserDataController", function($scope,$location, logedUser, deliveries){
 
+
         this.username = function(){
-            console.log(logedUser.nombre);
+            console.log(logedUser);
             return logedUser.nombre;
         };
-
-        this.toggleCarrier = function(){
-            logedUser.carrier = !logedUser.carrier;
-        }
 
         this.logout = function(){
             logedUser.username = "";

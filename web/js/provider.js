@@ -4,7 +4,7 @@
 
     app.constant('rootPath', 'http://localhost:8080/JumpVa/');
 
-    app.service('apiRequest', function($http, rootPath) {
+    app.service('apiRequest', function($http, rootPath, logedUser) {
         delete $http.defaults.headers.common['X-Requested-With'];
 
         delete $http.defaults.headers.common['X-Requested-With'];
@@ -35,17 +35,20 @@
             });
         };
 
-        this.authenticate = function(credentials, callbackFunc, errorFunc) {
+        this.authenticate = function(credentials, callbackFunc) {
+            var datos = null;
             $http({
                 method: 'POST',
                 url: rootPath + 'api/authentication',
                 data: credentials
-             }).success(function(data){
+            }).success(function(data){
                 // With the data succesfully returned, call our callback
                 callbackFunc(data);
             }).error(function(){
                 alert("error");
             });
+            console.log(logedUser);
+
         };
     });
 })();
