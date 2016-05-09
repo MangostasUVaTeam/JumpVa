@@ -13,14 +13,16 @@ import java.io.Serializable;
  */
 public class Dimens implements Serializable {
 
-    public Dimens(double height, double width, double depth) {
+    public Dimens(double height, double width, double depth, DimensType type) {
         this.height = height;
         this.width = width;
         this.depth = depth;
+        this.type = type;
     }
 
     public Dimens() {
     }
+    private DimensType type;
     private double height;
     private double width;
     private double depth;
