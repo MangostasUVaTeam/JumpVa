@@ -31,6 +31,7 @@ public class APIConfig extends Application {
         resources.add(server.api.shipment.ShipmentEndPoint.class);
         resources.add(server.api.shipment.assign.ShipmentAssignEndPoint.class);
         resources.add(server.api.shipment.bid.BidEndPoint.class);
+        resources.add(server.api.shipment.create.ShipmentCreateEndPoint.class);
         resources.add(server.api.shipment.milestone.MilestoneEndPoint.class);
         resources.add(server.api.shipment.search.unassigned.ShipmentSearchUnassignedEndPoint.class);
         resources.add(server.api.signIn.SignInEndPoint.class);

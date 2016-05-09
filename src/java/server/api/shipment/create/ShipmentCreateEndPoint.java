@@ -5,10 +5,39 @@
  */
 package server.api.shipment.create;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.SecurityContext;
+import server.api.security.Secured;
+import server.model.shipment.Shipment;
+import server.model.user.Role;
+
 /**
  *
- * @author garciparedes
+ * @author serDelg
  */
+@Path("create-shipment")
 public class ShipmentCreateEndPoint {
     
+    @POST
+    @Secured({Role.CLIENTE})
+    @Produces()
+    public Response createNewShipment(@Context SecurityContext securityContext, Shipment shipment) {
+        try{
+            addNewShipment(shipment);
+            return Response.ok().status(Response.Status.CREATED).build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+    }
+    
+    public void addNewShipment(Shipment shipment) throws Exception{
+        List<Shipment> shipmentList = new ArrayList();
+        shipmentList.add(shipment);
+    }
 }
