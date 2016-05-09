@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/JumpVa"/>
+<Context path="/JumpVa">
+    <Resource name="jdbc/jumpVaDB" auth="Conteiner"
+        maxActive="100" maxIdle="30" maxWait="10000"
+        username="root" password="root"
+        driverClassName="org.apache.derby.jdbc.ClientDriver"
+        url="jdbc:derby://localhost:1527/jumpVaDB"
+        logAbandoned="true" removeAbandoned="true"
+              removeAbandonedTimeout="60" type="javax.sql.DataSource"/>
+</Context>
