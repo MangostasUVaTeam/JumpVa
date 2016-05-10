@@ -6,9 +6,7 @@
         var self = this;
 
         self.getOffer = function(shipment){
-            return shipment.bidList.find(function(bid){
-                return bid.carrier === user.email;
-            }).offer;
+            
         }
 
 
