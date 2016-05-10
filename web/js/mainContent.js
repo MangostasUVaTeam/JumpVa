@@ -17,6 +17,21 @@
 
 
         this.getHTML= function(delivery){
+            switch (delivery.state) {
+                case "INPROGRESS":
+                    return 'includes/inprogress-delivery.html';
+
+                case "UNASSIGNED":
+                    return 'includes/unassigned-delivery.html';
+
+                case "COMPLETED":
+                    return 'includes/completed-delivery.html';
+
+                default:
+                    return '';
+
+            }
+            /*
             if(delivery.transportista){
                 if(delivery.completado == 100){
                     return 'includes/completed-delivery.html';
@@ -29,17 +44,24 @@
             } else {
                 return 'includes/unassigned-delivery.html';
             }
+            */
         };
 
         this.getPanelClass = function(delivery){
-            if(delivery.transportista){
-                if ( (delivery.completado == 100) || (delivery.pendiente) ){
-                    return 'panel-success';
-                } else {
+
+            switch (delivery.state) {
+                case "INPROGRESS":
                     return 'panel-info';
-                }
-            } else {
-                return 'panel-warning';
+
+                case "UNASSIGNED":
+                    return 'panel-warning';
+
+                case "COMPLETED":
+                    return 'panel-success';
+
+                default:
+                    return '';
+
             }
         };
 
