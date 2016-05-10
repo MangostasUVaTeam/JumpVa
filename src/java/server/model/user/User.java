@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.ws.rs.QueryParam;
+import server.model.shipment.Shipment;
 import server.model.shipment.ShipmentType;
 import server.model.util.Dimens;
 import server.model.util.Weight;
@@ -22,28 +23,34 @@ public class User implements Serializable {
     private Credentials credentials;
     private String name;
     private String surname;
-    private String email;
     private Date birthday;
     private String address;
     private Dimens dimens;
     private Weight weight;
-    private List<ShipmentType> shipmentTypeList;
+    private String licenseNo;
+    private List<Shipment> shipmentList;
     private Role role;
     
-    public User(){   
-    }
-   public User(Credentials credentials, String name, String surname, 
-           String email, Date birthday, String address, Dimens dimens, 
-           Weight weight, List<ShipmentType> shipmentTypeList, Role role) {
+    //Constructor para el "Remitente" en el que no recibimos las medidas ni los pesos maximos
+    public User(Credentials credentials,String name, String surname, Date bithday, String address, Role role){   
         this.credentials = credentials;
         this.name = name;
         this.surname = surname;
-        this.email = email;
+        this.birthday= birthday;
+        this.address = address;
+    }
+    //Constructor para el transportista
+   public User(Credentials credentials, String name, String surname,
+           Date birthday, String address, Dimens dimens, 
+           Weight weight, String licenseNo, Role role) {
+        this.credentials = credentials;
+        this.name = name;
+        this.surname = surname;
         this.birthday = birthday;
         this.address = address;
         this.dimens = dimens;
         this.weight = weight;
-        this.shipmentTypeList = shipmentTypeList;
+        this.licenseNo = licenseNo;
         this.role = role;
     }
 
@@ -104,14 +111,6 @@ public class User implements Serializable {
         this.surname = surname;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public Date getBirthday() {
         return birthday;
     }
@@ -144,12 +143,20 @@ public class User implements Serializable {
         this.weight = weight;
     }
 
-    public List<ShipmentType> getShipmentTypeList() {
-        return shipmentTypeList;
+    public List<Shipment> getShipmentList() {
+        return shipmentList;
     }
 
-    public void setShipmentTypeList(List<ShipmentType> shipmentTypeList) {
-        this.shipmentTypeList = shipmentTypeList;
+    public void setShipmentTypeList(List<Shipment> shipmentList) {
+        this.shipmentList = shipmentList;
+    }
+
+    public String getLicenseNo() {
+        return licenseNo;
+    }
+
+    public void setLicenseNo(String licenseNo) {
+        this.licenseNo = licenseNo;
     }
 
 

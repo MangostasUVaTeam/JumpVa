@@ -11,8 +11,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import static org.eclipse.persistence.jpa.rs.util.JPARSLogger.exception;
 import server.api.token.Token;
 import server.api.token.TokenManager;
+import server.model.user.Role;
 import server.model.user.User;
 
 /**
@@ -45,7 +47,17 @@ public class SignInEndPoint {
     }
 
     private void verifyNewUser(User user) throws Exception {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(/**Email no esta dentro de la base de datos*/) {
+                //Agragegar los datos de "user" a la tabla Usuario
+                if(user.getRole() == Role.TRANSPORTISTA) {
+                    //Agregar los datos de "user" a la tabla Transportista
+                } else {
+                    //Agregar los datos de "user" a la tabla Remitente
+                }
+       } else {
+            throw new Exception();
+        }
+//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }
+

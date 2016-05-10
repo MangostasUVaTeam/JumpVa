@@ -12,27 +12,27 @@ import java.io.Serializable;
  * @author Sergio
  */
 public class Weight implements Serializable {
-    private double pma;
+    private double value;
     private WeightType type;
     
     public Weight() {
     }
     
-    public Weight(double pma, WeightType type) {
-        this.pma = pma;
+    public Weight(double value, WeightType type) {
+        this.value = value;
         this.type = type;
     }
     
-    public void setPma(double pma) {
-        this.pma = pma;
+    public void setValue(double value) {
+        this.value = value;
     }
     
     public void setType(WeightType type) {
         this.type = type;
     }
     
-    public double getPma() {
-        return pma;
+    public double getValue() {
+        return value;
     }
     
     public WeightType getType() {

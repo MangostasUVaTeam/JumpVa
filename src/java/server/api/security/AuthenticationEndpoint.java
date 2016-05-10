@@ -43,12 +43,12 @@ public class AuthenticationEndpoint {
     }
 
     private User authenticate(Credentials credentials) throws Exception {
-        // Authenticate against a database, LDAP, file or whatever
-        // Throw an Exception if the credentials are invalid
-        
-        // TODO Verificar si la cuenta es correcta y sino lanzar una excepcion.
-        System.out.println(credentials.getUsername());
-        System.out.println(credentials.getPassword());
-        return new User(credentials, Role.TRANSPORTISTA);
+        if(/**Consulta si existe un Usuario con nombre credentials.getUser() 
+         * y passwd credentials.getPassword()*/) {
+            //Recuperar el usuario y devolverlo
+            return user;
+        } else {
+            throw new Exception();
+        }
     }
 }
