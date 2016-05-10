@@ -7,7 +7,6 @@ package server.api.shipment;
 
 import java.io.Serializable;
 import java.util.List;
-import server.model.shipment.String;
 
 /**
  *
