@@ -5,23 +5,20 @@
 
     app.controller("CreateDeliveryController", function($scope,$location,$uibModalInstance,user){
 
-        var loginCtrl = this;
-        $scope.origen ="Palencia";
-        $scope.destino="Valladolid";
+        var self = this;
 
-        $scope.login = function(){
-            $location.path('/main');
-            $uibModalInstance.close('main');
-
-        };
-
-        $scope.cancel = function(){
+        self.cancel = function(){
             $uibModalInstance.close('cancel');
         };
 
-        $scope.createDelivery = function(){
+        self.createDelivery = function(){
+            user.postCreatedShipment(self.newShipment).then(handleRequest);
+        };
+
+        function handleRequest(res) {
             $uibModalInstance.close('createDelivery');
         };
+
 
         // Calendario
         //***************************************************
@@ -43,7 +40,7 @@
 
         $scope.dateOptions = {
          dateDisabled: disabled,
-         formatYear: 'yy',
+         atYear: 'yy',
          maxDate: new Date(2020, 5, 22),
          minDate: new Date(),
          startingDay: 1

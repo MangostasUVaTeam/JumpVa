@@ -41,14 +41,18 @@
             return $http.post(API + '/search-unassigned-shipment', filters);
         }
 
+        self.postCreatedShipment = function(newShipment){
+            return $http.post(API + '/create-shipment', newShipment);
+        }
+
         self.postBidToUnassignedShipment = function(shipment, bid){
-            var request = {"shipment": shipment, "bid": bid};
+            var request = {shipment: shipment, bid: bid};
             return $http.post(API + '/post-bid', request);
         }
 
-        self.postNewHito = function(shipment, milestone){
+        self.postNewHitoToShipment = function(shipment, milestone){
             milestone.carrier = self.nombre;
-            var request = {"shipment": shipment, "milestone": milestone};
+            var request = {'shipmentId': shipment.id, 'milestone': milestone};
             console.log(request);
             return $http.post(API + '/post-milestone', request);
         }

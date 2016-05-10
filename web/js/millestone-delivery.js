@@ -12,7 +12,7 @@
 
               self.newMilestone.date = Date.now();
 
-              user.postNewHito(shipment, self.newMilestone);
+              user.postNewHitoToShipment(shipment, self.newMilestone);
 
               self.newMilestone = null;
 
