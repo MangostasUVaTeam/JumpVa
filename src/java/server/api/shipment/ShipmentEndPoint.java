@@ -74,7 +74,7 @@ public class ShipmentEndPoint {
                     new Milestone(new Date(), MilestoneType.COMMENT, "Coño, otro hito")
                 ), new Bid("Paco", 34.2),
                 Arrays.asList(new Bid("Paco", 34.2), new Bid("Juan", 354.4)),
-                ShipmentState.UNASSIGNED
+                ShipmentState.INPROGRESS
         );
         
         List<Shipment> l = new ArrayList();

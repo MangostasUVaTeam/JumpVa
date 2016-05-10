@@ -72,7 +72,7 @@
         }
 
         self.postNewHitoToShipment = function(shipmentId, milestone){
-            milestone.carrier = self.user.email;
+            milestone.carrier = self.email;
             var request = {'shipmentId': shipmentId, 'milestone': milestone};
             console.log(request);
             return $http.post(API + '/post-milestone', request);
