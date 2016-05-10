@@ -11,6 +11,12 @@ CREATE TABLE TipoHito(
 	PRIMARY KEY(tipo)
 );
 
+CREATE TABLE TipoEstado(
+	tipo SMALLINT,
+	valor VARCHAR(30),
+	PRIMARY KEY(tipo)
+);
+
 CREATE TABLE Usuario(
 	email VARCHAR(50),
 	nUsuario VARCHAR(20),
@@ -44,14 +50,16 @@ CREATE TABLE Envio(
 	peso INTEGER,
 	tipo SMALLINT,
 	dimensiones VARCHAR(30),
-	fLlegada DATE,
+	fEnvio DATE,
 	fRecogida DATE,
 	destino VARCHAR(30),
 	origen VARCHAR(30),
 	valoracion SMALLINT,
+	estado SMALLINT,
 	PRIMARY KEY(nroEnvio),
 	FOREIGN KEY(email) REFERENCES Remitente(email),
-	FOREIGN KEY(tipo) REFERENCES TipoEnvio(tipo)
+	FOREIGN KEY(tipo) REFERENCES TipoEnvio(tipo),
+	FOREIGN KEY(estado) REFERENCES TipoEstado(tipo)
 );
 
 CREATE TABLE Puja(
