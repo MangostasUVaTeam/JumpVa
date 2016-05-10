@@ -46,6 +46,14 @@
             return $http.post(API + '/post-bid', request);
         }
 
+        self.postNewHito = function(shipment, milestone){
+            milestone.carrier = self.nombre;
+            var request = {"shipment": shipment, "milestone": milestone};
+            console.log(request);
+            return $http.post(API + '/post-bid', request);
+        }
+
+
         self.register = function(username, password) {
             return $http.post(API + '/signin', {
                 username: username,

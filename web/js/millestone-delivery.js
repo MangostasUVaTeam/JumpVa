@@ -2,14 +2,20 @@
 
     var app = angular.module('millestone-delivery', []);
 
-    app.controller("MillestoneController", function ($scope) {
-        this.nuevoHito ={};
+    app.controller("MillestoneController", function (user) {
+        var self = this;
 
-        this.addHito=function(delivery){
-              console.log(this.nuevoHito.mensaje);
-              this.nuevoHito.time = Date.now();
-              delivery.hitos.push(this.nuevoHito);
-              this.nuevoHito = {};
+        self.nuevoHito = null;
+
+        self.addMilestone = function(shipment){
+              console.log(self.newMilestone.body);
+
+              self.newMilestone.date = Date.now();
+
+              user.postNewHito(shipment, self.newMilestone);
+
+              self.newMilestone = null;
+
         };
 
     });
