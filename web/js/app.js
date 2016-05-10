@@ -4,7 +4,9 @@
     'ngMap','number-input', 'provider',
     'main', 'toolbar','mainContent', 'home','login', 'signin',
     'unassigned-delivery','completed-delivery','search-deliveries',
-    'inprogress-delivery','millestone-delivery','user-info','create-delivery' ]);
+    'inprogress-delivery','millestone-delivery','user-info','create-delivery',
+    'pending-to-assing-delivery'
+    ]);
 
     app.config(function($routeProvider,$httpProvider) {
         $routeProvider

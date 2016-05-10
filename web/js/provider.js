@@ -29,8 +29,8 @@
 
     app.service('user', function userService($http, API, auth) {
         var self = this;
-        self.role = "";
-        self.email = "";
+        self.role = auth.getRole();
+        self.email = auth.getEmail();
         self.getQuote = function() {
             return $http.get(API + '/auth/quote');
         };
@@ -56,8 +56,10 @@
 
             response.then(function(responseData){
 
-                self.email = newUser.email;
-                self.role = newUser.role;
+                auth.saveRole(newUser.role);;
+                auth.saveEmail(newUser.credentials.email);
+                self.role = auth.getRole();
+                self.email = auth.getEmail();
             });
 
             return response;
@@ -81,8 +83,10 @@
 
             var response =  $http.post(API + '/authentication', credentials);
             response.then(function(responseData){
-                self.email = responseData.data.email;
-                self.role = responseData.data.role;
+                auth.saveRole(responseData.data.role);;
+                auth.saveEmail(responseData.data.email);
+                self.role = auth.getRole();
+                self.email = auth.getEmail();
             });
 
             return response;
@@ -106,6 +110,22 @@
             return $window.localStorage['jwtToken'];
         }
 
+        self.saveEmail = function(token) {
+            $window.localStorage['email'] = token;
+        };
+
+        self.getEmail = function() {
+            return $window.localStorage['email'];
+        }
+
+        self.saveRole = function(token) {
+            $window.localStorage['role'] = token;
+        };
+
+        self.getRole = function() {
+            return $window.localStorage['role'];
+        }
+
         self.isAuthed = function() {
             var token = self.getToken();
             if(token) {
@@ -121,6 +141,8 @@
 
         self.logout = function() {
             $window.localStorage.removeItem('jwtToken');
+            $window.localStorage.removeItem('email');
+            $window.localStorage.removeItem('role');
         };
     });
 
