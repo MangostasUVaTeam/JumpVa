@@ -11,13 +11,13 @@
         this.login = function(){
             $uibModal.open({
                 templateUrl: 'includes/login.html',
-                controller: 'LoginController',
+                controller: 'LoginController as loginCtrl',
             });
         };
 
         this.signin = function(){
             $uibModal.open({
-                controller: 'SigninController',
+                controller: 'SigninController as signinCtrl',
                 templateUrl: 'includes/signin.html',
             });
         };

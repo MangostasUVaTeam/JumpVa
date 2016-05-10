@@ -44,7 +44,17 @@
         self.postCreatedShipment = function(newShipment){
             return $http.post(API + '/create-shipment', newShipment);
         }
+postNewUser
 
+        self.postNewUser = function(newUser){
+            var request = $http.post(API + '/create-user', newUser);
+
+            request..then(function(responseData){
+                self.user = responseData.data.user;
+            });
+
+            return request;
+        }
         self.postBidToUnassignedShipment = function(shipment, bid){
             var request = {shipment: shipment, bid: bid};
             return $http.post(API + '/post-bid', request);
@@ -74,9 +84,7 @@
                 password: password
             });
             response.then(function(responseData){
-                self.nombre = responseData.data.nombre;
-                self.role = responseData.data.role;
-
+                self.user = responseData.data.user;
             });
 
             return response;
