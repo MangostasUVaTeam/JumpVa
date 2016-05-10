@@ -5,15 +5,23 @@
  */
 package server.model.util;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Sergio
  */
-public class Rate  {
+public class Rate  implements Serializable{
     private int value;
+
+    public Rate() {
+        this.value = 0;
+    }
+    
+    
     
     public Rate(int value) throws Exception {
-        if(value > 5 || value < 0) {
+        if(value >= 5 || value <= 0) {
             throw new ExceptionInInitializerError();
         }
         this.value = value;
@@ -24,7 +32,7 @@ public class Rate  {
     }
 
     public void setValue(int value) throws Exception {
-        if(value > 5 || value < 0) {
+        if(value >= 5 || value <= 0) {
             throw new Exception();
         }
         this.value = value;
