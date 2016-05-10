@@ -50,7 +50,7 @@
             milestone.carrier = self.nombre;
             var request = {"shipment": shipment, "milestone": milestone};
             console.log(request);
-            return $http.post(API + '/post-bid', request);
+            return $http.post(API + '/post-milestone', request);
         }
 
 
