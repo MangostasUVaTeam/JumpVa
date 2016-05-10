@@ -45,7 +45,7 @@
                 self.selected = selectedItem;
 
                 if (selectedItem === 'confirm'){
-                    user.postBidToUnassignedShipment(delivery, {"carrier": user.user.email,"bid":bid})
+                    user.postBidToUnassignedShipment(delivery.id, {"carrier": user.user.email,"bid":bid})
 
                     self.unassignedDeliveries.splice(
                         self.unassignedDeliveries.indexOf(delivery),

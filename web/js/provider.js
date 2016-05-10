@@ -60,15 +60,15 @@
             return response;
         }
 
-        self.postBidToUnassignedShipment = function(shipment, bid){
-            var request = {shipment: shipment, bid: bid};
+        self.postBidToUnassignedShipment = function(shipmentId, bid){
+            var request = {'shipmentId': shipmentId, bid: bid};
             console.log(request);
             return $http.post(API + '/post-bid', request);
         }
 
-        self.postNewHitoToShipment = function(shipment, milestone){
+        self.postNewHitoToShipment = function(shipmentId, milestone){
             milestone.carrier = self.nombre;
-            var request = {'shipmentId': shipment.id, 'milestone': milestone};
+            var request = {'shipmentId': shipmentId, 'milestone': milestone};
             console.log(request);
             return $http.post(API + '/post-milestone', request);
         };
