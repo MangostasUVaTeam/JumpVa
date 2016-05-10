@@ -3,7 +3,7 @@
     var app = angular.module('mainContent', ['jumpva']);
 
 
-    app.controller("MainContentController", function($scope,logedUser, deliveries, user, auth){
+    app.controller("MainContentController", function($scope, deliveries, user, auth){
         var self = this;
         self.deliveries = null;
 

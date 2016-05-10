@@ -44,12 +44,21 @@
             });
         };
 
-        self.login = function(username, password) {
 
-            return $http.post(API + '/authentication', {
+        self.login = function(username, password) {
+            self.nombre = "";
+            self.role = "";
+            var response =  $http.post(API + '/authentication', {
                 username: username,
                 password: password
             });
+            response.then(function(responseData){
+                self.nombre = responseData.data.nombre;
+                self.role = responseData.data.role;
+
+            });
+
+            return response;
         };
 
     });

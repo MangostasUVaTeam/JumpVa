@@ -3,7 +3,7 @@
     var app = angular.module('create-delivery', ['jumpva']);
 
 
-    app.controller("CreateDeliveryController", function($scope,$location,$uibModalInstance,logedUser){
+    app.controller("CreateDeliveryController", function($scope,$location,$uibModalInstance,user){
 
         var loginCtrl = this;
         $scope.origen ="Palencia";

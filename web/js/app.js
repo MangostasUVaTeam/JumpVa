@@ -19,8 +19,6 @@
     });
 
 
-    app.value('logedUser', {});
-
     app.value('deliveries', []);
 
 

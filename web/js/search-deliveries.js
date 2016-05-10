@@ -2,8 +2,7 @@
 
     var app = angular.module('search-deliveries', ['jumpva']);
 
-    app.controller('SearchDeliveriesController', function ($scope, $uibModalInstance,$uibModal, logedUser  ) {
-        $scope.logedUser = logedUser;
+    app.controller('SearchDeliveriesController', function ($scope, $uibModalInstance,$uibModal  ) {
 
         $scope.unassignedDeliveries = [
                 {

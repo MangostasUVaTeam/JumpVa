@@ -3,7 +3,7 @@
     var app = angular.module('home', ['jumpva']);
 
 
-    app.controller("HomeController", function($scope,$location, $uibModal,$anchorScroll, logedUser, deliveries){
+    app.controller("HomeController", function($scope,$location, $uibModal,$anchorScroll, deliveries){
 
         var loginCtrl = this;
 
@@ -23,8 +23,6 @@
         };
 
         this.loginCarrier = function(){
-            logedUser.carrier = true;
-            logedUser.username = "Paco";
 
             deliveries.push({
                 origen: "Logroño",
@@ -148,8 +146,6 @@
         }
 
         this.loginClient = function(){
-            logedUser.carrier = false;
-            logedUser.username = "Juan";
 
 
             deliveries.push({

@@ -3,7 +3,7 @@
     var app = angular.module('signin', ['jumpva']);
 
 
-    app.controller("SigninController", function($scope,$location,$uibModalInstance,logedUser){
+    app.controller("SigninController", function($scope,$location,$uibModalInstance){
 
         var signinCtrl = this;
 
