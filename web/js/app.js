@@ -18,10 +18,6 @@
         $httpProvider.interceptors.push('authInterceptor');
     });
 
-
-    app.value('deliveries', []);
-
-
     app.controller("MainController", function(user, auth){
         var self = this;
 

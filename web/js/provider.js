@@ -37,6 +37,10 @@
             return $http.get(API + '/shipment');
         };
 
+        self.getUnassignedShipmentList = function(filters){
+            return $http.post(API + '/search-unassigned-shipment', filters);
+        }
+
         self.register = function(username, password) {
             return $http.post(API + '/signin', {
                 username: username,

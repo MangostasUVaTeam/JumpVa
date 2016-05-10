@@ -1,7 +1,7 @@
 <div ng-mouseenter="vermapa = true">
     <div class="modal-header">
         <div class=" input-group">
-            <input type="text" class="form-control" ng-model="origen" placeholder="Buscar envíos desde...">
+            <input type="text" class="form-control" ng-model="searchDeliveriesCtrl.origin" placeholder="Buscar envíos desde...">
             <span class="input-group-btn">
                 <button class="btn btn-default" type="button">Go!</button>
             </span>
@@ -11,12 +11,12 @@
     <div class="modal-body">
 
        <div class="panel">
-           <ng-map ng-if="vermapa" scrollwheel="false" class="map-view"  center="{{origen}}" zoom="10">
+           <ng-map ng-if="vermapa" scrollwheel="false" class="map-view"  center="{{searchDeliveriesCtrl.origin}}" zoom="10">
              <directions
                draggable="false"
                travel-mode="DRIVING"
-               origin="{{origen}}"
-               destination="{{destino}}">
+               origin="{{searchDeliveriesCtrl.origin}}"
+               destination="{{searchDeliveriesCtrl.destination}}">
              </directions>
            </ng-map>
         </div>
@@ -34,18 +34,18 @@
                     </tr>
                 </thead>
 
-                <tr class="envio-encontrado" ng-repeat="unassignedDelivery in unassignedDeliveries"
-                    ng-mouseenter="setOver(unassignedDelivery)">
+                <tr class="envio-encontrado" ng-repeat="unassignedDelivery in searchDeliveriesCtrl.unassignedDeliveries"
+                    ng-mouseenter="searchDeliveriesCtrl.setOver(unassignedDelivery)">
 
-                    <td>{{unassignedDelivery.origen}}</td>
-                    <td>{{unassignedDelivery.destino}}</td>
+                    <td>{{unassignedDelivery.origin}}</td>
+                    <td>{{unassignedDelivery.destination}}</td>
                     <td><h3><span class=" label label-default pull-right">{{unassignedDelivery.distancia}} kms</span></h3></td>
                     <td>
-                        <number-input min="1" ng-model="unassignedDelivery.puja"></number-input>
+                        <number-input min="1" ng-model="unassignedDelivery.bid"></number-input>
                     </td>
                     <td>
                         <button type="button" class="btn btn-success pull-right"
-                        ng-click="bid(unassignedDelivery)" >Pujar</button>
+                        ng-click="searchDeliveriesCtrl.bid(unassignedDelivery)" >Pujar</button>
                     </td>
                 </tr>
             </table>
@@ -56,6 +56,6 @@
 
 
     <div class="modal-footer">
-        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+        <button class="btn btn-warning" type="button" ng-click="searchDeliveriesCtrl.cancel()">Cancelar</button>
     </div>
 </div>

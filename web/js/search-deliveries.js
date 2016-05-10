@@ -2,67 +2,33 @@
 
     var app = angular.module('search-deliveries', ['jumpva']);
 
-    app.controller('SearchDeliveriesController', function ($scope, $uibModalInstance,$uibModal  ) {
+    app.controller('SearchDeliveriesController', function ($uibModalInstance,$uibModal,user  ) {
 
-        $scope.unassignedDeliveries = [
-                {
-                    origen: "Valladolid",
-                    destino: "Palencia",
-                    distancia: 50,
-                    puja: 0
-                },
-                {
-                    origen: "Valladolid",
-                    destino: "Santander",
-                    distancia: 50,
-                    puja: 0
-                },
-                {
-                    origen: "Valladolid",
-                    destino: "Galicia",
-                    distancia: 50,
-                    puja: 0
-                },
-                {
-                    origen: "Valladolid",
-                    destino: "LLanes",
-                    distancia: 50,
-                    puja:0
-                },
-                {
-                    origen: "Valladolid",
-                    destino: "Valencia",
-                    distancia: 50,
-                    puja:0
-                },
-                {
-                    origen: "Valladolid",
-                    destino: "Cadiz",
-                    distancia: 50,
-                    puja:0
-                },
-                {
-                    origen: "Valladolid",
-                    destino: "Pamplona",
-                    distancia: 50,
-                    puja:0
-                }
-        ];
-        $scope.origen = "Valladolid"
+        var self = this;
 
-        $scope.cancel = function () {
+        user.getUnassignedShipmentList(self.origin)
+            .then(handleRequest, handleRequest);
+
+        function handleRequest(res) {
+            self.unassignedDeliveries = res.data.shipmentList;
+            console.log(res.data);
+        };
+
+        self.origin = "Valladolid"
+
+        self.cancel = function () {
             $uibModalInstance.close();
         };
 
-        $scope.setOver = function(delivery) {
-            $scope.origen = delivery.origen;
-            $scope.destino = delivery.destino;
+        self.setOver = function(delivery) {
+            self.origin = delivery.origin;
+            self.destination = delivery.destination;
         }
 
-        $scope.bid = function(delivery){
+        self.bid = function(delivery){
             var modalInstance = $uibModal.open({
               templateUrl: 'includes/confirm-bid.html',
-              controller: 'ConfirmBidController',
+              controller: 'ConfirmBidController as confirmBidCtrl',
               resolve: {
                   delivery: function () {
                     return delivery;
@@ -73,11 +39,11 @@
 
 
             modalInstance.result.then(function (selectedItem) {
-                $scope.selected = selectedItem;
+                self.selected = selectedItem;
 
                 if (selectedItem === 'confirm'){
-                    $scope.unassignedDeliveries.splice(
-                        $scope.unassignedDeliveries.indexOf(delivery),
+                    self.unassignedDeliveries.splice(
+                        self.unassignedDeliveries.indexOf(delivery),
                         1
                     );
                 }
@@ -86,18 +52,20 @@
         }
     });
 
-    app.controller('ConfirmBidController', function ($scope, $uibModalInstance, delivery) {
-      $scope.delivery = delivery;
+    app.controller('ConfirmBidController', function ($uibModalInstance, delivery) {
+        var self = this;
 
-      $scope.confirm = function(){
-        console.log('Confimado');
-        $uibModalInstance.close('confirm');
-      };
+        self.delivery = delivery;
 
-      $scope.cancel = function() {
-        console.log('No Confimado');
-        $uibModalInstance.close('cancel');
-      };
+        self.confirm = function(){
+            console.log('Confimado');
+            $uibModalInstance.close('confirm');
+        };
+
+        self.cancel = function() {
+            console.log('No Confimado');
+            $uibModalInstance.close('cancel');
+        };
     });
 
 

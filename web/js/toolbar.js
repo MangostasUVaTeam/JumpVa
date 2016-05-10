@@ -23,14 +23,14 @@
         buttonsCtrl.searchDeliveries = function(){
             $uibModal.open({
                 templateUrl: 'includes/search-deliveries.html',
-                controller: 'SearchDeliveriesController',
+                controller: 'SearchDeliveriesController as searchDeliveriesCtrl',
             });
         };
 
         buttonsCtrl.createDelivery = function(){
             $uibModal.open({
                 templateUrl: 'includes/create-delivery.html',
-                controller: 'CreateDeliveryController',
+                controller: 'CreateDeliveryController as createDeliveryCtrl',
             });
         };
 
