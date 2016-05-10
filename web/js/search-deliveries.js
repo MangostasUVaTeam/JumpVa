@@ -25,13 +25,16 @@
             self.destination = delivery.destination;
         }
 
-        self.bid = function(delivery){
+        self.bid = function(delivery, bid){
             var modalInstance = $uibModal.open({
               templateUrl: 'includes/confirm-bid.html',
               controller: 'ConfirmBidController as confirmBidCtrl',
               resolve: {
                   delivery: function () {
                     return delivery;
+                  },
+                  bid: function () {
+                    return {"carrier": user.nombre,"bid":bid};
                   },
 
               }
@@ -42,6 +45,8 @@
                 self.selected = selectedItem;
 
                 if (selectedItem === 'confirm'){
+                    user.postBidToUnassignedShipment(delivery, {"carrier": user.nombre,"bid":bid})
+
                     self.unassignedDeliveries.splice(
                         self.unassignedDeliveries.indexOf(delivery),
                         1
@@ -52,7 +57,7 @@
         }
     });
 
-    app.controller('ConfirmBidController', function ($uibModalInstance, delivery) {
+    app.controller('ConfirmBidController', function ($uibModalInstance, delivery, bid, user) {
         var self = this;
 
         self.delivery = delivery;

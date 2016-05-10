@@ -41,6 +41,11 @@
             return $http.post(API + '/search-unassigned-shipment', filters);
         }
 
+        self.postBidToUnassignedShipment = function(shipment, bid){
+            var request = {"shipment": shipment, "bid": bid};
+            return $http.post(API + '/post-bid', request);
+        }
+
         self.register = function(username, password) {
             return $http.post(API + '/signin', {
                 username: username,
