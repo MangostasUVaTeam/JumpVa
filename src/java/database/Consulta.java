@@ -1,6 +1,7 @@
 
 package database;
 
+
 public class Consulta {
     public boolean autenticacion(String email, String contrasenia){
         try{
@@ -12,7 +13,8 @@ public class Consulta {
                 return false;
             }
         } catch(SQLException e){
-            
+            System.err.println("Cagada");
+            return false;
         }
     }
 }
