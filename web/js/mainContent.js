@@ -21,7 +21,7 @@
                 case "INPROGRESS":
                     return 'includes/inprogress-delivery.html';
                 case "UNASSIGNED":
-                    switch (user.role) {
+                    switch (user.user.role) {
                         case "TRANSPORTISTA":
                             return 'includes/pending-to-assign-delivery.html';
                         case "CLIENTE":

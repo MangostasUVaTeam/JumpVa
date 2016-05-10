@@ -13,7 +13,7 @@
     app.controller("ButtonsController", function($scope,$uibModal, user){
         var buttonsCtrl =this;
         buttonsCtrl.isCarrier = function(){
-            if (user.role === "TRANSPORTISTA"){
+            if (user.user.role === "TRANSPORTISTA"){
                 return true;
             } else {
                 return false;
@@ -41,7 +41,7 @@
 
 
         this.username = function(){
-            return user.nombre;
+            return user.user.name;
         };
 
         this.logout = function(){
@@ -53,7 +53,7 @@
         };
 
         this.carrier = function(){
-            return user.role;
+            return user.user.role;
         };
     });
 })();

@@ -47,13 +47,13 @@
 postNewUser
 
         self.postNewUser = function(newUser){
-            var request = $http.post(API + '/create-user', newUser);
+            var response = $http.post(API + '/create-user', newUser);
 
-            request..then(function(responseData){
+            response.then(function(responseData){
                 self.user = responseData.data.user;
             });
 
-            return request;
+            return response;
         }
         self.postBidToUnassignedShipment = function(shipment, bid){
             var request = {shipment: shipment, bid: bid};

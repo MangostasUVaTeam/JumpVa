@@ -15,9 +15,9 @@
             //$location.path('/main');
             //$uibModalInstance.close('main');
             if (self.carrier){
-                self.newUser.role = "TRANSPORTISTA";
+                self.newuser.user.role = "TRANSPORTISTA";
             } else {
-                self.newUser.role = "CLIENTE";
+                self.newuser.user.role = "CLIENTE";
 
             }
             user.postNewUser(self.newUser);
