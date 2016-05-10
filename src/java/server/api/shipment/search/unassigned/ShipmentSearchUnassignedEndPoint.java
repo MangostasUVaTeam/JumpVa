@@ -17,6 +17,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import server.api.security.Secured;
 import server.api.shipment.ShipmentResponse;
+import server.model.shipment.Shipment;
 import server.model.shipment.ShipmentState;
 import server.model.shipment.ShipmentType;
 import server.model.shipment.bid.Bid;
@@ -49,7 +50,7 @@ public class ShipmentSearchUnassignedEndPoint {
     }
 
     private ShipmentResponse getShipmentFilteredList(ShipmentFilterRequest shipmentFilterRequest) {
-       /** String shipment = new String(23, ShipmentType.ANIMAL, 
+        Shipment shipment = new Shipment(23, ShipmentType.ANIMAL, 
                     "transporte de pollos", 44.4, new Dimens(4243,324,432, DimensType.METER),
                     "Madrid", "Sevilla", new Date(), new Date(),
                     Arrays.asList(
@@ -60,7 +61,7 @@ public class ShipmentSearchUnassignedEndPoint {
                 ShipmentState.UNASSIGNED
             );
             
-        String shipment2 = new String(23, ShipmentType.ANIMAL, 
+        Shipment shipment2 = new Shipment(23, ShipmentType.ANIMAL, 
                 "transporte de pollos", 44.4, new Dimens(4243,324,432, DimensType.METER),
                 "Madrid", "Sevilla", new Date(), new Date(),
                 Arrays.asList(
@@ -69,8 +70,12 @@ public class ShipmentSearchUnassignedEndPoint {
                 ), new Bid("Paco", 34.2),
                 Arrays.asList(new Bid("Paco", 34.2), new Bid("Juan", 354.4)),
                 ShipmentState.UNASSIGNED
-        );*/
+        );
+        
+        List<Shipment> l = new ArrayList();
+        l.add(shipment);
+        l.add(shipment2);
             
-        return new ShipmentResponse();
+        return new ShipmentResponse(l);
     }
 }
