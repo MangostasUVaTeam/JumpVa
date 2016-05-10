@@ -5,12 +5,12 @@
 
     app.controller("LoginController", function($scope,$location,$uibModalInstance,user, auth){
 
-        var loginCtrl = this;
-        $scope.credentials = null;
+        var self = this;
+        self.credentials = {};
 
         $scope.login = function(){
 
-            user.login($scope.credentials.username, $scope.credentials.password)
+            user.login(self.credentials.email, self.credentials.password)
                 .then(handleRequest, handleRequest);
         };
 

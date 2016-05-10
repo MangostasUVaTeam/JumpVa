@@ -34,7 +34,7 @@
                     return delivery;
                   },
                   bid: function () {
-                    return {"carrier": user.user.name,"bid":bid};
+                    return {"carrier": user.user,"bid":bid};
                   },
 
               }
@@ -45,7 +45,7 @@
                 self.selected = selectedItem;
 
                 if (selectedItem === 'confirm'){
-                    user.postBidToUnassignedShipment(delivery, {"carrier": user.user.name,"bid":bid})
+                    user.postBidToUnassignedShipment(delivery, {"carrier": user.user.email,"bid":bid})
 
                     self.unassignedDeliveries.splice(
                         self.unassignedDeliveries.indexOf(delivery),

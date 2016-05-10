@@ -40,7 +40,7 @@
     app.controller("UserDataController", function($scope,$location, user, auth){
 
 
-        this.username = function(){
+        this.name = function(){
             return user.user.name;
         };
 

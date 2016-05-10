@@ -7,6 +7,7 @@
 
         var self = this;
         self.newUser = {};
+
         self.cancel = function(){
             $uibModalInstance.close('cancel');
         };
@@ -15,9 +16,9 @@
             //$location.path('/main');
             //$uibModalInstance.close('main');
             if (self.carrier){
-                self.newuser.user.role = "TRANSPORTISTA";
+                self.newUser.role = "TRANSPORTISTA";
             } else {
-                self.newuser.user.role = "CLIENTE";
+                self.newUser.role = "CLIENTE";
 
             }
             user.postNewUser(self.newUser);

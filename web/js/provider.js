@@ -29,24 +29,28 @@
 
     app.service('user', function userService($http, API, auth) {
         var self = this;
+        self.user = {};
         self.getQuote = function() {
             return $http.get(API + '/auth/quote');
         };
 
         self.getShipmentList = function() {
+            console.log("get shipment list");
             return $http.get(API + '/shipment');
         };
 
         self.getUnassignedShipmentList = function(filters){
+            console.log(filters);
             return $http.post(API + '/search-unassigned-shipment', filters);
         }
 
         self.postCreatedShipment = function(newShipment){
+            console.log(newShipment);
             return $http.post(API + '/create-shipment', newShipment);
         }
-postNewUser
 
         self.postNewUser = function(newUser){
+            console.log(newUser);
             var response = $http.post(API + '/create-user', newUser);
 
             response.then(function(responseData){
@@ -55,8 +59,10 @@ postNewUser
 
             return response;
         }
+
         self.postBidToUnassignedShipment = function(shipment, bid){
             var request = {shipment: shipment, bid: bid};
+            console.log(request);
             return $http.post(API + '/post-bid', request);
         }
 
@@ -65,24 +71,16 @@ postNewUser
             var request = {'shipmentId': shipment.id, 'milestone': milestone};
             console.log(request);
             return $http.post(API + '/post-milestone', request);
-        }
-
-
-        self.register = function(username, password) {
-            return $http.post(API + '/signin', {
-                username: username,
-                password: password
-            });
         };
 
-
-        self.login = function(username, password) {
-            self.nombre = "";
-            self.role = "";
-            var response =  $http.post(API + '/authentication', {
-                username: username,
+        self.login = function(email, password) {
+            var credentials = {
+                email: email,
                 password: password
-            });
+            };
+            console.log(credentials);
+
+            var response =  $http.post(API + '/authentication', credentials);
             response.then(function(responseData){
                 self.user = responseData.data.user;
             });
