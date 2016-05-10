@@ -11,10 +11,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import static org.eclipse.persistence.jpa.rs.util.JPARSLogger.exception;
 import server.api.token.Token;
 import server.api.token.TokenManager;
-import server.model.user.Role;
 import server.model.user.User;
 
 /**
@@ -34,10 +32,10 @@ public class SignInEndPoint {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response signInUser(User newUser) {
         try {
-            
+
             createNewUser(newUser);
 
-            
+
             Token token = new Token(TokenManager.issueToken(newUser.getEmail()));
             return Response.ok(token).status(Response.Status.CREATED).build();
 

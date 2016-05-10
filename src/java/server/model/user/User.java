@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.ws.rs.QueryParam;
+import server.model.shipment.Shipment;
 import server.model.shipment.ShipmentType;
 import server.model.util.Dimens;
 import server.model.util.Weight;
@@ -27,7 +28,7 @@ public class User implements Serializable {
     private Dimens dimens;
     private Weight weight;
     private String licenseNo;
-    private List<String> shipmentList;
+    private List<Shipment> shipmentList;
     private Role role;
     
     //Constructor para el "Remitente" en el que no recibimos las medidas ni los pesos maximos
@@ -58,6 +59,10 @@ public class User implements Serializable {
         this.weight = weight;
         this.licenseNo = licenseNo;
         this.role = role;
+    }
+
+    public void setCredentials(Credentials credentials) {
+        this.credentials = credentials;
     }
 
     public User(Credentials credentials, Role role) {
@@ -149,11 +154,11 @@ public class User implements Serializable {
         this.weight = weight;
     }
 
-    public List<String> getShipmentList() {
+    public List<Shipment> getShipmentList() {
         return shipmentList;
     }
 
-    public void setShipmentList(List<String> shipmentList) {
+    public void setShipmentList(List<Shipment> shipmentList) {
         this.shipmentList = shipmentList;
     }
 

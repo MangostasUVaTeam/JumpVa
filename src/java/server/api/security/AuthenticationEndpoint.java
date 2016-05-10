@@ -29,14 +29,13 @@ public class AuthenticationEndpoint {
         try {
             // Authenticate the user using the credentials provided
             User user = authenticate(credentials);
-
             // Issue a token for the user
             Token token = new Token(TokenManager.issueToken(credentials.getEmail()));
             
             // Return the token on the response
             return Response.ok(new AuthenticationResponse(token, user))
                     .status(Response.Status.ACCEPTED).build();
-
+            
         } catch (Exception e) {
             return Response.status(Response.Status.UNAUTHORIZED).build();
         }      
@@ -49,6 +48,8 @@ public class AuthenticationEndpoint {
         } else {
             throw new Exception();
         }*/
-       return new User(credentials);
+       User user = new User(credentials);
+       user.setRole(Role.TRANSPORTISTA);
+       return user;
     }
 }
