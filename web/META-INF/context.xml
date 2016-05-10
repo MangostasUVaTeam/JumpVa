@@ -3,7 +3,7 @@
 
 <Resource name="jdbc/jumpva_db" auth="Container"
 maxActive="100" maxIdle="30" maxWait="10000"
-username="admin" password="admin"
+username="jumpva" password="jumpva"
 driverClassName="org.apache.derby.jdbc.ClientDriver"
 url="jdbc:derby://localhost:1527/jumpva_db"
 logAbandoned="true" removeAbandoned="true"
