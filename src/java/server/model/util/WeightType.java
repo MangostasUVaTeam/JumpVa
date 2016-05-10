@@ -12,7 +12,7 @@ import static server.model.util.DimensType.valueOf;
  * @author garciparedes
  */
 public enum WeightType {
-    KILO,
+    KILOGRAM,
     TONNE;
     
     public WeightType fromString(String param) {

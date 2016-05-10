@@ -5,7 +5,6 @@
  */
 package server.api.shipment.rate;
 
-import server.model.shipment.Shipment;
 import server.model.util.Rate;
 
 /**
@@ -15,11 +14,11 @@ import server.model.util.Rate;
 public class RateRequest {
     
     private Rate rate;
-    private Shipment shipment;
+    private String shipmentId;
 
-    public RateRequest(Rate rate, Shipment shipment) {
+    public RateRequest(Rate rate, String shipment) {
         this.rate = rate;
-        this.shipment = shipment;
+        this.shipmentId = shipment;
     }
 
     public RateRequest() {
@@ -33,12 +32,12 @@ public class RateRequest {
         this.rate = rate;
     }
 
-    public Shipment getShipment() {
-        return shipment;
+    public String getShipmentId() {
+        return shipmentId;
     }
 
-    public void setShipment(Shipment shipment) {
-        this.shipment = shipment;
+    public void setShipmentId(String shipmentId) {
+        this.shipmentId = shipmentId;
     }
     
 }

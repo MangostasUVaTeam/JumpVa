@@ -7,7 +7,7 @@ package server.api.shipment;
 
 import java.io.Serializable;
 import java.util.List;
-import server.model.shipment.Shipment;
+import server.model.shipment.String;
 
 /**
  *
@@ -15,17 +15,17 @@ import server.model.shipment.Shipment;
  */
 public class ShipmentResponse implements Serializable{
     
-    private List<Shipment> shipmentList;
+    private List<String> shipmentList;
 
-    public List<Shipment> getShipmentList() {
+    public List<String> getShipmentList() {
         return shipmentList;
     }
 
-    public void setShipmentList(List<Shipment> shipmentList) {
+    public void setShipmentList(List<String> shipmentList) {
         this.shipmentList = shipmentList;
     }
 
-    public ShipmentResponse(List<Shipment> shipmentList) {
+    public ShipmentResponse(List<String> shipmentList) {
         this.shipmentList = shipmentList;
     }
 

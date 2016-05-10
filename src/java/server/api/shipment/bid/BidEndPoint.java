@@ -40,6 +40,11 @@ public class BidEndPoint {
     }
 
     private void addBid(BidRequest bidRequest) throws Exception{
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       // if(/**Consultar si existe el envio asociado al id: bidRequest.getShipmentId()*/) {
+            //Añadir a la tabla de Pujas la puja: bidRequest.getBid();
+            //Con clave foranea el id del bidRequest.getShipmentId()
+    //} else {
+      //      throw new Exception();
+       // }
     }
 }

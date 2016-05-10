@@ -13,24 +13,24 @@ import java.io.Serializable;
  */
 public class Bid implements Serializable {
     
-    private String carrier;
+    private String carrierEmail;
     private double offer;
     
     public Bid (){
         
     } 
     
-    public Bid (String carrier, double offer){
-        this.carrier = carrier;
+    public Bid (String carrierEmail, double offer){
+        this.carrierEmail = carrierEmail;
         this.offer = offer; 
     }
 
     public String getCarrier() {
-        return carrier;
+        return carrierEmail;
     }
 
-    public void setCarrier(String carrier) {
-        this.carrier = carrier;
+    public void setCarrier(String carrierEmail) {
+        this.carrierEmail = carrierEmail;
     }
 
     public double getOffer() {

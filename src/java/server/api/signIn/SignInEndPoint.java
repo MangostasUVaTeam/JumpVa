@@ -35,10 +35,10 @@ public class SignInEndPoint {
     public Response signInUser(User newUser) {
         try {
             
-            verifyNewUser(newUser);
+            createNewUser(newUser);
 
             
-            Token token = new Token(TokenManager.issueToken(newUser.getUsername()));
+            Token token = new Token(TokenManager.issueToken(newUser.getEmail()));
             return Response.ok(token).status(Response.Status.CREATED).build();
 
         } catch (Exception e) {
@@ -46,8 +46,8 @@ public class SignInEndPoint {
         }      
     }
 
-    private void verifyNewUser(User user) throws Exception {
-        if(/**Email no esta dentro de la base de datos*/) {
+    private void createNewUser(User user) throws Exception {
+        /**if(Email no esta dentro de la base de datos) {
                 //Agragegar los datos de "user" a la tabla Usuario
                 if(user.getRole() == Role.TRANSPORTISTA) {
                     //Agregar los datos de "user" a la tabla Transportista
@@ -56,7 +56,7 @@ public class SignInEndPoint {
                 }
        } else {
             throw new Exception();
-        }
+        }*/
 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

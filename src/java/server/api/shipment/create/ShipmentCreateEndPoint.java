@@ -14,7 +14,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import server.api.security.Secured;
-import server.model.shipment.Shipment;
 import server.model.user.Role;
 
 /**
@@ -27,7 +26,7 @@ public class ShipmentCreateEndPoint {
     @POST
     @Secured({Role.CLIENTE})
     @Produces()
-    public Response createNewShipment(@Context SecurityContext securityContext, Shipment shipment) {
+    public Response createNewShipment(@Context SecurityContext securityContext, String shipment) {
         try{
             addNewShipment(shipment);
             return Response.ok().status(Response.Status.CREATED).build();
@@ -36,8 +35,8 @@ public class ShipmentCreateEndPoint {
         }
     }
     
-    public void addNewShipment(Shipment shipment) throws Exception{
-        List<Shipment> shipmentList = new ArrayList();
+    public void addNewShipment(String shipment) throws Exception{
+        List<String> shipmentList = new ArrayList();
         shipmentList.add(shipment);
     }
 }

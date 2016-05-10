@@ -6,7 +6,6 @@
 package server.api.shipment.bid;
 
 import java.io.Serializable;
-import server.model.shipment.Shipment;
 import server.model.shipment.bid.Bid;
 
 /**
@@ -16,16 +15,16 @@ import server.model.shipment.bid.Bid;
 public class BidRequest implements Serializable{
     
     private Bid bid;
-    private Shipment shipment;
+    private String shipmentId;
 
     
 
     public BidRequest() {
     }
     
-    public BidRequest(Bid bid, Shipment shipment) {
+    public BidRequest(Bid bid, String shipmentId) {
         this.bid = bid;
-        this.shipment = shipment;
+        this.shipmentId = shipmentId;
     }
 
     public Bid getBid() {
@@ -36,12 +35,12 @@ public class BidRequest implements Serializable{
         this.bid = bid;
     }
 
-    public Shipment getShipment() {
-        return shipment;
+    public String getShipmentId() {
+        return shipmentId;
     }
 
-    public void setShipment(Shipment shipment) {
-        this.shipment = shipment;
+    public void setShipmentId(String shipmentId) {
+        this.shipmentId = shipmentId;
     }
     
     

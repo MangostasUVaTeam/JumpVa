@@ -6,7 +6,6 @@
 package server.api.shipment.milestone;
 
 import java.io.Serializable;
-import server.model.shipment.Shipment;
 import server.model.shipment.milestone.Milestone;
 
 /**
@@ -14,23 +13,23 @@ import server.model.shipment.milestone.Milestone;
  * @author garciparedes
  */
 public class MilestoneRequest implements Serializable{
-    private Shipment shipment;
+    private String shipmentId;
     private Milestone milestone;
 
     public MilestoneRequest() {
     }
 
-    public MilestoneRequest(Shipment shipment, Milestone milestone) {
-        this.shipment = shipment;
+    public MilestoneRequest(String shipment, Milestone milestone) {
+        this.shipmentId = shipment;
         this.milestone = milestone;
     }
 
-    public Shipment getShipment() {
-        return shipment;
+    public String getShipmentId() {
+        return shipmentId;
     }
 
-    public void setShipment(Shipment shipment) {
-        this.shipment = shipment;
+    public void setShipmentId(String shipmentId) {
+        this.shipmentId = shipmentId;
     }
 
     public Milestone getMilestone() {

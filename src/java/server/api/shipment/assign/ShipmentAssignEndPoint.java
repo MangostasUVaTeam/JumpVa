@@ -15,7 +15,9 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import server.api.security.Secured;
 import server.api.shipment.bid.BidRequest;
+import server.model.shipment.ShipmentState;
 import server.model.user.Role;
+import server.model.user.User;
 
 /**
  *
@@ -41,6 +43,14 @@ public class ShipmentAssignEndPoint {
     }
 
     private void assignBid(BidRequest bidRequest) throws Exception{
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(bidRequest.getBid() != null) {
+            //Recuperar el transportista asociado a la puja con la consulta sobre
+            // bidRequest.getBid.getCarrier() que devuelve el email del transportista
+            //Actualizar los datos del envio con id: bidRequest.getShipmentId() en la base de datos.
+        } else {
+            //Si no hay una puja puede ser por que el Transportista la haya cancelado.
+            throw new Exception();
+        }
+        
     }
 }

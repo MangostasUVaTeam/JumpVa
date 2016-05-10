@@ -31,7 +31,7 @@ public class AuthenticationEndpoint {
             User user = authenticate(credentials);
 
             // Issue a token for the user
-            Token token = new Token(TokenManager.issueToken(credentials.getUsername()));
+            Token token = new Token(TokenManager.issueToken(credentials.getEmail()));
             
             // Return the token on the response
             return Response.ok(new AuthenticationResponse(token, user))
@@ -43,12 +43,12 @@ public class AuthenticationEndpoint {
     }
 
     private User authenticate(Credentials credentials) throws Exception {
-        if(/**Consulta si existe un Usuario con nombre credentials.getUser() 
-         * y passwd credentials.getPassword()*/) {
+       /** if(Consulta si existe un Usuario con nombre credentials.getUser() 
+         * y passwd credentials.getPassword()) {
             //Recuperar el usuario y devolverlo
-            return user;
         } else {
             throw new Exception();
-        }
+        }*/
+       return new User(credentials);
     }
 }

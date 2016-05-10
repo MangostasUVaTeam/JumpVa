@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.ws.rs.QueryParam;
-import server.model.shipment.Shipment;
 import server.model.shipment.ShipmentType;
 import server.model.util.Dimens;
 import server.model.util.Weight;
@@ -28,7 +27,7 @@ public class User implements Serializable {
     private Dimens dimens;
     private Weight weight;
     private String licenseNo;
-    private List<Shipment> shipmentList;
+    private List<String> shipmentList;
     private Role role;
     
     //Constructor para el "Remitente" en el que no recibimos las medidas ni los pesos maximos
@@ -38,6 +37,13 @@ public class User implements Serializable {
         this.surname = surname;
         this.birthday= birthday;
         this.address = address;
+    }
+    
+    public User() {
+        
+    }
+    public User(Credentials credentials) {
+        this.credentials = credentials;
     }
     //Constructor para el transportista
    public User(Credentials credentials, String name, String surname,
@@ -67,11 +73,11 @@ public class User implements Serializable {
     }
     
     
-    public void setUsername(String username){
+    public void setUsername(String email){
         if (getCredentials() == null){
             this.credentials = new Credentials();
         }
-        getCredentials().setUsername(username);
+        getCredentials().setEmail(email);
     }
     
     public void setRole(Role role){
@@ -86,8 +92,8 @@ public class User implements Serializable {
         return getCredentials().getPassword();
     }
     
-    public String getUsername(){
-        return getCredentials().getUsername();
+    public String getEmail(){
+        return getCredentials().getEmail();
     }
     
     
@@ -143,11 +149,11 @@ public class User implements Serializable {
         this.weight = weight;
     }
 
-    public List<Shipment> getShipmentList() {
+    public List<String> getShipmentList() {
         return shipmentList;
     }
 
-    public void setShipmentTypeList(List<Shipment> shipmentList) {
+    public void setShipmentList(List<String> shipmentList) {
         this.shipmentList = shipmentList;
     }
 

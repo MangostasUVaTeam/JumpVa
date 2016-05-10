@@ -12,7 +12,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import server.api.security.Secured;
-import server.model.shipment.Shipment;
 import server.model.user.Role;
 import server.model.util.Rate;
 
@@ -36,6 +35,6 @@ public class RateEndPoint {
     }
     
     public void addRate(RateRequest rateRequest) {
-        rateRequest.getShipment().setRate(rateRequest.getRate());
+        //rateRequest.getShipmentId().setRate(rateRequest.getRate());
     }
 }
