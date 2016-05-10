@@ -36,10 +36,10 @@ CREATE TABLE Transportista(
 	email VARCHAR(50),
 	nLicencia VARCHAR(20),
 	pesMax FLOAT,
-	paquetes CHAR FOR BIT DATA,
-	liquidos CHAR FOR BIT DATA,
-	animales CHAR FOR BIT DATA,
-	vehiculos CHAR FOR BIT DATA,
+	paquetes CHAR,
+	liquidos CHAR,
+	animales CHAR,
+	vehiculos CHAR,
 	PRIMARY KEY(email),
 	FOREIGN KEY(email) REFERENCES Usuario(email)
 );
@@ -51,7 +51,7 @@ CREATE TABLE Envio(
 	tipo SMALLINT,
 	dimensiones VARCHAR(30),
 	fEnvio DATE,
-	fRecogida DATE,
+	fRecogida DATE,	
 	destino VARCHAR(30),
 	origen VARCHAR(30),
 	valoracion SMALLINT,
@@ -66,7 +66,7 @@ CREATE TABLE Puja(
 	email VARCHAR(50),
 	nroEnvio INTEGER,
 	oferta FLOAT,
-	aceptado CHAR FOR BIT DATA,
+	aceptado CHAR,
 	PRIMARY KEY(email, nroEnvio),
 	FOREIGN KEY(email) REFERENCES Transportista(email),
 	FOREIGN KEY(nroEnvio) REFERENCES Envio(nroEnvio)
