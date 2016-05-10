@@ -39,6 +39,11 @@ public class MilestoneEndPoint {
     }
 
     private void addMilestone(MilestoneRequest milestoneRequest,String username) throws Exception{
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if( true/*Comprobar la existencia del envio con id milestoneRequest.getShipmentId()*/) {
+            //Añadir un nuevo hito a la tabla de hitos con los datos de milestoneRequest.getMilestone()
+            //asociado al id del envio
+        } else {
+            throw new Exception();
+        }
     }
 }

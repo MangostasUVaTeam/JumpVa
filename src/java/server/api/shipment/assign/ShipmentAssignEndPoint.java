@@ -35,6 +35,7 @@ public class ShipmentAssignEndPoint {
             BidRequest bidRequest) {
         try {
             assignBid(bidRequest);
+        
             return Response.status(Response.Status.CREATED).build();
 
         } catch (Exception e) {
@@ -43,7 +44,8 @@ public class ShipmentAssignEndPoint {
     }
 
     private void assignBid(BidRequest bidRequest) throws Exception{
-        if(bidRequest.getBid() != null) {
+        if(bidRequest.getBid() != null  /* || El usuario asociado al id de: 
+            bidRequest.getBid().getCarrier()*/) {
             //Recuperar el transportista asociado a la puja con la consulta sobre
             // bidRequest.getBid.getCarrier() que devuelve el email del transportista
             //Actualizar los datos del envio con id: bidRequest.getShipmentId() en la base de datos.

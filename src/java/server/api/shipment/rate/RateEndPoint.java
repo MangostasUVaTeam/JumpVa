@@ -34,7 +34,12 @@ public class RateEndPoint {
         }
     }
     
-    public void addRate(RateRequest rateRequest) {
-        //rateRequest.getShipmentId().setRate(rateRequest.getRate());
+    public void addRate(RateRequest rateRequest) throws Exception {
+        if(true /*Comprobar la existencia del envio asociado al id
+            rateRequest.getShipmentId()*/) {
+            
+        } else {
+            throw new Exception();
+        }
     }
 }

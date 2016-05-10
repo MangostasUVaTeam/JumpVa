@@ -37,7 +37,10 @@ public class ShipmentCreateEndPoint {
     }
     
     public void addNewShipment(Shipment shipment) throws Exception{
-        List<Shipment> shipmentList = new ArrayList();
-        shipmentList.add(shipment);
+        if(shipment != null) {
+            //Agregar al entrada de el nuevo envio a la tabla de envio 
+        } else {
+            throw new Exception();
+        }
     }
 }
