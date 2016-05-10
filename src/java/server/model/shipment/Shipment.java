@@ -69,6 +69,14 @@ public class Shipment implements Serializable{
         this.bidList = bidList;
         this.state = state;
     }
+
+    public ShipmentState getState() {
+        return state;
+    }
+
+    public void setState(ShipmentState state) {
+        this.state = state;
+    }
     
     
     public int getId() {
