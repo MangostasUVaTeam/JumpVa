@@ -61,8 +61,8 @@ public class ShipmentEndPoint {
                     Arrays.asList(
                         new Milestone(new Date(), MilestoneType.COMMENT, "Coño, un hito"),
                         new Milestone(new Date(), MilestoneType.COMMENT, "Coño, otro hito")
-                    ), new Bid("Paco", 34.2),
-                    Arrays.asList(new Bid("Paco", 34.2), new Bid("Juan", 354.4)),
+                    ), null,
+                    Arrays.asList(new Bid("fsfdsa@gmial.com", 34.2), new Bid("Juan", 354.4)),
                 ShipmentState.UNASSIGNED
             );
             
@@ -73,7 +73,7 @@ public class ShipmentEndPoint {
                     new Milestone(new Date(), MilestoneType.COMMENT, "Coño, un hito"),
                     new Milestone(new Date(), MilestoneType.COMMENT, "Coño, otro hito")
                 ), new Bid("Paco", 34.2),
-                Arrays.asList(new Bid("Paco", 34.2), new Bid("Juan", 354.4)),
+                Arrays.asList(new Bid("fsfdsa@gmial.com", 34.2), new Bid("Juan", 354.4)),
                 ShipmentState.INPROGRESS
         );
         

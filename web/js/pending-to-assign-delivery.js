@@ -7,12 +7,11 @@
 
         self.getOffer = function(shipment){
             return shipment.bidList.find(function(bid){
-                return find.carrier === user.email;
-            });
+                return bid.carrier === user.email;
+            }).offer;
         }
 
 
-        console.log("HOLA");
     });
 
 })();
