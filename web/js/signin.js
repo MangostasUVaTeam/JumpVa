@@ -21,9 +21,14 @@
                 self.newUser.role = "CLIENTE";
 
             }
-            user.postNewUser(self.newUser);
+            user.postNewUser(self.newUser)
+                .then(handleRequest);;
         };
 
+        function handleRequest(res) {
+            $location.path('/main');
+            $uibModalInstance.close('main');
+        };
 
            // Calendario
 

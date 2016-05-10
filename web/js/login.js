@@ -3,14 +3,14 @@
     var app = angular.module('login', []);
 
 
-    app.controller("LoginController", function($scope,$location,$uibModalInstance,user, auth){
+    app.controller("LoginController", function($location,$uibModalInstance,user, auth){
 
         var self = this;
         self.credentials = {};
 
-        $scope.login = function(){
-
-            user.login(self.credentials.email, self.credentials.password)
+        self.login = function(){
+            console.log(self.credentials);
+            user.login(self.credentials)
                 .then(handleRequest, handleRequest);
         };
 
@@ -28,7 +28,7 @@
             }
         };
 
-        $scope.cancel = function(){
+        self.cancel = function(){
             $uibModalInstance.close('cancel');
         };
 

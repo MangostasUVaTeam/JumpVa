@@ -13,6 +13,7 @@
 
         function handleRequest(res) {
             self.deliveries = res.data.shipmentList;
+            console.log(res.data.shipmentList);
         };
 
 
@@ -21,7 +22,7 @@
                 case "INPROGRESS":
                     return 'includes/inprogress-delivery.html';
                 case "UNASSIGNED":
-                    switch (user.user.role) {
+                    switch (user.role) {
                         case "TRANSPORTISTA":
                             return 'includes/pending-to-assign-delivery.html';
                         case "CLIENTE":

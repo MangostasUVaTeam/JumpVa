@@ -29,7 +29,8 @@
 
     app.service('user', function userService($http, API, auth) {
         var self = this;
-        self.user = {};
+        self.role = "";
+        self.email = "";
         self.getQuote = function() {
             return $http.get(API + '/auth/quote');
         };
@@ -50,11 +51,13 @@
         }
 
         self.postNewUser = function(newUser){
-            console.log(newUser);
-            var response = $http.post(API + '/create-user', newUser);
+
+            var response = $http.post(API + '/signin', newUser);
 
             response.then(function(responseData){
-                self.user = responseData.data.user;
+
+                self.email = newUser.email;
+                self.role = newUser.role;
             });
 
             return response;
@@ -67,22 +70,19 @@
         }
 
         self.postNewHitoToShipment = function(shipmentId, milestone){
-            milestone.carrier = self.nombre;
+            milestone.carrier = self.user.email;
             var request = {'shipmentId': shipmentId, 'milestone': milestone};
             console.log(request);
             return $http.post(API + '/post-milestone', request);
         };
 
-        self.login = function(email, password) {
-            var credentials = {
-                email: email,
-                password: password
-            };
+        self.login = function(credentials) {
             console.log(credentials);
 
             var response =  $http.post(API + '/authentication', credentials);
             response.then(function(responseData){
-                self.user = responseData.data.user;
+                self.email = responseData.data.email;
+                self.role = responseData.data.role;
             });
 
             return response;
