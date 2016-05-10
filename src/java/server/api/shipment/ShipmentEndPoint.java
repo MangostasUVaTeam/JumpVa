@@ -19,6 +19,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import server.api.security.Secured;
 import server.model.shipment.Shipment;
+import server.model.shipment.ShipmentState;
 import server.model.shipment.ShipmentType;
 import server.model.shipment.bid.Bid;
 import server.model.shipment.milestone.Milestone;
@@ -56,7 +57,8 @@ public class ShipmentEndPoint {
                         new Milestone(new Date(), MilestoneType.COMMENT, "Coño, un hito"),
                         new Milestone(new Date(), MilestoneType.COMMENT, "Coño, otro hito")
                     ), new Bid("Paco", 34.2),
-                    Arrays.asList(new Bid("Paco", 34.2), new Bid("Juan", 354.4))
+                    Arrays.asList(new Bid("Paco", 34.2), new Bid("Juan", 354.4)),
+                ShipmentState.INPROGRESS
             );
             
             Shipment shipment2 = new Shipment(23, ShipmentType.ANIMAL, 
@@ -66,7 +68,8 @@ public class ShipmentEndPoint {
                         new Milestone(new Date(), MilestoneType.COMMENT, "Coño, un hito"),
                         new Milestone(new Date(), MilestoneType.COMMENT, "Coño, otro hito")
                     ), new Bid("Paco", 34.2),
-                    Arrays.asList(new Bid("Paco", 34.2), new Bid("Juan", 354.4))
+                    Arrays.asList(new Bid("Paco", 34.2), new Bid("Juan", 354.4)),
+                ShipmentState.INPROGRESS
             );
 
             List<Shipment> shipmentList = new ArrayList();

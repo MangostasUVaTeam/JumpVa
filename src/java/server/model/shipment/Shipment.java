@@ -42,6 +42,8 @@ public class Shipment implements Serializable{
     
     private Rate rate;
     
+    private ShipmentState state;
+    
     
     
     public Shipment() {
@@ -51,7 +53,7 @@ public class Shipment implements Serializable{
     public Shipment(int id, ShipmentType type, String description,double weight,
             Dimens dimens, String origin, String destination, Date pickUpDate,
             Date arrivalDate, List<Milestone> milestoneList, Bid assignedBid,
-            List<Bid> bidList) {
+            List<Bid> bidList, ShipmentState state) {
         
         this.id = id;
         this.type = type;
@@ -65,6 +67,7 @@ public class Shipment implements Serializable{
         this.milestoneList = milestoneList;
         this.assignedBid = assignedBid;
         this.bidList = bidList;
+        this.state = state;
     }
     
     
