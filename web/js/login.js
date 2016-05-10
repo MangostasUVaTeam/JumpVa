@@ -3,38 +3,30 @@
     var app = angular.module('login', []);
 
 
-    app.controller("LoginController", function($scope,$location,$uibModalInstance,logedUser, apiRequest,$http){
+    app.controller("LoginController", function($scope,$location,$uibModalInstance,user, auth){
 
         var loginCtrl = this;
         $scope.credentials = null;
 
-        $scope.login = function(loginRequest, logedUser){
-            $location.path('/main');
-            $uibModalInstance.close('main');
+        $scope.login = function(){
 
-            /*
-            apiRequest.authenticate($scope.credentials,
-                function(dataResponse) {
-                    logedUser = dataResponse;
-                }
-            );
-            */
-            $http({
-                method: 'POST',
-                url:  'http://localhost:8080/JumpVa/api/authentication',
-                data: $scope.credentials
-            }).success(function(data, logedUser){
-                // With the data succesfully returned, call our callback
-                logedUser = data;
-                console.log(logedUser);
+            user.login($scope.credentials.username, $scope.credentials.password)
+                .then(handleRequest, handleRequest);
 
-            }).error(function(){
-                alert("error");
-            });
-            console.log(logedUser);
+            if (auth.isAuthed()){
+                $location.path('/main');
+                $uibModalInstance.close('main');
+            }
+        };
 
+        function handleRequest(res) {
+            var token = res.data ? res.data.token : null;
 
-
+            console.log(res);
+            if(token) {
+                console.log('JWT:', token);
+            };
+            self.message = res.data.message;
         };
 
         $scope.cancel = function(){

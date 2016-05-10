@@ -2,53 +2,86 @@
 
     var app = angular.module('provider', []);
 
-    app.constant('rootPath', 'http://localhost:8080/JumpVa/');
+    app.factory('authInterceptor', function (API, auth) {
+        return {
+            // automatically attach Authorization header
+            request: function(config) {
+                var token = auth.getToken();
+                if(config.url.indexOf(API) === 0 && token) {
+                    config.headers.Authorization = 'Bearer ' + token;
+                }
 
-    app.service('apiRequest', function($http, rootPath, logedUser) {
-        delete $http.defaults.headers.common['X-Requested-With'];
+                return config;
+            },
 
-        delete $http.defaults.headers.common['X-Requested-With'];
+            // If a token was sent back, save it
+            response: function(res) {
+                if(res.config.url.indexOf(API) === 0 && res.data.token) {
+                    auth.saveToken(res.data.token);
+                }
 
-        this.getData = function(callbackFunc) {
-            $http({
-                method: 'GET',
-                url: 'api/helloworld',
-                headers: {'Authorization': 'Bearer token=xxxxYYYYZzzz'}
-             }).success(function(data){
-                // With the data succesfully returned, call our callback
-                callbackFunc(data);
-            }).error(function(){
-                alert("error");
-            });
-        };
-
-        this.setData = function(user, callbackFunc) {
-            $http({
-                method: 'POST',
-                url: 'api/authentication',
-                data: user
-             }).success(function(data){
-                // With the data succesfully returned, call our callback
-                callbackFunc(data);
-            }).error(function(){
-                alert("error");
-            });
-        };
-
-        this.authenticate = function(credentials, callbackFunc) {
-            var datos = null;
-            $http({
-                method: 'POST',
-                url: rootPath + 'api/authentication',
-                data: credentials
-            }).success(function(data){
-                // With the data succesfully returned, call our callback
-                callbackFunc(data);
-            }).error(function(){
-                alert("error");
-            });
-            console.log(logedUser);
-
+                return res;
+            },
         };
     });
+
+    app.constant('API', 'http://localhost:8080/JumpVa/api');
+
+    app.service('user', function userService($http, API, auth) {
+        var self = this;
+        self.getQuote = function() {
+            return $http.get(API + '/auth/quote');
+        };
+
+        self.register = function(username, password) {
+            return $http.post(API + '/signin', {
+                username: username,
+                password: password
+            });
+        };
+
+        self.login = function(username, password) {
+
+            return $http.post(API + '/authentication', {
+                username: username,
+                password: password
+            });
+        };
+
+    });
+
+    app.service('auth', function authService($window) {
+        var self = this;
+        self.parseJwt = function(token) {
+            var base64Url = token.split('.')[1];
+            var base64 = base64Url.replace('-', '+').replace('_', '/');
+            return JSON.parse($window.atob(base64));
+        };
+
+        self.saveToken = function(token) {
+            $window.localStorage['jwtToken'] = token;
+        };
+
+        self.getToken = function() {
+            return $window.localStorage['jwtToken'];
+        }
+
+        self.isAuthed = function() {
+            var token = self.getToken();
+            if(token) {
+                /*
+                var params = self.parseJwt(token);
+                return Math.round(new Date().getTime() / 1000) <= params.exp;
+                */
+                return true;
+            } else {
+                return false;
+            }
+        };
+
+        self.logout = function() {
+            $window.localStorage.removeItem('jwtToken');
+        };
+    });
+
 })();
