@@ -33,6 +33,10 @@
             return $http.get(API + '/auth/quote');
         };
 
+        self.getShipmentList = function() {
+            return $http.get(API + '/shipment');
+        };
+
         self.register = function(username, password) {
             return $http.post(API + '/signin', {
                 username: username,

@@ -24,14 +24,14 @@
 
     <div class="panel panel-default">
         <div class="panel-body">
-            <div class="panel panel-default" ng-repeat="bid in delivery.pujas">
+            <div class="panel panel-default" ng-repeat="bid in delivery.bidList">
               <div class="panel-body">
                   <div class="row">
                      <div class="col-xs-4">
-                        {{bid.transportista}}
+                        {{bid.carrier}}
                     </div>
                     <div class="col-xs-5">
-                        <h3><span class=" label label-default pull-right">{{bid.precio | currency}}</span></h3>
+                        <h3><span class=" label label-default pull-right">{{bid.offer | currency}}</span></h3>
                     </div>
                     <div class="col-xs-3">
                         <button type="button" class="btn btn-success pull-right"
@@ -43,4 +43,7 @@
             </div>
         </div>
     </div>
+
+    <div class="panel panel-default" ng-include="'includes/delivery-milestones.html'"></div>
+
 </div>

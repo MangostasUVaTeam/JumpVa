@@ -1,10 +1,10 @@
 <div class="panel-body" ng-controller="MillestoneController as millestoneCtrl">
     <h4>Hitos:</h4>
-    <uib-alert  ng-repeat="hito in delivery.hitos" type={{hito.tipo}}>
+    <uib-alert  ng-repeat="milestone in delivery.milestoneList" type={{milestone.type}}>
         <div class="row">
             <div class="col-xs-12">
                 <div class="{{hito.posicion}}">
-                    {{hito.mensaje}}
+                    {{milestone.body}}
                 </div>
             </div>
         </div>

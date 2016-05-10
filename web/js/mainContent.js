@@ -3,8 +3,18 @@
     var app = angular.module('mainContent', ['jumpva']);
 
 
-    app.controller("MainContentController", function($scope,logedUser, deliveries){
-        this.deliveries = deliveries;
+    app.controller("MainContentController", function($scope,logedUser, deliveries, user, auth){
+        var self = this;
+        self.deliveries = null;
+
+
+        user.getShipmentList()
+            .then(handleRequest, handleRequest);
+
+        function handleRequest(res) {
+            self.deliveries = res.data.shipmentList;
+        };
+
 
         this.getHTML= function(delivery){
             if(delivery.transportista){
