@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <Context path="/JumpVa"/>
 
 <Resource name="jdbc/jumpva_db" auth="Container"
@@ -8,3 +9,6 @@ driverClassName="org.apache.derby.jdbc.ClientDriver"
 url="jdbc:derby://localhost:1527/jumpva_db"
 logAbandoned="true" removeAbandoned="true"
 removeAbandonedTimeout="60" type="javax.sql.DataSource" />
+=======
+
+>>>>>>> origin/consultas
