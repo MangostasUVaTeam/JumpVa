@@ -80,6 +80,6 @@ CREATE TABLE Hito(
 	fCreacion DATE,
 	PRIMARY KEY(nroEnvio, nroHito),
 	FOREIGN KEY(nroEnvio) REFERENCES Envio(nroEnvio),
-	FOREIGN KEY(tipo) REFERENCES TipoEnvio(tipo)
+	FOREIGN KEY(tipo) REFERENCES TipoHito(tipo)
 );
 	
