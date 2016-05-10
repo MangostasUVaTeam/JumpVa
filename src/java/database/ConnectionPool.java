@@ -11,6 +11,7 @@ import javax.naming.InitialContext;
 public class ConnectionPool {
     private static ConnectionPool pool= null;
     private static DataSource dataSource = null;
+    
     private ConnectionPool(){
         try{
             InitialContext ic = new InitialContext();
@@ -20,6 +21,7 @@ public class ConnectionPool {
             e.printStackTrace();
         }
     }
+    
     public static ConnectionPool getInstance(){
         if(pool==null){
             pool=new ConnectionPool();
