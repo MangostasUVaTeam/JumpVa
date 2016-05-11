@@ -15,7 +15,7 @@ public class ConnectionPool {
     private ConnectionPool(){
         try{
             InitialContext ic = new InitialContext();
-            dataSource = (DataSource) ic.lookup("java:comp/env/jdbc/jumpVaDB");
+            dataSource = (DataSource) ic.lookup("java:comp/env/jdbc/jumpva_db");
         }
         catch(Exception e){
             e.printStackTrace();

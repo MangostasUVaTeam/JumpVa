@@ -78,7 +78,7 @@ public class User implements Serializable {
     }
     
     
-    public void setUsername(String email){
+    public void setEmail(String email){
         if (getCredentials() == null){
             this.credentials = new Credentials();
         }

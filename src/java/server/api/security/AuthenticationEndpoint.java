@@ -5,6 +5,8 @@
  */
 package server.api.security;
 
+import database.QueryUser;
+import java.sql.SQLException;
 import server.api.token.Token;
 import server.api.token.TokenManager;
 import server.model.user.Credentials;
@@ -48,8 +50,11 @@ public class AuthenticationEndpoint {
         } else {
             throw new Exception();
         }*/
-       User user = new User(credentials);
-       user.setRole(Role.TRANSPORTISTA);
-       return user;
+        try{
+             return QueryUser.getUser(credentials); 
+        } catch(SQLException e){
+            e.printStackTrace();
+            return null;
+        }
     }
 }
