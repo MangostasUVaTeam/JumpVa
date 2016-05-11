@@ -5,6 +5,8 @@
  */
 package server.api.shipment;
 
+import database.QueryShipment;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -55,34 +57,12 @@ public class ShipmentEndPoint {
             // y devolverlos
          //} else {
         //}
-            Shipment shipment = new Shipment(23, ShipmentType.ANIMAL, 
-                    "transporte de pollos", 44.4, new Dimens(4243,324,432, DimensType.METER),
-                    "Madrid", "Sevilla", new Date(), new Date(),
-                    Arrays.asList(
-                        new Milestone(new Date(), MilestoneType.COMMENT, "Coño, un hito"),
-                        new Milestone(new Date(), MilestoneType.COMMENT, "Coño, otro hito")
-                    ), null,
-                    Arrays.asList(new Bid("fsfdsa@gmial.com", 34.2), new Bid("Juan", 354.4)),
-                ShipmentState.UNASSIGNED
-            );
-            
-        Shipment shipment2 = new Shipment(23, ShipmentType.ANIMAL, 
-                "transporte de pollos", 44.4, new Dimens(4243,324,432, DimensType.METER),
-                "Madrid", "Sevilla", new Date(), new Date(),
-                Arrays.asList(
-                    new Milestone(new Date(), MilestoneType.COMMENT, "Coño, un hito"),
-                    new Milestone(new Date(), MilestoneType.COMMENT, "Coño, otro hito")
-                ), new Bid("Paco", 34.2),
-                Arrays.asList(new Bid("fsfdsa@gmial.com", 34.2), new Bid("Juan", 354.4)),
-                ShipmentState.INPROGRESS
-        );
-        
-        List<Shipment> l = new ArrayList();
-        l.add(shipment);
-        l.add(shipment2);
-            
-        return new ShipmentResponse(l);
-        
+        try{
+            return new ShipmentResponse(QueryShipment.getShipmentList(email));
+        } catch(SQLException e){
+            e.getStackTrace();
+            return null;
+        }
 
     }
     

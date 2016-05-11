@@ -45,12 +45,7 @@ public class QueryUser {
             user.setBirthday(rs.getDate("FNAC"));
             user.setAddress(rs.getString("LOCALIZACION"));
             
-            try {
-                return getCarrier(user);
-            } catch (SQLException e){
-                user.setRole(Role.CLIENTE);
-                return user;
-            }
+            return getCarrier(user);
         }
         
         rs.close();
@@ -74,12 +69,15 @@ public class QueryUser {
         
         rs = ps.executeQuery();
                 
-        user.setRole(Role.TRANSPORTISTA);
 
         if (rs.next()) {
+            user.setRole(Role.TRANSPORTISTA);
+
             //user.setLicenseNo(rs.getString("FirstName")); 
             //user.setWeight(rs.getString("LastName")); 
             //user.setEmailAddress(rs.getString("EmailAddress"));
+        } else {
+            user.setRole(Role.CLIENTE);
         }
         
         rs.close();
@@ -87,6 +85,31 @@ public class QueryUser {
         pool.freeConnection(connection);
         return user;
 
+    }
+    
+    
+    protected static Role getRole(String email) throws SQLException{
+        
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        
+        ResultSet rs = null;
+        
+        
+        PreparedStatement ps = connection.prepareStatement(QUERY_CARRIER);
+        ps.setString(1, email);
+        rs = ps.executeQuery();
+                
+        Role role;
+        if (rs.next()) {
+            role =  (Role.TRANSPORTISTA);
+        } else {
+            role = (Role.CLIENTE);
+        }
+        rs.close();
+        ps.close(); 
+        pool.freeConnection(connection);
+        return role;
     }
 }
 
