@@ -28,7 +28,7 @@ public class QueryMilestone {
             "INSERT INTO HITO VALUES(?,?,?,?,?)";
 
     
-    protected static void addMilestone(int shipmentId, Milestone milestone) throws SQLException {
+    public static void addMilestone(int shipmentId, Milestone milestone) throws SQLException {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         
