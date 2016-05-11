@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import server.model.shipment.milestone.Milestone;
 import server.model.shipment.milestone.MilestoneType;
@@ -31,19 +32,16 @@ public class QueryMilestone {
     public static void addMilestone(int shipmentId, Milestone milestone) throws SQLException {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
-        
         PreparedStatement ps = connection.prepareStatement(QUERY_ADD_MILESTONE);
         ps.setInt(1, shipmentId);
         ps.setInt(2, 6);
         ps.setString(3, milestone.getBody());
         ps.setInt(4, 0);
-        ps.setDate(5, (Date) milestone.getDate());
-        
-        ResultSet rs = ps.executeQuery();
-        rs.close();
+        ps.setDate(5, new Date(Calendar.getInstance().getTimeInMillis()));
+
+        ps.executeUpdate();
         ps.close(); 
         pool.freeConnection(connection);
-        
         
     }
     protected static List<Milestone> getMilestoneList(int shipmentId) throws SQLException{
