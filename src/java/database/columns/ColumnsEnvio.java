@@ -24,6 +24,7 @@ public enum ColumnsEnvio {
     ORIGEN,
     VALORACION,
     ESTADO;
+    
     public ColumnsEnvio fromString(String param) {
         String toUpper = param.toUpperCase();
         try {
@@ -32,4 +33,5 @@ public enum ColumnsEnvio {
             return null;
         }
     }
+    
 }

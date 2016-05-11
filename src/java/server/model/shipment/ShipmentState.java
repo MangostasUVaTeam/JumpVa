@@ -10,9 +10,9 @@ package server.model.shipment;
  * @author garciparedes
  */
 public enum ShipmentState {
-    UNASSIGNED,
+    COMPLETED,
     INPROGRESS,
-    COMPLETED;
+    UNASSIGNED;
     
     public ShipmentState fromString(String param) {
         String toUpper = param.toUpperCase();
@@ -21,5 +21,9 @@ public enum ShipmentState {
         } catch (Exception e) {
             return null;
         }
+    }
+    
+    public static ShipmentState  valueOf(int i){
+        return values()[i];
     }
 }

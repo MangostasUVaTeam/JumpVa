@@ -39,6 +39,7 @@ public class AuthenticationEndpoint {
                     .status(Response.Status.ACCEPTED).build();
             
         } catch (Exception e) {
+            e.printStackTrace();
             return Response.status(Response.Status.UNAUTHORIZED).build();
         }      
     }
@@ -50,11 +51,6 @@ public class AuthenticationEndpoint {
         } else {
             throw new Exception();
         }*/
-        try{
-             return QueryUser.getUser(credentials); 
-        } catch(SQLException e){
-            e.printStackTrace();
-            return null;
-        }
+        return QueryUser.getUser(credentials); 
     }
 }

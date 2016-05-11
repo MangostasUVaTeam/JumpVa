@@ -10,8 +10,8 @@ package server.model.shipment;
  * @author garciparedes
  */
 public enum ShipmentType {
-    ANIMAL,
     PACKAGE,
+    ANIMAL,
     FLUID,
     VEHICLE,
     BULK;
@@ -23,5 +23,9 @@ public enum ShipmentType {
         } catch (Exception e) {
             return null;
         }
+    }
+    
+    public static ShipmentType  valueOf(int i){
+        return values()[i];
     }
 }

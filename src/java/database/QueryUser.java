@@ -5,6 +5,7 @@
  */
 package database;
 
+import database.columns.ColumnsUsuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -42,8 +43,12 @@ public class QueryUser {
         if (rs.next()) {
             user = new User();
             user.setCredentials(credentials);
-            user.setBirthday(rs.getDate("FNAC"));
-            user.setAddress(rs.getString("LOCALIZACION"));
+            user.setBirthday(
+                    rs.getDate(ColumnsUsuario.FNAC.toString())
+            );
+            user.setAddress(
+                    rs.getString(ColumnsUsuario.LOCALIZACION.toString())
+            );
             
             return getCarrier(user);
         }

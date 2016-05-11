@@ -7,11 +7,6 @@ package server.api.shipment;
 
 import database.QueryShipment;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -20,14 +15,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import server.api.security.Secured;
-import server.model.shipment.Shipment;
-import server.model.shipment.ShipmentState;
-import server.model.shipment.ShipmentType;
-import server.model.shipment.bid.Bid;
-import server.model.shipment.milestone.Milestone;
-import server.model.shipment.milestone.MilestoneType;
-import server.model.util.Dimens;
-import server.model.util.DimensType;
 
 /**
  *
@@ -45,6 +32,7 @@ public class ShipmentEndPoint {
                 .status(Response.Status.OK).build();
 
         } catch (Exception e) {
+            e.printStackTrace();
             return Response.status(Response.Status.BAD_REQUEST).build();
         }      
     }
@@ -57,13 +45,7 @@ public class ShipmentEndPoint {
             // y devolverlos
          //} else {
         //}
-        try{
-            return new ShipmentResponse(QueryShipment.getShipmentList(email));
-        } catch(SQLException e){
-            e.getStackTrace();
-            return null;
-        }
-
+        return new ShipmentResponse(QueryShipment.getShipmentList(email));
     }
     
     
