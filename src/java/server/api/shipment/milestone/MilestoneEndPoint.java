@@ -5,6 +5,7 @@
  */
 package server.api.shipment.milestone;
 
+import database.QueryMilestone;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -39,11 +40,6 @@ public class MilestoneEndPoint {
     }
 
     private void addMilestone(MilestoneRequest milestoneRequest,String username) throws Exception{
-        if( true/*Comprobar la existencia del envio con id milestoneRequest.getShipmentId()*/) {
-            //Añadir un nuevo hito a la tabla de hitos con los datos de milestoneRequest.getMilestone()
-            //asociado al id del envio
-        } else {
-            throw new Exception();
-        }
+      QueryMilestone.addMilestone(Integer.valueOf(milestoneRequest.getShipmentId()), milestoneRequest.getMilestone());
     }
 }
