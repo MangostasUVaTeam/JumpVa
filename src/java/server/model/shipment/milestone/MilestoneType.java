@@ -5,6 +5,9 @@
  */
 package server.model.shipment.milestone;
 
+import server.model.shipment.ShipmentType;
+import static server.model.shipment.ShipmentType.values;
+
 /**
  *
  * @author garciparedes
