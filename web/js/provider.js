@@ -25,7 +25,7 @@
         };
     });
 
-    app.constant('API', 'http://localhost:8080/JumpVa/api');
+    app.constant('API', '/JumpVa/api');
 
     app.service('user', function userService($http, API, auth) {
         var self = this;
