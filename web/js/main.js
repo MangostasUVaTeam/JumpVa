@@ -2,10 +2,6 @@
 
     var app = angular.module('main', ['jumpva']);
 
-    app.controller("MainController", function($scope, logedUser){
-    });
-
-
     app.directive('jumpvaToolbar', function(){
         return {
             restrict: 'E',

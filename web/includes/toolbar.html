@@ -16,14 +16,14 @@
 
                 <li>
                     <!-- Boton para realizar nuevas busquedas de envios. (solo para transportistas)-->
-                    <a ng-hide="buttonsCtrl.logedUser.carrier"
+                    <a ng-hide="buttonsCtrl.isCarrier()"
                         ng-click="buttonsCtrl.createDelivery()"
                         role="button">Crear Envío</a>
                 </li>
 
                 <li >
                     <!-- Boton para realizar nuevas busquedas de envios. (solo para transportistas)-->
-                    <a ng-show="buttonsCtrl.logedUser.carrier"
+                    <a ng-show="buttonsCtrl.isCarrier()"
                         ng-click="buttonsCtrl.searchDeliveries()"
                         role="button">Buscar Envíos</a>
                 </li>
@@ -31,7 +31,7 @@
                 <li class="dropdown" ng-controller="UserDataController as userDataCtrl">
                     <a class="dropdown-toggle" data-toggle="dropdown"
                     role="button" aria-haspopup="true"
-                    aria-expanded="true">{{userDataCtrl.username()}} <span class="caret"></span></a>
+                    aria-expanded="true">{{userDataCtrl.name()}} <span class="caret"></span></a>
 
                     <ul class="dropdown-menu">
                         <li><a > {{userDataCtrl.carrier()}} </a></li>

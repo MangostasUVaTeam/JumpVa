@@ -1,4 +1,4 @@
-<div>
+<div ng-controller="PendingToAssingController as pendindToAsignCtrl">
     <uib-accordion-heading>
         <div class="row">
             <div class="col-xs-4">
@@ -28,15 +28,16 @@
                    Esperando confirmacion de puja:
               </div>
               <div class="col-xs-3">
-                  <h3><span class=" label label-default pull-right">{{delivery.puja.precio | currency}}</span></h3>
+                  <h3><span class=" label label-default pull-right">{{pendindToAsignCtrl.getOffer(delivery) | currency}}</span></h3>
               </div>
               <div class="col-xs-3">
-                  <h3><span class=" label label-default pull-right">{{delivery.puja.date | date}}</span></h3>
+                  <h3><span class=" label label-default pull-right">{{pendindToAsignCtrl.getDate(delivery) | date}}</span></h3>
               </div>
           </div>
           </div>
     </div>
 
     <div class="panel panel-default" ng-include="'includes/delivery-data.html'"></div>
+    <div class="panel panel-default" ng-include="'includes/delivery-milestones.html'"></div>
 
 </div>

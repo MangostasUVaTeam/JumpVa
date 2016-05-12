@@ -1,20 +1,34 @@
 (function (){
 
-    var app = angular.module('login', ['jumpva']);
+    var app = angular.module('login', []);
 
 
-    app.controller("LoginController", function($scope,$location,$uibModalInstance,logedUser){
+    app.controller("LoginController", function($location,$uibModalInstance,user, auth){
 
-        var loginCtrl = this;
+        var self = this;
+        self.credentials = {};
 
-
-        $scope.login = function(){
-            $location.path('/main');
-            $uibModalInstance.close('main');
-
+        self.login = function(){
+            console.log(self.credentials);
+            user.login(self.credentials)
+                .then(handleRequest, handleRequest);
         };
 
-        $scope.cancel = function(){
+        function handleRequest(res) {
+            var token = res.data ? res.data.token : null;
+
+            if(token) {
+                console.log('JWT:', token);
+            };
+            self.message = res.data.message;
+
+            if (auth.isAuthed()){
+                $location.path('/main');
+                $uibModalInstance.close('main');
+            }
+        };
+
+        self.cancel = function(){
             $uibModalInstance.close('cancel');
         };
 
