@@ -93,7 +93,7 @@ public class QueryUser {
     }
     
     
-    protected static Role getRole(String email) throws SQLException{
+    public static Role getRole(String email) throws SQLException{
         
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
