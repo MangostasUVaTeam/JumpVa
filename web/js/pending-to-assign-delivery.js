@@ -5,8 +5,13 @@
     app.controller('PendingToAssingController', function (user) {
         var self = this;
 
-        self.getOffer = function(shipment){
-            
+        self.getPanelClass = function(bid){
+            switch(bid.carrier){
+                case user.email:
+                    return 'panel-primary';
+                default:
+                    return 'panel-default';
+            }
         }
 
 
