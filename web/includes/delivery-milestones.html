@@ -3,12 +3,11 @@
     <uib-alert  ng-repeat="milestone in delivery.milestoneList" 
                 type={{millestoneCtrl.getMilestoneType(milestone)}}>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-sm-10">
                     {{milestone.body}}
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
+           
+                <div class="col-sm-2">
                     <div class="small pull-right">
                         {{milestone.authorEmail}}
                     </div>
