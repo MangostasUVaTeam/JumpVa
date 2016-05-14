@@ -57,12 +57,37 @@ public class QueryMilestone {
         
         List<Milestone> milestoneList = new ArrayList();
         Milestone bid;
+        Random random = new Random();
         while (rs.next()) {
-            bid = new Milestone(
-                    rs.getDate(ColumnsHito.FCREACION.toString()),
-                    MilestoneType.COMMENT,
-                    rs.getString(ColumnsHito.MENSAJE.toString())
-            );
+            switch(random.nextInt(3)){
+                case 0:
+                    bid = new Milestone(
+                        rs.getDate(ColumnsHito.FCREACION.toString()),
+                        MilestoneType.COMMENT,
+                        rs.getString(ColumnsHito.MENSAJE.toString()),
+                        "paconejo@gmail.com"
+                    );
+                    break;
+                    
+                case 1:
+                    bid = new Milestone(
+                        rs.getDate(ColumnsHito.FCREACION.toString()),
+                        MilestoneType.COMMENT,
+                        rs.getString(ColumnsHito.MENSAJE.toString()),
+                        "juancho@gmail.com"
+                    );
+                    break;
+                    
+                default:
+                    bid = new Milestone(
+                        rs.getDate(ColumnsHito.FCREACION.toString()),
+                        MilestoneType.COMMENT,
+                        rs.getString(ColumnsHito.MENSAJE.toString()),
+                        ""
+                    );
+                    break;
+            }
+            
             milestoneList.add(bid);
         }
         
