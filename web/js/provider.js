@@ -26,6 +26,7 @@
             responseError: function(res) {
 
                 if(res.status === 401 ) {
+                    auth.logout();
                     $location.path('/');
                 }
                 return res;
