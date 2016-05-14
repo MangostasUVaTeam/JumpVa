@@ -63,13 +63,13 @@
             });
 
             return response;
-        }
+        };
 
         self.postBidToUnassignedShipment = function(shipmentId, bid){
             var request = {'shipmentId': shipmentId, bid: bid};
             console.log(request);
             return $http.post(API + '/post-bid', request);
-        }
+        };
 
         self.postNewHitoToShipment = function(shipmentId, milestone){
             milestone.carrier = self.email;
@@ -108,7 +108,7 @@
 
         self.getToken = function() {
             return $window.localStorage['jwtToken'];
-        }
+        };
 
         self.saveEmail = function(token) {
             $window.localStorage['email'] = token;
@@ -116,7 +116,7 @@
 
         self.getEmail = function() {
             return $window.localStorage['email'];
-        }
+        };
 
         self.saveRole = function(token) {
             $window.localStorage['role'] = token;
