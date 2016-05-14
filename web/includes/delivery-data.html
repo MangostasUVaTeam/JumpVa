@@ -1,42 +1,40 @@
-<div>    
-    <ul class="list-group">
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-sm-6">
-                    <strong>Origen</strong> {{delivery.origin}}
-                </div>
-                <div class="col-sm-6">
-                    <strong>Destino</strong> {{delivery.destination}}
-                </div>
+<ul class="list-group">
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col-sm-6">
+                <strong>Origen</strong> {{delivery.origin}}
             </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-sm-6">
-                    <strong>Recogida</strong> {{delivery.pickUpDate | date}}
-                </div>
-                <div class="col-sm-6">
-                    <strong>Entrega</strong> {{delivery.arrivalDate | date}}
-                </div>
+            <div class="col-sm-6">
+                <strong>Destino</strong> {{delivery.destination}}
             </div>
-        </li>
-        
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-sm-6">
-                    <strong>Medidas</strong> {{delivery.dimens.width}} X {{delivery.dimens.height}} X {{delivery.dimens.depth}}
-                </div>
-                <div class="col-sm-3">
-                    <strong>Peso</strong> {{delivery.weight}}
-                </div>
-                <div class="col-sm-3">
-                    <strong>Tipo</strong> {{delivery.type}}
-                </div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col-sm-6">
+                <strong>Recogida</strong> {{delivery.pickUpDate | date}}
             </div>
-        </li>
-        
-        <li class="list-group-item">
-            <strong>Descripcion</strong> {{delivery.description}}
-        </li>
-    </ul>
-</div>
+            <div class="col-sm-6">
+                <strong>Entrega</strong> {{delivery.arrivalDate | date}}
+            </div>
+        </div>
+    </li>
+
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col-sm-6">
+                <strong>Medidas</strong> {{delivery.dimens.width}} X {{delivery.dimens.height}} X {{delivery.dimens.depth}}
+            </div>
+            <div class="col-sm-3">
+                <strong>Peso</strong> {{delivery.weight}}
+            </div>
+            <div class="col-sm-3">
+                <strong>Tipo</strong> {{delivery.type}}
+            </div>
+        </div>
+    </li>
+
+    <li class="list-group-item">
+        <strong>Descripcion</strong> {{delivery.description}}
+    </li>
+</ul>
