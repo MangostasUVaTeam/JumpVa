@@ -16,8 +16,27 @@
 
   </uib-accordion-heading>
     
-
     <div class="panel panel-default" ng-include="'includes/delivery-data.html'"></div>
+
+    
+    <div class="well">
+        <div class="row">
+           <div class="col-xs-4">
+              Valoración del transporte
+          </div>
+          <div class="col-xs-5">
+              <h3><uib-rating ng-model="completedCtrl.rate"
+                    max="5" read-only="false">
+                  </uib-rating></h3>
+          </div>
+          <div class="col-xs-3">
+              <button type="button" class="btn btn-success pull-right"
+              ng-click="completedCtrl.rate(delivery, bid)" >Valorar</button>
+          </div>
+      </div>
+
+    </div>
+
     <div class="panel panel-default" ng-include="'includes/delivery-milestones.html'"></div>
 
 </div>

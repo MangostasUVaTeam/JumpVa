@@ -16,6 +16,8 @@
 
     </uib-accordion-heading>
     
+    <div class="panel panel-default" ng-include="'includes/delivery-data.html'"></div>
+
     <div class="well">
             <div class="panel {{pendindToAsignCtrl.getPanelClass(bid)}}" 
                  ng-repeat="bid in delivery.bidList">
@@ -33,7 +35,6 @@
             </div>
     </div>
 
-    <div class="panel panel-default" ng-include="'includes/delivery-data.html'"></div>
     <div class="panel panel-default" ng-include="'includes/delivery-milestones.html'"></div>
 
 </div>
