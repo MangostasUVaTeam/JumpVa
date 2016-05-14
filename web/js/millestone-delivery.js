@@ -5,6 +5,19 @@
     app.controller("MillestoneController", function (user, $scope) {
         var self = this;
         
+        self.getMilestoneType = function(milestone){
+            console.log(milestone);
+
+            switch(milestone.authorEmail){
+                case '':
+                    return 'info';
+                case user.email:
+                    return 'success';
+                default:
+                    return 'warning';
+            };
+        }
+        
         self.addMilestone = function(shipment){
               console.log(self.newMilestone.body);
 

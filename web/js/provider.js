@@ -2,7 +2,7 @@
 
     var app = angular.module('provider', []);
 
-    app.factory('authInterceptor', function (API, auth) {
+    app.factory('authInterceptor', function (API, auth, $location) {
         return {
             // automatically attach Authorization header
             request: function(config) {
@@ -22,6 +22,14 @@
 
                 return res;
             },
+            
+            responseError: function(res) {
+
+                if(res.status === 401 ) {
+                    $location.path('/');
+                }
+                return res;
+            }
         };
     });
 
@@ -72,7 +80,7 @@
         }
 
         self.postNewHitoToShipment = function(shipmentId, milestone){
-            milestone.carrier = self.email;
+            milestone.authorEmail = self.email;
             var request = {'shipmentId': shipmentId, 'milestone': milestone};
             console.log(request);
             return $http.post(API + '/post-milestone', request);

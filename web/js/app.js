@@ -18,5 +18,5 @@
                 redirectTo: '/home'
             });
         $httpProvider.interceptors.push('authInterceptor');
-    });
+    });    
 })();
