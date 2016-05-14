@@ -1,19 +1,15 @@
 <div ng-controller="PendingToAssingController as pendindToAsignCtrl">
     <uib-accordion-heading>
         <div class="row">
-            <div class="col-xs-4">
-                Pendiente
-            </div>
-
-            <div class="col-xs-5">
-
+            <div class="col-xs-9">
+                #{{delivery.id}} {{delivery.origin}} - {{delivery.destination}} <small>Pendiente</small>
             </div>
 
             <div class="col-xs-3">
                 <i class="glyphicon pull-right"
                     ng-class="{'glyphicon-chevron-down': delivery.open,
                     'glyphicon-chevron-right': !delivery.open}"></i>
-                <span class="badge pull-right">{{delivery.hitos.length}}</span>
+                <span class="badge pull-right">{{delivery.milestoneList.length}}</span>
 
             </div>
         </div>

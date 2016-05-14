@@ -9,7 +9,6 @@
         self.credentials = {};
 
         self.login = function(){
-            console.log(self.credentials);
             user.login(self.credentials)
                 .then(handleRequest, handleRequest);
         };
