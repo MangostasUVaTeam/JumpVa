@@ -2,125 +2,167 @@
 
     <div class="modal-body">
 
-        <div class="row form-group">
-            <div class="col-sm-6">
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon2">Origen</span>
-                    <input type="text" class="form-control" ng-model="createDeliveryCtrl.newShipment.origin" placeholder="Origen">
+        <form name="createShipmentForm" novalidate>
+
+            <div class="row form-group">
+                <div class="col-sm-6">
+                    <div class="input-group" >
+                        <span class="input-group-addon" >Origen</span>
+                        <input type="text" class="form-control"
+                            ng-model="createDeliveryCtrl.newShipment.origin"
+                            placeholder="Origen">
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">Destino</span>
+                        <input type="text" class="form-control"
+                            ng-model="createDeliveryCtrl.newShipment.destination"
+                            placeholder="Destino">
+                    </div>
                 </div>
             </div>
 
-            <div class="col-sm-6">
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon2">Destino</span>
-                    <input type="text" class="form-control" ng-model="createDeliveryCtrl.newShipment.destination" placeholder="Destino">
+            <div class="panel">
+                <ng-map ng-if="vermapa" scrollwheel="false" class="map-view"
+                    center="{{createDeliveryCtrl.newShipment.origin}}" zoom="10">
+                  <directions
+                    draggable="false"
+                    travel-mode="DRIVING"
+                    origin="{{createDeliveryCtrl.newShipment.origin}}"
+                    destination="{{createDeliveryCtrl.newShipment.destination}}">
+                  </directions>
+                </ng-map>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-sm-6">
+
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" id="dropdown1" role="button"
+                            data-toggle="dropdown">
+
+                            <div class="input-group">
+                                <span class="input-group-addon">Recogida</span>
+                                <input type="text" class="form-control"
+                                    data-ng-model="createDeliveryCtrl.newShipment.pickUpDate">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </span>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <datetimepicker
+                                data-ng-model="createDeliveryCtrl.newShipment.pickUpDate"
+                                data-datetimepicker-config="{ dropdownSelector: '#dropdown1', startView:'day', minView:'day'  }"/>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" id="dropdown2" role="button"
+                            data-toggle="dropdown">
+
+                            <div class="input-group">
+                                <span class="input-group-addon">Recogida</span>
+                                <input type="text" class="form-control"
+                                    data-ng-model="createDeliveryCtrl.newShipment.arrivalDate">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <datetimepicker
+                                data-ng-model="createDeliveryCtrl.newShipment.arrivalDate"
+                                data-datetimepicker-config="{ dropdownSelector: '#dropdown2', startView:'day', minView:'day'  }"/>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h5>Dimensiones </h5>
+            <div class="row">
+                <div class="col-xs-6">
+                    <number-input ng-model="createDeliveryCtrl.newShipment.dimens.height"
+                        min="0" step="0.01" start="0" hint="Altura" decimalPlaces="2">
+                    </number-input>
+                </div>
+                <div class="col-xs-6">
+                    <number-input ng-model="createDeliveryCtrl.newShipment.dimens.width"
+                        min="0" step="0.01" start="0" hint="Anchura" decimalPlaces="2">
+                    </number-input>
+                </div>
+                <div class="col-xs-6">
+                    <number-input ng-model="createDeliveryCtrl.newShipment.dimens.depth"
+                        min="0" step="0.01" start="0"hint="Profundidad" decimalPlaces="2">
+                    </number-input>
+                </div>
+                <div class="col-xs-6">
+                    <select class="form-control"
+                        ng-model="createDeliveryCtrl.newShipment.dimens.type"
+                        title="Tipo">
+
+                        <option value="">Unidades</option>
+                        <option value="METER">metros</option>
+                        <option value="INCH">pulgadas</option>
+                    </select>
+                </div>
+            </div>
+
+            <h5>Peso</h5>
+            <div class="row">
+                <div class="col-xs-6">
+                    <number-input ng-model="createDeliveryCtrl.newShipment.weight.value"
+                        min="0" step="0.01" start="0" hint="Peso" decimalPlaces="2">
+                    </number-input>
+                </div>
+                <div class="col-xs-6">
+                    <select  class="form-control"
+                        ng-model="createDeliveryCtrl.newShipment.weight.type"
+                        title="Tipo">
+
+                        <option value="">Unidades</option>
+                        <option value="KILOGRAM">kilogramos</option>
+                        <option value="TONNE">toneladas</option>
+                    </select>
+                </div>
+            </div>
+
+            <h5>Tipos de mercancía</h5>
+            <div class="row">
+                <div class="col-xs-6">
+                    <input class="pull-right"
+                        ng-model="createDeliveryCtrl.newShipment.type"
+                        value="PACKAGE" name="tipoEnvio" type="radio" >Paquetes<br>
+                </div>
+                <div class="col-xs-6">
+                    <input class="pull-right"
+                        ng-model="createDeliveryCtrl.newShipment.type"
+                        value="FLUID" name="tipoEnvio" type="radio" >Liquidos<br>
+                </div>
+                <div class="col-xs-6">
+                    <input class="pull-right"
+                        ng-model="createDeliveryCtrl.newShipment.type"
+                        value="ANIMAL" name="tipoEnvio" type="radio" >Animales<br>
+                </div>
+                <div class="col-xs-6">
+                    <input class="pull-right"
+                        ng-model="createDeliveryCtrl.newShipment.type"
+                        value="VEHICLE"name="tipoEnvio" type="radio" >Vehículos<br>
                 </div>
             </div>
         </div>
 
-        <div class="panel">
-            <ng-map ng-if="vermapa" scrollwheel="false" class="map-view"  center="{{createDeliveryCtrl.newShipment.origin}}" zoom="10">
-              <directions
-                draggable="false"
-                travel-mode="DRIVING"
-                origin="{{createDeliveryCtrl.newShipment.origin}}"
-                destination="{{createDeliveryCtrl.newShipment.destination}}">
-              </directions>
-            </ng-map>
-        </div>
-
-        <div class="row form-group">
-            <div class="col-sm-6">
-
-                <div class="dropdown">
-                    <a class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown">
-                        <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon1">Recogida</span>
-                            <input type="text" class="form-control" data-ng-model="createDeliveryCtrl.newShipment.pickUpDate">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                        </div>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <datetimepicker data-ng-model="createDeliveryCtrl.newShipment.pickUpDate"
-                            data-datetimepicker-config="{ dropdownSelector: '#dropdown1', startView:'day', minView:'day'  }"/>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-sm-6">
-                <div class="dropdown">
-                    <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown">
-                        <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon2">Recogida</span>
-                            <input type="text" class="form-control" data-ng-model="createDeliveryCtrl.newShipment.arrivalDate">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                        </div>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <datetimepicker data-ng-model="createDeliveryCtrl.newShipment.arrivalDate"
-                            data-datetimepicker-config="{ dropdownSelector: '#dropdown2', startView:'day', minView:'day'  }"/>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <h5>Dimensiones </h5>
-        <div class="row">
-            <div class="col-xs-6">
-                <number-input ng-model="createDeliveryCtrl.newShipment.dimens.height" min="0" step="0.01" start="0" hint="Altura" decimalPlaces="2"></number-input>
-            </div>
-            <div class="col-xs-6">
-                <number-input ng-model="createDeliveryCtrl.newShipment.dimens.width" min="0" step="0.01" start="0" hint="Anchura" decimalPlaces="2"></number-input>
-            </div>
-            <div class="col-xs-6">
-                <number-input ng-model="createDeliveryCtrl.newShipment.dimens.depth" min="0" step="0.01" start="0"hint="Profundidad" decimalPlaces="2"></number-input>
-            </div>
-            <div class="col-xs-6">
-                <select class="form-control" ng-model="createDeliveryCtrl.newShipment.dimens.type"title="Tipo">
-                    <option value="">Unidades</option>
-                    <option value="METER">metros</option>
-                    <option value="INCH">pulgadas</option>
-                </select>
-            </div>
-        </div>
-
-        <h5>Peso</h5>
-        <div class="row">
-            <div class="col-xs-6">
-                <number-input ng-model="createDeliveryCtrl.newShipment.weight.value" min="0" step="0.01" start="0" hint="Peso" decimalPlaces="2"></number-input>
-            </div>                    <div class="col-xs-6">
-                <select  class="form-control" ng-model="createDeliveryCtrl.newShipment.weight.type"title="Tipo">
-                    <option value="">Unidades</option>
-                    <option value="KILOGRAM">kilogramos</option>
-                    <option value="TONNE">toneladas</option>
-                </select>
-            </div>
-        </div>
-
-        <h5>Tipos de mercancía</h5>
-        <div class="row">
-            <div class="col-xs-6">
-                <input class="pull-right" ng-model="createDeliveryCtrl.newShipment.type"
-                    value="PACKAGE" name="tipoEnvio" type="radio" >Paquetes<br>
-            </div>
-            <div class="col-xs-6">
-                <input class="pull-right" ng-model="createDeliveryCtrl.newShipment.type"
-                    value="FLUID" name="tipoEnvio" type="radio" >Liquidos<br>
-            </div>
-            <div class="col-xs-6">
-                <input class="pull-right" ng-model="createDeliveryCtrl.newShipment.type"
-                    value="ANIMAL" name="tipoEnvio" type="radio" >Animales<br>
-            </div>
-            <div class="col-xs-6">
-                <input class="pull-right" ng-model="createDeliveryCtrl.newShipment.type"
-                    value="VEHICLE"name="tipoEnvio" type="radio" >Vehículos<br>
-            </div>
-        </div>
-    </div>
+    </form>
 
     <div class="modal-footer">
-        <button class="btn btn-success" type="button" ng-click="createDeliveryCtrl.createDelivery()">Crear Envío</button>
-        <button class="btn btn-warning" type="button" ng-click="createDeliveryCtrl.cancel()">Cancelar</button>
+        <button class="btn btn-success" type="button"
+            ng-click="createDeliveryCtrl.createDelivery()"
+            type="submit" ng-disabled="createShipmentForm.$invalid" >Crear Envío</button>
+
+        <button class="btn btn-warning" type="button"
+            ng-click="createDeliveryCtrl.cancel()">Cancelar</button>
     </div>
 
 </div>
