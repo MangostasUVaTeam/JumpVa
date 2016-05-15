@@ -1,31 +1,47 @@
 <div class="modal-body">
 
+    <form name="loginForm" novalidate>
 
-    <form name="loginForm" role="form">
+        <h1>Login</h1>
 
-        <h1 class="form-signin-heading">Iniciar sesión</h1>
+        <!-- EMAIL -->
+        <fieldset class="form-group"
+            ng-class="{ 'has-error' : loginForm.email.$invalid
+            && !loginForm.email.$pristine }">
 
-        <fieldset class="form-group">
-            <input  class="form-control" type="email"
+            <input  class="form-control" name="email" type="email"
                 ng-model="loginCtrl.credentials.email" placeholder="Email"
-                title="Email" required/>
+                required/>
+
+            <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine"
+                class="help-block">
+                Introduzca un email válido.
+            </p>
+
         </fieldset>
 
-        <fieldset class="form-group">
+        <!-- PASSWORD -->
+        <fieldset class="form-group"
+            ng-class="{ 'has-error' : loginForm.password.$invalid
+            && !loginForm.password.$pristine }">
 
-            <input  class="form-control" type="password"
+            <input  class="form-control" name="password" type="password"
                 ng-model="loginCtrl.credentials.password"
-                placeholder="Contraseña" title="Contraseña"  required/>
+                placeholder="Contraseña" ng-minlength="6" required/>
+
+            <p ng-show="loginForm.password.$error.minlength" class="help-block">
+                La contraseña es demasiado corta.
+            </p>
         </fieldset>
-    <form>
+    </form>
 </div>
 
 <div class="modal-footer">
 
-    <!-- Boton para iniciar sesion-->
-    <input  class="btn btn-success" ng-click="loginCtrl.login()" type="button" value="Iniciar Sesión" />
-    <!-- Boton para registrarse-->
+    <!-- INICIAR SESION -->
+    <button class="btn btn-success" ng-click="loginCtrl.login()" type="submit" ng-disabled="loginForm.$invalid">Iniciar Sesión</button>
 
-    <input  class="btn btn-warning" ng-click="loginCtrl.cancel()" type="button" value="Cancelar" />
+    <!-- CANCELAR -->
+    <button class="btn btn-warning" ng-click="loginCtrl.cancel()" type="button">Cancelar</button>
 
 </div>
