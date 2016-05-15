@@ -1,22 +1,21 @@
 <div class="modal-body">
 
 
-    <form>
-
-        <a class="thumbnail">
-          <img src="images/logo-sin-fondo.png" alt="JumpVa">
-        </a>
+    <form name="loginForm" role="form">
 
         <h1 class="form-signin-heading">Iniciar sesión</h1>
 
         <fieldset class="form-group">
-            <input  class="form-control" type="tex" ng-model="loginCtrl.credentials.email" placeholder="Email"/>
-            <input  class="form-control" type="password" ng-model="loginCtrl.credentials.password" placeholder="Contraseña"/>
+            <input  class="form-control" type="email"
+                ng-model="loginCtrl.credentials.email" placeholder="Email"
+                title="Email" required/>
         </fieldset>
 
         <fieldset class="form-group">
 
-
+            <input  class="form-control" type="password"
+                ng-model="loginCtrl.credentials.password"
+                placeholder="Contraseña" title="Contraseña"  required/>
         </fieldset>
     <form>
 </div>
