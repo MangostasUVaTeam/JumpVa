@@ -31,23 +31,35 @@
 
         <div class="row form-group">
             <div class="col-sm-6">
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon2">Recogida</span>
 
-                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="createDeliveryCtrl.newShipment.pickUpDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
+                <div class="dropdown">
+                    <a class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">Recogida</span>
+                            <input type="text" class="form-control" data-ng-model="createDeliveryCtrl.newShipment.pickUpDate">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <datetimepicker data-ng-model="createDeliveryCtrl.newShipment.pickUpDate"
+                            data-datetimepicker-config="{ dropdownSelector: '#dropdown1', startView:'day', minView:'day'  }"/>
+                    </ul>
                 </div>
             </div>
 
             <div class="col-sm-6">
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon2">Llegada</span>
-                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="createDeliveryCtrl.newShipment.arrivalDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
+                <div class="dropdown">
+                    <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon2">Recogida</span>
+                            <input type="text" class="form-control" data-ng-model="createDeliveryCtrl.newShipment.arrivalDate">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <datetimepicker data-ng-model="createDeliveryCtrl.newShipment.arrivalDate"
+                            data-datetimepicker-config="{ dropdownSelector: '#dropdown2', startView:'day', minView:'day'  }"/>
+                    </ul>
                 </div>
             </div>
         </div>
