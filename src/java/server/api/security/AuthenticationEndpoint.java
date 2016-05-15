@@ -17,7 +17,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import server.model.user.Role;
 import server.model.user.User;
 
 @Path("authentication")
@@ -38,13 +37,16 @@ public class AuthenticationEndpoint {
             return Response.ok(new AuthenticationResponse(token, user))
                     .status(Response.Status.ACCEPTED).build();
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return Response.status(Response.Status.SERVICE_UNAVAILABLE).build();
+        } catch (NullPointerException e) {
             e.printStackTrace();
             return Response.status(Response.Status.UNAUTHORIZED).build();
         }      
     }
 
-    private User authenticate(Credentials credentials) throws Exception {
+    private User authenticate(Credentials credentials) throws SQLException, NullPointerException {
        /** if(Consulta si existe un Usuario con nombre credentials.getUser() 
          * y passwd credentials.getPassword()) {
             //Recuperar el usuario y devolverlo
