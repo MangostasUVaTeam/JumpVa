@@ -6,8 +6,6 @@
         var self = this;
         
         self.getMilestoneType = function(milestone){
-            console.log(milestone);
-
             switch(milestone.authorEmail){
                 case '':
                     return 'info';
