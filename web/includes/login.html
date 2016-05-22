@@ -33,6 +33,12 @@
                 La contraseña es demasiado corta.
             </p>
         </fieldset>
+        
+        <uib-alert ng-show="loginCtrl.showAlert" type="danger" close="loginCtrl.showAlert = false">
+            Email o Contraseña inválidos
+        </uib-alert>
+
+
     </form>
 </div>
 

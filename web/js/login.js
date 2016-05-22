@@ -28,6 +28,8 @@
             if (auth.isAuthed()){
                 $location.path('/main');
                 $uibModalInstance.close('main');
+            } else {
+                self.showAlert = true;
             }
         };
 

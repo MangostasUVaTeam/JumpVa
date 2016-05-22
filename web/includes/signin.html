@@ -2,10 +2,6 @@
 
     <form name="signin" >
 
-        <a class="thumbnail">
-          <img src="images/logo-sin-fondo.png" alt="JumpVa">
-        </a>
-
         <h1 class="form-signin-heading">Crear Cuenta</h1>
 
         <div class="row">
@@ -13,13 +9,27 @@
                 <h5>Datos personales</h5>
                 <fieldset class="form-group">
                     <input  class="form-control" type="text" ng-model="signinCtrl.newuser.email" placeholder="Nombre"/>
-                    <input  class="form-control" type="text" ng-model="signinCtrl.newUser.surname" placeholder="Apellidos"/>
-                    <p class="input-group">
-                      <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="signinCtrl.newUser.birthday" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-                        </span>
-                    </p>
+                    <input  class="form-control" type="text" ng-model="signinCtrl.newUser.surname" placeholder="Apellidos"/>                    
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" id="dropdown1" role="button"
+                            data-toggle="dropdown">
+
+                            <div class="input-group">
+                                <input type="text" class="form-control"
+                                    data-ng-model="signinCtrl.newUser.birthday"
+                                    placeholder="Fecha de nacimiento">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </span>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <datetimepicker
+                                data-ng-model="signinCtrl.newUser.birthday"
+                                data-datetimepicker-config="{ dropdownSelector: '#dropdown1', startView:'day', minView:'day'  }"/>
+                        </ul>
+                    </div>
+                    
                 <input  class="form-control" type="location" ng-model="signinCtrl.newUser.address" placeholder="Dirección"/>
                 </fieldset>
             </div>
