@@ -3,15 +3,18 @@
     var app = angular.module('login', []);
 
 
-    app.controller("LoginController", function($location,$uibModalInstance,user, auth){
+    app.controller("LoginController", function($scope,$location,$uibModalInstance,user, auth){
 
         var self = this;
         self.credentials = {};
 
         self.login = function(){
             console.log(self.credentials);
-            user.login(self.credentials)
-                .then(handleRequest, handleRequest);
+
+            if($scope.loginForm.$valid){
+                user.login(self.credentials)
+                    .then(handleRequest, handleRequest);
+            }
         };
 
         function handleRequest(res) {
@@ -25,6 +28,8 @@
             if (auth.isAuthed()){
                 $location.path('/main');
                 $uibModalInstance.close('main');
+            } else {
+                self.showAlert = true;
             }
         };
 
