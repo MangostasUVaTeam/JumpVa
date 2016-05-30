@@ -1,7 +1,7 @@
 (function (){
 
     var app = angular.module('jumpva', ['ngRoute','ui.bootstrap','ngAnimate',
-    'ngMap','number-input', 'provider',
+    'ngMap','number-input','ui.bootstrap.datetimepicker', 'provider',
     'main', 'toolbar','mainContent', 'home','login', 'signin',
     'unassigned-delivery','completed-delivery','search-deliveries',
     'inprogress-delivery','millestone-delivery','user-info','create-delivery',
