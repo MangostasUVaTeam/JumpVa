@@ -18,6 +18,8 @@ import server.model.shipment.ShipmentType;
 import server.model.user.Role;
 import server.model.util.Dimens;
 import server.model.util.DimensType;
+import server.model.util.Weight;
+import server.model.util.WeightType;
 
 /**
  *
@@ -53,7 +55,7 @@ public class QueryShipment {
                     rs.getInt(ColumnsEnvio.NROENVIO.toString()),
                     ShipmentType.valueOf(rs.getInt(ColumnsEnvio.TIPO.toString())),
                     "",
-                    rs.getInt(ColumnsEnvio.PESO.toString()),
+                    new Weight(rs.getInt(ColumnsEnvio.PESO.toString()), WeightType.KILOGRAM),
                     new Dimens(0,0,0,DimensType.METER),
                     rs.getString(ColumnsEnvio.ORIGEN.toString()),
                     rs.getString(ColumnsEnvio.DESTINO.toString()),
@@ -107,7 +109,7 @@ public class QueryShipment {
                     rs.getInt(ColumnsEnvio.NROENVIO.toString()),
                     ShipmentType.valueOf(rs.getInt(ColumnsEnvio.TIPO.toString())),
                     "",
-                    rs.getInt(ColumnsEnvio.PESO.toString()),
+                    new Weight(rs.getInt(ColumnsEnvio.PESO.toString()), WeightType.KILOGRAM),
                     new Dimens(0,0,0,DimensType.METER),
                     rs.getString(ColumnsEnvio.ORIGEN.toString()),
                     rs.getString(ColumnsEnvio.DESTINO.toString()),
