@@ -1,12 +1,12 @@
 <div class="panel-body" ng-controller="MillestoneController as millestoneCtrl">
     <h4>Hitos:</h4>
-    <uib-alert  ng-repeat="milestone in delivery.milestoneList" 
+    <uib-alert  ng-repeat="milestone in delivery.milestoneList"
                 type={{millestoneCtrl.getMilestoneType(milestone)}}>
             <div class="row">
                 <div class="col-sm-10">
                     {{milestone.body}}
                 </div>
-           
+
                 <div class="col-sm-2">
                     <div class="small pull-right">
                         {{milestone.authorEmail}}
@@ -14,8 +14,8 @@
                 </div>
             </div>
     </uib-alert>
-    
-    <form name="reviewForm">
+
+    <form name="reviewForm" novalidate>
         <h4>Añadir un hito</h4>
 
         <!--
@@ -29,13 +29,21 @@
         </fieldset>
         -->
 
-        <fieldset class="form-group">
+        <fieldset class="form-group"
+            ng-class="{ 'has-error' : reviewForm.body.$invalid
+            && !reviewForm.body.$pristine }">
+
+
             <textarea ng-model="millestoneCtrl.newMilestone.body"
-                class="form-control" title="Mensaje"
-                placeholder="Mensaje que se mostrará en el hito" ></textarea>
+                class="form-control" name="body" title="Mensaje"
+                placeholder="Mensaje que se mostrará en el hito" ng-minlength="6" required></textarea>
+
+            <p ng-show="reviewForm.body.$error.minlength" class="help-block">
+                La longitud mínima es de 6 caracteres.
+            </p>
         </fieldset>
 
         <button type="button" class="btn btn-success pull-right"
-            ng-click="millestoneCtrl.addMilestone(delivery)">Enviar</button>
+            ng-click="millestoneCtrl.addMilestone(delivery)" ng-disabled="reviewForm.$invalid">Enviar</button>
     </form>
 </div>
