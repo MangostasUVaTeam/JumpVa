@@ -50,31 +50,10 @@ public class ShipmentSearchUnassignedEndPoint {
     }
 
     private ShipmentResponse getShipmentFilteredList(ShipmentFilterRequest shipmentFilterRequest) {
-        Shipment shipment = new Shipment(23, ShipmentType.ANIMAL, 
-                    "transporte de pollos", 44.4, new Dimens(4243,324,432, DimensType.METER),
-                    "Madrid", "Sevilla", new Date(), new Date(),
-                    Arrays.asList(
-                        new Milestone(new Date(), MilestoneType.COMMENT, "Coño, un hito", ""),
-                        new Milestone(new Date(), MilestoneType.COMMENT, "Coño, otro hito", "")
-                    ), new Bid("Paco", 34.2),
-                    Arrays.asList(new Bid("Paco", 34.2), new Bid("Juan", 354.4)),
-                ShipmentState.UNASSIGNED
-            );
-            
-        Shipment shipment2 = new Shipment(23, ShipmentType.ANIMAL, 
-                "transporte de pollos", 44.4, new Dimens(4243,324,432, DimensType.METER),
-                "Madrid", "Sevilla", new Date(), new Date(),
-                Arrays.asList(
-                    new Milestone(new Date(), MilestoneType.COMMENT, "Coño, un hito", ""),
-                    new Milestone(new Date(), MilestoneType.COMMENT, "Coño, otro hito", "")
-                ), new Bid("Paco", 34.2),
-                Arrays.asList(new Bid("Paco", 34.2), new Bid("Juan", 354.4)),
-                ShipmentState.UNASSIGNED
-        );
+        
         
         List<Shipment> l = new ArrayList();
-        l.add(shipment);
-        l.add(shipment2);
+        
             
         return new ShipmentResponse(l);
     }
