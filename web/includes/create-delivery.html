@@ -3,7 +3,7 @@
     <div class="modal-body">
 
         <form name="createShipmentForm" novalidate>
-
+            <h5>Localizacion</h5>
             <div class="row form-group">
                 <div class="col-sm-6">
                     <div class="input-group" >
@@ -36,6 +36,7 @@
                 </ng-map>
             </div>
 
+            <h5>Fecha</h5>
             <div class="row form-group">
                 <div class="col-sm-6">
 
@@ -81,7 +82,18 @@
                 </div>
             </div>
 
-            <h5>Dimensiones </h5>
+
+            <h5>Descripción</h5>
+            <fieldset class="form-group">
+                <textarea ng-model="createDeliveryCtrl.newShipment.description"
+                    class="form-control" name="description"
+                    placeholder="Descripción..."
+                    ng-minlength="6" ></textarea>
+
+            </fieldset>
+
+
+            <h5>Dimensiones</h5>
             <div class="row">
                 <div class="col-xs-6">
                     <number-input ng-model="createDeliveryCtrl.newShipment.dimens.height"
