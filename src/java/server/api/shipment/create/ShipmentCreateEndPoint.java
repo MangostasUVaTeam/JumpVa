@@ -5,8 +5,7 @@
  */
 package server.api.shipment.create;
 
-import java.util.ArrayList;
-import java.util.List;
+import database.QueryShipment;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -29,15 +28,17 @@ public class ShipmentCreateEndPoint {
     @Produces()
     public Response createNewShipment(@Context SecurityContext securityContext, Shipment shipment) {
         try{
-            addNewShipment(shipment);
+            addNewShipment(securityContext.getUserPrincipal().getName(),shipment);
             return Response.ok().status(Response.Status.CREATED).build();
         } catch (Exception e) {
+            e.printStackTrace();
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
     }
     
-    public void addNewShipment(Shipment shipment) throws Exception{
+    public void addNewShipment(String email, Shipment shipment) throws Exception{
         if(shipment != null) {
+            QueryShipment.insertShipment(email, shipment);
             //Agregar al entrada de el nuevo envio a la tabla de envio 
         } else {
             throw new Exception();

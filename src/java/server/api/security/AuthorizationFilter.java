@@ -5,12 +5,16 @@
  */
 package server.api.security;
 
+import database.QueryUser;
 import java.io.IOException;
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Method;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.Priority;
 import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.Priorities;
@@ -44,8 +48,15 @@ public class AuthorizationFilter implements ContainerRequestFilter {
         List<Role> methodRoles = extractRoles(resourceMethod);
         
         
-        // TODO Obtener los roles del usuario
-        List<Role> userRoles = Arrays.asList(Role.CLIENTE, Role.TRANSPORTISTA);
+        List<Role> userRoles;
+        try {
+            userRoles = Arrays.asList(QueryUser.getRole(requestContext.getSecurityContext()
+                    .getUserPrincipal().getName()));
+        } catch (SQLException ex) {
+            userRoles = Arrays.asList();
+            Logger.getLogger(AuthorizationFilter.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         try {
 
             // Check if the user is allowed to execute the method

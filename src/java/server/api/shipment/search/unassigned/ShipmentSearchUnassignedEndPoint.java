@@ -26,6 +26,8 @@ import server.model.shipment.milestone.MilestoneType;
 import server.model.user.Role;
 import server.model.util.Dimens;
 import server.model.util.DimensType;
+import server.model.util.Weight;
+import server.model.util.WeightType;
 
 /**
  *
@@ -50,23 +52,25 @@ public class ShipmentSearchUnassignedEndPoint {
     }
 
     private ShipmentResponse getShipmentFilteredList(ShipmentFilterRequest shipmentFilterRequest) {
+        
+        
         Shipment shipment = new Shipment(23, ShipmentType.ANIMAL, 
-                    "transporte de pollos", 44.4, new Dimens(4243,324,432, DimensType.METER),
-                    "Madrid", "Sevilla", new Date(), new Date(),
+                    "transporte de pollos", new Weight(44.4, WeightType.KILOGRAM), new Dimens(4243,324,432, DimensType.METER),
+                    "Valladolid", "Sevilla", new Date(), new Date(),
                     Arrays.asList(
-                        new Milestone(new Date(), MilestoneType.COMMENT, "Coño, un hito"),
-                        new Milestone(new Date(), MilestoneType.COMMENT, "Coño, otro hito")
+                        new Milestone(new Date(), MilestoneType.COMMENT, "Un hito", ""),
+                        new Milestone(new Date(), MilestoneType.COMMENT, "Otro hito", "")
                     ), new Bid("Paco", 34.2),
                     Arrays.asList(new Bid("Paco", 34.2), new Bid("Juan", 354.4)),
                 ShipmentState.UNASSIGNED
             );
             
         Shipment shipment2 = new Shipment(23, ShipmentType.ANIMAL, 
-                "transporte de pollos", 44.4, new Dimens(4243,324,432, DimensType.METER),
-                "Madrid", "Sevilla", new Date(), new Date(),
+                "transporte de pollos", new Weight(44.4, WeightType.KILOGRAM), new Dimens(4243,324,432, DimensType.METER),
+                "Valladolid", "Palencia", new Date(), new Date(),
                 Arrays.asList(
-                    new Milestone(new Date(), MilestoneType.COMMENT, "Coño, un hito"),
-                    new Milestone(new Date(), MilestoneType.COMMENT, "Coño, otro hito")
+                    new Milestone(new Date(), MilestoneType.COMMENT, "Un hito", ""),
+                    new Milestone(new Date(), MilestoneType.COMMENT, "Otro hito", "")
                 ), new Bid("Paco", 34.2),
                 Arrays.asList(new Bid("Paco", 34.2), new Bid("Juan", 354.4)),
                 ShipmentState.UNASSIGNED
@@ -75,6 +79,7 @@ public class ShipmentSearchUnassignedEndPoint {
         List<Shipment> l = new ArrayList();
         l.add(shipment);
         l.add(shipment2);
+        
             
         return new ShipmentResponse(l);
     }

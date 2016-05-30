@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import server.model.util.Rate;
+import server.model.util.Weight;
 
 /**
  *
@@ -24,7 +25,7 @@ public class Shipment implements Serializable{
     private ShipmentType type;
     private String description;
     
-    private double weight;
+    private Weight weight;
 
     
     private Dimens dimens;
@@ -50,7 +51,7 @@ public class Shipment implements Serializable{
     }
 
 
-    public Shipment(int id, ShipmentType type, String description,double weight,
+    public Shipment(int id, ShipmentType type, String description,Weight weight,
             Dimens dimens, String origin, String destination, Date pickUpDate,
             Date arrivalDate, List<Milestone> milestoneList, Bid assignedBid,
             List<Bid> bidList, ShipmentState state) {
@@ -103,11 +104,11 @@ public class Shipment implements Serializable{
         this.description = description;
     }
 
-    public double getWeight() {
+    public Weight getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(Weight weight) {
         this.weight = weight;
     }
 

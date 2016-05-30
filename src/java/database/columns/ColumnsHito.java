@@ -16,7 +16,8 @@ public enum ColumnsHito {
     NROHITO,
     MENSAJE,
     TIPO,
-    FCREACION;
+    FCREACION,
+    AUTOR;
     public ColumnsHito fromString(String param) {
         String toUpper = param.toUpperCase();
         try {

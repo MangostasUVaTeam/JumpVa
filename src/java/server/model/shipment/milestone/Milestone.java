@@ -18,19 +18,26 @@ public class Milestone implements Serializable{
     private Date date;
     private MilestoneType type;
     private String body;
+    private String authorEmail;
 
     public Milestone() {
     }
     
     
-    public Milestone(Date date, MilestoneType type, String body) {
+    public Milestone(Date date, MilestoneType type, String body, String authorEmail) {
         this.date = date;
         this.type = type;
         this.body = body;
+        this.authorEmail = authorEmail;
     }
 
-    
-    
+    public String getAuthorEmail() {
+        return authorEmail;
+    }
+
+    public void setAuthorEmail(String authorEmail) {
+        this.authorEmail = authorEmail;
+    }
     
     public Date getDate() {
         return date;
