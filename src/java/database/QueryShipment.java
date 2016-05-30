@@ -7,6 +7,7 @@ package database;
 
 import database.columns.ColumnsEnvio;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,6 +36,11 @@ public class QueryShipment {
     private static final String QUERY_SHIPMENT = 
             "SELECT * FROM ENVIO WHERE NROENVIO = ?";
 
+    private static final String QUERY_SHIPMENT_COUNT = 
+            "SELECT COUNT(*) FROM ENVIO";
+    
+    private static final String QUERY_ADD_SHIPMENT = 
+            "INSERT INTO ENVIO VALUES(?,?,?,?,?,?,?,?,?,NULL,?)";
     
     private static final String QUERY_SHIPMENT_TYPE = "SELECT VALOR FROM TIPOENVIO WHERE TIPO = ?";
     
@@ -129,5 +135,61 @@ public class QueryShipment {
         ps.close(); 
         pool.freeConnection(connection);
         return shipment;          
+    }
+    
+    public static void insertShipment(String email, Shipment shipment) throws SQLException{
+        /*
+        shipment.setId(getShipmentCount());
+            
+        System.out.println(shipment.getId());
+        email;
+        System.out.println(shipment.getWeight());
+        System.out.println(shipment.getType());
+        System.out.println(shipment.getDimens());
+        System.out.println(shipment.getPickUpDate());
+        System.out.println(shipment.getArrivalDate());
+        System.out.println(shipment.getOrigin());
+        System.out.println(shipment.getDestination());
+
+        shipment.setState(ShipmentState.UNASSIGNED);
+        */
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = connection.prepareStatement(QUERY_ADD_SHIPMENT);
+        
+        ps.setInt(1, getShipmentCount());
+        ps.setString(2, email);
+        ps.setInt(3, (int) shipment.getWeight().getValue());
+        ps.setInt(4, shipment.getType().ordinal());
+        ps.setString(5, "");
+        ps.setDate(6, new Date(shipment.getPickUpDate().getTime()));
+        ps.setDate(7, new Date(shipment.getArrivalDate().getTime()));
+        ps.setString(8, shipment.getDestination());
+        ps.setString(9, shipment.getOrigin());
+        ps.setInt(10, ShipmentState.UNASSIGNED.ordinal());
+
+        ps.executeUpdate();
+        ps.close(); 
+        pool.freeConnection(connection);
+        
+    }
+    
+    public static int getShipmentCount() throws SQLException{
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+
+        PreparedStatement ps = connection.prepareStatement(QUERY_SHIPMENT_COUNT);
+
+        ResultSet rs = ps.executeQuery();
+        
+        int count = 0;
+        if (rs.next()) {
+            count = rs.getInt(1);
+        }
+
+        rs.close();
+        ps.close(); 
+        pool.freeConnection(connection);
+        return count;
     }
 }
