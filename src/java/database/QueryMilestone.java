@@ -26,10 +26,10 @@ public class QueryMilestone {
     private static final String QUERY_MILESTONELIST = 
             "SELECT * FROM HITO WHERE HITO.NROENVIO = ? ORDER BY NROHITO";
     private static final String QUERY_ADD_MILESTONE = 
-            "INSERT INTO HITO VALUES(?,?,?,?,?)";
+            "INSERT INTO HITO VALUES(?,?,?,?,?,?)";
 
     
-    public static void addMilestone(int shipmentId, Milestone milestone) throws SQLException {
+    public static void addMilestone(String email, int shipmentId, Milestone milestone) throws SQLException {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = connection.prepareStatement(QUERY_ADD_MILESTONE);
@@ -37,7 +37,8 @@ public class QueryMilestone {
         ps.setInt(2, QueryShipment.getShipment(shipmentId).getMilestoneList().size());
         ps.setString(3, milestone.getBody());
         ps.setInt(4, 0);
-        ps.setDate(5, new Date(Calendar.getInstance().getTimeInMillis()));
+        ps.setString(5, email);
+        ps.setDate(6, new Date(Calendar.getInstance().getTimeInMillis()));
 
         ps.executeUpdate();
         ps.close(); 
@@ -61,7 +62,7 @@ public class QueryMilestone {
                 rs.getDate(ColumnsHito.FCREACION.toString()),
                 MilestoneType.COMMENT,
                 rs.getString(ColumnsHito.MENSAJE.toString()),
-                "paconejo@gmail.com"
+                rs.getString(ColumnsHito.AUTOR.toString())
             );   
             milestoneList.add(milestone);
         }

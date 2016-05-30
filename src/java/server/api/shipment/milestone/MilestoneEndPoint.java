@@ -40,7 +40,8 @@ public class MilestoneEndPoint {
         }      
     }
 
-    private void addMilestone(MilestoneRequest milestoneRequest,String username) throws Exception{
-      QueryMilestone.addMilestone(Integer.valueOf(milestoneRequest.getShipmentId()), milestoneRequest.getMilestone());
+    private void addMilestone(MilestoneRequest milestoneRequest,String email) throws Exception{
+      QueryMilestone.addMilestone(email,
+              Integer.valueOf(milestoneRequest.getShipmentId()), milestoneRequest.getMilestone());
     }
 }
