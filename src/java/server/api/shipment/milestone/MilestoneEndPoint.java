@@ -35,6 +35,7 @@ public class MilestoneEndPoint {
             return Response.status(Response.Status.CREATED).build();
 
         } catch (Exception e) {
+            e.printStackTrace();
             return Response.status(Response.Status.BAD_REQUEST).build();
         }      
     }

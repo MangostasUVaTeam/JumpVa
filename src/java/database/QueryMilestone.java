@@ -14,7 +14,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Random;
 import server.model.shipment.milestone.Milestone;
 import server.model.shipment.milestone.MilestoneType;
 
@@ -35,7 +34,7 @@ public class QueryMilestone {
         Connection connection = pool.getConnection();
         PreparedStatement ps = connection.prepareStatement(QUERY_ADD_MILESTONE);
         ps.setInt(1, shipmentId);
-        ps.setInt(2, new Random().nextInt(3000));
+        ps.setInt(2, QueryShipment.getShipment(shipmentId).getMilestoneList().size());
         ps.setString(3, milestone.getBody());
         ps.setInt(4, 0);
         ps.setDate(5, new Date(Calendar.getInstance().getTimeInMillis()));
@@ -56,39 +55,15 @@ public class QueryMilestone {
         ResultSet rs = ps.executeQuery();
         
         List<Milestone> milestoneList = new ArrayList();
-        Milestone bid;
-        Random random = new Random();
+        Milestone milestone;
         while (rs.next()) {
-            switch(random.nextInt(3)){
-                case 0:
-                    bid = new Milestone(
-                        rs.getDate(ColumnsHito.FCREACION.toString()),
-                        MilestoneType.COMMENT,
-                        rs.getString(ColumnsHito.MENSAJE.toString()),
-                        "paconejo@gmail.com"
-                    );
-                    break;
-                    
-                case 1:
-                    bid = new Milestone(
-                        rs.getDate(ColumnsHito.FCREACION.toString()),
-                        MilestoneType.COMMENT,
-                        rs.getString(ColumnsHito.MENSAJE.toString()),
-                        "juancho@gmail.com"
-                    );
-                    break;
-                    
-                default:
-                    bid = new Milestone(
-                        rs.getDate(ColumnsHito.FCREACION.toString()),
-                        MilestoneType.COMMENT,
-                        rs.getString(ColumnsHito.MENSAJE.toString()),
-                        ""
-                    );
-                    break;
-            }
-            
-            milestoneList.add(bid);
+            milestone = new Milestone(
+                rs.getDate(ColumnsHito.FCREACION.toString()),
+                MilestoneType.COMMENT,
+                rs.getString(ColumnsHito.MENSAJE.toString()),
+                "paconejo@gmail.com"
+            );   
+            milestoneList.add(milestone);
         }
         
         rs.close();
