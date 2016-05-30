@@ -2,7 +2,7 @@
 
     var app = angular.module('provider', []);
 
-    app.factory('authInterceptor', function (API, auth) {
+    app.factory('authInterceptor', function (API, auth, $location) {
         return {
             // automatically attach Authorization header
             request: function(config) {
@@ -22,6 +22,15 @@
 
                 return res;
             },
+            
+            responseError: function(res) {
+
+                if(res.status === 401 ) {
+                    auth.logout();
+                    $location.path('/');
+                }
+                return res;
+            }
         };
     });
 
@@ -63,16 +72,16 @@
             });
 
             return response;
-        }
+        };
 
         self.postBidToUnassignedShipment = function(shipmentId, bid){
             var request = {'shipmentId': shipmentId, bid: bid};
             console.log(request);
             return $http.post(API + '/post-bid', request);
-        }
+        };
 
         self.postNewHitoToShipment = function(shipmentId, milestone){
-            milestone.carrier = self.email;
+            milestone.authorEmail = self.email;
             var request = {'shipmentId': shipmentId, 'milestone': milestone};
             console.log(request);
             return $http.post(API + '/post-milestone', request);
@@ -108,7 +117,7 @@
 
         self.getToken = function() {
             return $window.localStorage['jwtToken'];
-        }
+        };
 
         self.saveEmail = function(token) {
             $window.localStorage['email'] = token;
@@ -116,7 +125,7 @@
 
         self.getEmail = function() {
             return $window.localStorage['email'];
-        }
+        };
 
         self.saveRole = function(token) {
             $window.localStorage['role'] = token;

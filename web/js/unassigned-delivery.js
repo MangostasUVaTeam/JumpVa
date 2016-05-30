@@ -4,6 +4,7 @@
 
     app.controller("UnassignedController", function ($scope,$uibModal) {
         this.assign = function(delivery, bid){
+            
             $uibModal.open({
                 templateUrl: 'includes/assign-delivery.html',
                 controller: 'AssignDeliveryController',
@@ -26,7 +27,6 @@
         $scope.delivery = delivery;
 
         $scope.asignar = function(delivery, bid){
-          console.log("hola");
           $uibModal.open({
               templateUrl: 'includes/confirm-assign.html',
               controller: 'ConfirmAssignController',
@@ -50,11 +50,9 @@
     app.controller('ConfirmAssignController', function ($scope, $uibModalInstance, delivery, bid) {
       $scope.bid = bid;
       $scope.delivery = delivery;
-      console.log("Confirmacion");
       $scope.confirm = function(){
-        delivery.completado=1;
-        delivery.transportista = bid.transportista;
-        $uibModalInstance.dismiss('cancel');
+          //TODO
+        $uibModalInstance.dismiss('confirm');
       };
 
       $scope.cancel = function() {

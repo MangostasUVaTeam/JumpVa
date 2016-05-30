@@ -1,26 +1,42 @@
 <div ng-controller="CompletedController as completedCtrl">
   <uib-accordion-heading>
     <div class="row">
-        <div class="col-xs-4">
-            Completado
+        <div class="col-xs-9">
+                #{{delivery.id}} {{delivery.origin}} - {{delivery.destination}} <small>Completado</small>
         </div>
-        <div class="col-xs-5">
-            <uib-rating class="pull-right" ng-model="delivery.rate"
-            max="5" read-only="false">
-            </uib-rating>
-        </div>
+        
         <div class="col-xs-3">
             <i class="glyphicon pull-right"
             ng-class="{'glyphicon-chevron-down': delivery.open,
             'glyphicon-chevron-right': !delivery.open}"></i>
-            <span class="badge pull-right">{{delivery.hitos.length}}</span>
+            <span class="badge pull-right">{{delivery.milestoneList.length}}</span>
         </div>
 
     </div>
 
   </uib-accordion-heading>
+    
+    <div class="well" ng-include="'includes/delivery-data.html'"></div>
 
-    <div class="panel panel-default" ng-include="'includes/delivery-data.html'"></div>
+    
+    <div class="well">
+        <div class="row">
+           <div class="col-xs-4">
+              Valoración del transporte
+          </div>
+          <div class="col-xs-5">
+              <h3><uib-rating ng-model="completedCtrl.rate"
+                    max="5" read-only="false">
+                  </uib-rating></h3>
+          </div>
+          <div class="col-xs-3">
+              <button type="button" class="btn btn-success pull-right"
+              ng-click="completedCtrl.rate(delivery, bid)" >Valorar</button>
+          </div>
+      </div>
+
+    </div>
+
     <div class="panel panel-default" ng-include="'includes/delivery-milestones.html'"></div>
 
 </div>

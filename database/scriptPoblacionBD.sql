@@ -28,7 +28,7 @@ insert into Puja values ('paconejo@gmail.com', 3, 50, 'f');
 insert into Puja values ('paconejo@gmail.com', 0, 50, 't');
 insert into Puja values ('paconejo@gmail.com', 1, 50, 't');
 
-insert into Hito values (0, 0, 'Envío completado', 1, '2016-04-20');
-insert into Hito values (1, 0, 'Saliendo de Zaratan', 0, '2016-04-20');
-insert into Hito values (1, 1, 'De acuerdo, gracias', 3, '2016-04-20');
-insert into Hito values (1, 2, 'El envío llegará el martes', 0, '2016-04-20');
+insert into Hito values (0, 0, 'Envío completado', 1,'juancho@gmail.com', '2016-04-20');
+insert into Hito values (1, 0, 'Saliendo de Zaratan', 0, 'paconejo@gmail.com', '2016-04-20');
+insert into Hito values (1, 1, 'De acuerdo, gracias', 3, 'juancho@gmail.com', '2016-04-20');
+insert into Hito values (1, 2, 'El envío llegará el martes', 0,'paconejo@gmail.com', '2016-04-20');

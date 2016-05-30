@@ -51,7 +51,7 @@ CREATE TABLE Envio(
 	tipo SMALLINT,
 	dimensiones VARCHAR(30),
 	fEnvio DATE,
-	fRecogida DATE,	
+	fRecogida DATE,
 	destino VARCHAR(30),
 	origen VARCHAR(30),
 	valoracion SMALLINT,
@@ -77,9 +77,10 @@ CREATE TABLE Hito(
 	nroHito INTEGER,
 	mensaje VARCHAR(200),
 	tipo SMALLINT,
+	autor VARCHAR(50),
 	fCreacion DATE,
 	PRIMARY KEY(nroEnvio, nroHito),
+	FOREIGN KEY(autor) REFERENCES Usuario(email),
 	FOREIGN KEY(nroEnvio) REFERENCES Envio(nroEnvio),
 	FOREIGN KEY(tipo) REFERENCES TipoHito(tipo)
 );
-	
